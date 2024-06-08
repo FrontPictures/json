@@ -9,9 +9,9 @@
 #include "doctest_compatibility.h"
 
 #if JSON_TEST_USING_MULTIPLE_HEADERS
-    #include <nlohmann/detail/meta/type_traits.hpp>
+    #include "nlohmann/detail/meta/type_traits.hpp"
 #else
-    #include <nlohmann/json.hpp>
+    #include "nlohmann/json.hpp"
 #endif
 
 TEST_CASE("type traits")

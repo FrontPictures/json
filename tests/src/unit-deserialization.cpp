@@ -9,7 +9,7 @@
 
 #include "doctest_compatibility.h"
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 #ifdef JSON_TEST_NO_GLOBAL_UDLS
     using namespace nlohmann::literals; // NOLINT(google-build-using-namespace)

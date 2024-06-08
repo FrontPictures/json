@@ -14,7 +14,7 @@
     #include <windows.h>
 #endif
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 
 TEST_CASE("include windows.h")

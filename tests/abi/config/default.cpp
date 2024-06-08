@@ -10,7 +10,7 @@
 
 #include "config.hpp"
 
-#include <nlohmann/json_fwd.hpp>
+#include "nlohmann/json_fwd.hpp"
 
 TEST_CASE("default namespace")
 {

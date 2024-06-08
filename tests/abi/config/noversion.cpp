@@ -11,7 +11,7 @@
 #include "config.hpp"
 
 #define NLOHMANN_JSON_NAMESPACE_NO_VERSION 1
-#include <nlohmann/json_fwd.hpp>
+#include "nlohmann/json_fwd.hpp"
 
 TEST_CASE("default namespace without version component")
 {

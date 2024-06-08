@@ -13,7 +13,7 @@
 
 #include "doctest_compatibility.h"
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
 // Test extending nlohmann::json by using a custom base class.
 // Add some metadata to each node and test the behaviour of copy / move

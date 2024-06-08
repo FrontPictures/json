@@ -8,7 +8,7 @@
 
 #include "doctest_compatibility.h"
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 
 // ICPC errors out on multibyte character sequences in source files

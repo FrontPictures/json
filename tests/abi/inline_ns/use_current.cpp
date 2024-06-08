@@ -8,7 +8,7 @@
 
 #include "doctest_compatibility.h"
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
 TEST_CASE("use current library with inline namespace")
 {

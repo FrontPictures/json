@@ -10,7 +10,7 @@
 
 // for some reason including this after the json header leads to linker errors with VS 2017...
 #include <locale>
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 
 #include <fstream>

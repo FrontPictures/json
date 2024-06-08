@@ -12,7 +12,7 @@
 
 #include "doctest_compatibility.h"
 
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::detail::dtoa_impl::reinterpret_bits;
 
 namespace

@@ -8,7 +8,7 @@
 
 #include "doctest_compatibility.h"
 
-#include <nlohmann/json_v3_10_5.hpp>
+#include "nlohmann/json_v3_10_5.hpp"
 using nlohmann::json;
 using nlohmann::ordered_json;
 

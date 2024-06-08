@@ -16,7 +16,7 @@
 #include "doctest_compatibility.h"
 
 #define JSON_TESTS_PRIVATE
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 
 #if JSON_HAS_THREE_WAY_COMPARISON

@@ -8,28 +8,21 @@
 
 #pragma once
 
-#include <nlohmann/detail/abi_macros.hpp>
-#include <nlohmann/detail/iterators/primitive_iterator.hpp>
+#include <vector>
+#include "nlohmann/detail/iterators/primitive_iterator.hpp"
+#include "nlohmann/ordered_map.hpp"
 
-NLOHMANN_JSON_NAMESPACE_BEGIN
-namespace detail
+namespace nlohmann {
+class ordered_json;
+namespace detail {
+
+template<typename T> class internal_iterator
 {
-
-/*!
-@brief an iterator value
-
-@note This structure could easily be a union, but MSVC currently does not allow
-unions members with complex constructors, see https://github.com/nlohmann/json/pull/105.
-*/
-template<typename BasicJsonType> struct internal_iterator
-{
-    /// iterator for JSON objects
-    typename BasicJsonType::object_t::iterator object_iterator {};
-    /// iterator for JSON arrays
-    typename BasicJsonType::array_t::iterator array_iterator {};
-    /// generic iterator for all other types
-    primitive_iterator_t primitive_iterator {};
+public:
+    typename nlohmann::ordered_map<std::string, T>::iterator object_iterator{};
+    typename std::vector<T>::iterator array_iterator{};
+    primitive_iterator_t primitive_iterator{};
 };
 
-}  // namespace detail
-NLOHMANN_JSON_NAMESPACE_END
+} // namespace detail
+} // namespace nlohmann

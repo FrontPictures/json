@@ -9,7 +9,8 @@
 #include "doctest_compatibility.h"
 
 #include <algorithm>
-#include <nlohmann/json.hpp>
+#include <numeric>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 
 TEST_CASE("algorithms")

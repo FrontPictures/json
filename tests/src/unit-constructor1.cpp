@@ -9,7 +9,7 @@
 #include "doctest_compatibility.h"
 
 #define JSON_TESTS_PRIVATE
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 using nlohmann::json;
 
 #include <deque>

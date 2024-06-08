@@ -8,7 +8,7 @@
 
 #undef JSON_DIAGNOSTICS
 #define JSON_DIAGNOSTICS 0
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 
 #include "diag.hpp"
 

@@ -1,10 +1,12 @@
-cmake_minimum_required(VERSION 3.1...3.14)
+cmake_minimum_required(VERSION 3.21)
 
 ##
 ## PROJECT
 ## name and version
 ##
 project(nlohmann_json VERSION 3.11.3 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 20 REQUIRED)
 
 ##
 ## MAIN_PROJECT CHECK
@@ -100,17 +102,48 @@ endif()
 ## TARGET
 ## create target and add include path
 ##
-add_library(${NLOHMANN_JSON_TARGET_NAME} INTERFACE)
+add_library(${NLOHMANN_JSON_TARGET_NAME} STATIC
+    include/nlohmann/detail/conversions/diyfp.h include/nlohmann/detail/conversions/diyfp.cpp
+    include/nlohmann/detail/conversions/grisu2.h include/nlohmann/detail/conversions/grisu2.cpp
+    include/nlohmann/detail/conversions/to_chars.hpp include/nlohmann/detail/conversions/to_chars.cpp
+    include/nlohmann/detail/input/binary_reader.hpp include/nlohmann/detail/input/binary_reader.cpp
+    include/nlohmann/detail/input/input_adapters.hpp include/nlohmann/detail/input/input_adapters.cpp
+    include/nlohmann/detail/input/input_format_t.h include/nlohmann/detail/input/input_format_t.cpp
+    include/nlohmann/detail/input/json_sax.hpp include/nlohmann/detail/input/json_sax.cpp
+    include/nlohmann/detail/input/lexer.hpp include/nlohmann/detail/input/lexer.cpp
+    include/nlohmann/detail/input/parser.hpp include/nlohmann/detail/input/parser.cpp
+    include/nlohmann/detail/input/parser_types.h
+    include/nlohmann/detail/input/position_t.hpp
+    include/nlohmann/detail/iterators/internal_iterator.hpp
+    include/nlohmann/detail/iterators/iteration_proxy.hpp
+    include/nlohmann/detail/iterators/json_reverse_iterator.hpp
+    include/nlohmann/detail/iterators/iter_impl.hpp
+    include/nlohmann/detail/iterators/primitive_iterator.hpp
+    include/nlohmann/detail/output/binary_writer.hpp include/nlohmann/detail/output/binary_writer.cpp
+    include/nlohmann/detail/output/error_handler_t.h
+    include/nlohmann/detail/output/output_adapters.hpp
+    include/nlohmann/detail/output/serializer.hpp include/nlohmann/detail/output/serializer.cpp
+    include/nlohmann/detail/json_ref.hpp
+    include/nlohmann/detail/exceptions.hpp include/nlohmann/detail/exceptions.cpp
+    include/nlohmann/detail/json_pointer.hpp include/nlohmann/detail/json_pointer.cpp
+    include/nlohmann/detail/string_escape.hpp
+    include/nlohmann/detail/string_concat.hpp
+    include/nlohmann/detail/value_t.hpp include/nlohmann/detail/value_t.cpp
+    include/nlohmann/detail/hash.hpp include/nlohmann/detail/hash.cpp
+    include/nlohmann/ordered_map.hpp
+    include/nlohmann/json.hpp include/nlohmann/json.cpp
+    include/nlohmann/byte_container_with_subtype.hpp include/nlohmann/byte_container_with_subtype.cpp
+    )
 add_library(${PROJECT_NAME}::${NLOHMANN_JSON_TARGET_NAME} ALIAS ${NLOHMANN_JSON_TARGET_NAME})
 if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
-    target_compile_features(${NLOHMANN_JSON_TARGET_NAME} INTERFACE cxx_range_for)
+    target_compile_features(${NLOHMANN_JSON_TARGET_NAME} PUBLIC cxx_range_for)
 else()
-    target_compile_features(${NLOHMANN_JSON_TARGET_NAME} INTERFACE cxx_std_11)
+    target_compile_features(${NLOHMANN_JSON_TARGET_NAME} PUBLIC cxx_std_11)
 endif()
 
 target_compile_definitions(
     ${NLOHMANN_JSON_TARGET_NAME}
-    INTERFACE
+    PUBLIC
     $<$<NOT:$<BOOL:${JSON_GlobalUDLs}>>:JSON_USE_GLOBAL_UDLS=0>
     $<$<NOT:$<BOOL:${JSON_ImplicitConversions}>>:JSON_USE_IMPLICIT_CONVERSIONS=0>
     $<$<BOOL:${JSON_DisableEnumSerialization}>:JSON_DISABLE_ENUM_SERIALIZATION=1>
@@ -120,7 +153,7 @@ target_compile_definitions(
 
 target_include_directories(
     ${NLOHMANN_JSON_TARGET_NAME}
-    ${NLOHMANN_JSON_SYSTEM_INCLUDE} INTERFACE
+    ${NLOHMANN_JSON_SYSTEM_INCLUDE} PUBLIC
     $<BUILD_INTERFACE:${NLOHMANN_JSON_INCLUDE_BUILD_DIR}>
     $<INSTALL_INTERFACE:${NLOHMANN_JSON_INCLUDE_INSTALL_DIR}>
 )
@@ -131,7 +164,7 @@ if (MSVC)
     set(NLOHMANN_NATVIS_FILE "nlohmann_json.natvis")
     target_sources(
         ${NLOHMANN_JSON_TARGET_NAME}
-        INTERFACE
+        PUBLIC
             $<INSTALL_INTERFACE:${NLOHMANN_NATVIS_FILE}>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${NLOHMANN_NATVIS_FILE}>
     )
