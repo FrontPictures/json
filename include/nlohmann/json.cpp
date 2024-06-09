@@ -1125,6 +1125,11 @@ bool nlohmann::ordered_json::accept(const std::string &i, const bool ignore_comm
     return parser(detail::input_adapter(i), nullptr, false, ignore_comments).accept(true);
 }
 
+bool nlohmann::ordered_json::accept(const std::vector<uint8_t> &i, const bool ignore_comments)
+{
+    return parser(detail::input_adapter(i), nullptr, false, ignore_comments).accept(true);
+}
+
 bool nlohmann::ordered_json::sax_parse(const std::string &i, json_sax *sax, input_format_t format,
                                        const bool strict, const bool ignore_comments)
 {

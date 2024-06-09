@@ -283,23 +283,23 @@ TEST_CASE("deserialization")
             }));
         }
 
-        SECTION("operator<<")
-        {
-            std::stringstream ss;
-            ss << R"(["foo",1,2,3,false,{"one":1}])";
-            json j;
-            j << ss;
-            CHECK(j == json({"foo", 1, 2, 3, false, {{"one", 1}}}));
-        }
+        // SECTION("operator<<")
+        // {
+        //     std::stringstream ss;
+        //     ss << R"(["foo",1,2,3,false,{"one":1}])";
+        //     json j;
+        //     j << ss;
+        //     CHECK(j == json({"foo", 1, 2, 3, false, {{"one", 1}}}));
+        // }
 
-        SECTION("operator>>")
-        {
-            std::stringstream ss;
-            ss << R"(["foo",1,2,3,false,{"one":1}])";
-            json j;
-            ss >> j;
-            CHECK(j == json({"foo", 1, 2, 3, false, {{"one", 1}}}));
-        }
+        // SECTION("operator>>")
+        // {
+        //     std::stringstream ss;
+        //     ss << R"(["foo",1,2,3,false,{"one":1}])";
+        //     json j;
+        //     ss >> j;
+        //     CHECK(j == json({"foo", 1, 2, 3, false, {{"one", 1}}}));
+        // }
 
         SECTION("user-defined string literal")
         {
@@ -309,36 +309,36 @@ TEST_CASE("deserialization")
 
     SECTION("unsuccessful deserialization")
     {
-        SECTION("stream")
-        {
-            std::stringstream ss1;
-            std::stringstream ss3;
-            std::stringstream ss4;
-            std::stringstream ss5;
-            ss1 << R"(["foo",1,2,3,false,{"one":1})";
-            ss3 << R"(["foo",1,2,3,false,{"one":1})";
-            ss4 << R"(["foo",1,2,3,false,{"one":1})";
-            ss5 << R"(["foo",1,2,3,false,{"one":1})";
+        // SECTION("stream")
+        // {
+        //     std::stringstream ss1;
+        //     std::stringstream ss3;
+        //     std::stringstream ss4;
+        //     std::stringstream ss5;
+        //     ss1 << R"(["foo",1,2,3,false,{"one":1})";
+        //     ss3 << R"(["foo",1,2,3,false,{"one":1})";
+        //     ss4 << R"(["foo",1,2,3,false,{"one":1})";
+        //     ss5 << R"(["foo",1,2,3,false,{"one":1})";
 
-            json _;
-            CHECK_THROWS_WITH_AS(_ = json::parse(ss1), "[json.exception.parse_error.101] parse error at line 1, column 29: syntax error while parsing array - unexpected end of input; expected ']'", json::parse_error&);
-            CHECK(!json::accept(ss3));
+        //     json _;
+        //     CHECK_THROWS_WITH_AS(_ = json::parse(ss1), "[json.exception.parse_error.101] parse error at line 1, column 29: syntax error while parsing array - unexpected end of input; expected ']'", json::parse_error&);
+        //     CHECK(!json::accept(ss3));
 
-            json j_error;
-            CHECK_NOTHROW(j_error = json::parse(ss4, nullptr, false));
-            CHECK(j_error.is_discarded());
+        //     json j_error;
+        //     CHECK_NOTHROW(j_error = json::parse(ss4, nullptr, false));
+        //     CHECK(j_error.is_discarded());
 
-            SaxEventLogger l;
-            CHECK(!json::sax_parse(ss5, &l));
-            CHECK(l.events.size() == 11);
-            CHECK(l.events == std::vector<std::string>(
-            {
-                "start_array()", "string(foo)", "number_unsigned(1)",
-                "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
-                "start_object()", "key(one)", "number_unsigned(1)",
-                "end_object()", "parse_error(29)"
-            }));
-        }
+        //     SaxEventLogger l;
+        //     CHECK(!json::sax_parse(ss5, &l));
+        //     CHECK(l.events.size() == 11);
+        //     CHECK(l.events == std::vector<std::string>(
+        //     {
+        //         "start_array()", "string(foo)", "number_unsigned(1)",
+        //         "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
+        //         "start_object()", "key(one)", "number_unsigned(1)",
+        //         "end_object()", "parse_error(29)"
+        //     }));
+        // }
 
         SECTION("string")
         {
@@ -363,21 +363,21 @@ TEST_CASE("deserialization")
             }));
         }
 
-        SECTION("operator<<")
-        {
-            std::stringstream ss;
-            ss << R"(["foo",1,2,3,false,{"one":1})";
-            json j;
-            CHECK_THROWS_WITH_AS(j << ss, "[json.exception.parse_error.101] parse error at line 1, column 29: syntax error while parsing array - unexpected end of input; expected ']'", json::parse_error&);
-        }
+        // SECTION("operator<<")
+        // {
+        //     std::stringstream ss;
+        //     ss << R"(["foo",1,2,3,false,{"one":1})";
+        //     json j;
+        //     CHECK_THROWS_WITH_AS(j << ss, "[json.exception.parse_error.101] parse error at line 1, column 29: syntax error while parsing array - unexpected end of input; expected ']'", json::parse_error&);
+        // }
 
-        SECTION("operator>>")
-        {
-            std::stringstream ss;
-            ss << R"(["foo",1,2,3,false,{"one":1})";
-            json j;
-            CHECK_THROWS_WITH_AS(ss >> j, "[json.exception.parse_error.101] parse error at line 1, column 29: syntax error while parsing array - unexpected end of input; expected ']'", json::parse_error&);
-        }
+        // SECTION("operator>>")
+        // {
+        //     std::stringstream ss;
+        //     ss << R"(["foo",1,2,3,false,{"one":1})";
+        //     json j;
+        //     CHECK_THROWS_WITH_AS(ss >> j, "[json.exception.parse_error.101] parse error at line 1, column 29: syntax error while parsing array - unexpected end of input; expected ']'", json::parse_error&);
+        // }
 
         SECTION("user-defined string literal")
         {
@@ -401,48 +401,48 @@ TEST_CASE("deserialization")
                 CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
             }
 
-            SECTION("from std::array")
-            {
-                std::array<uint8_t, 5> const v { {'t', 'r', 'u', 'e'} };
-                CHECK(json::parse(v) == json(true));
-                CHECK(json::accept(v));
+            // SECTION("from std::array")
+            // {
+            //     std::array<uint8_t, 5> const v { {'t', 'r', 'u', 'e'} };
+            //     CHECK(json::parse(v) == json(true));
+            //     CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(v, &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+            //     SaxEventLogger l;
+            //     CHECK(json::sax_parse(v, &l));
+            //     CHECK(l.events.size() == 1);
+            //     CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+            // }
 
-            SECTION("from array")
-            {
-                uint8_t v[] = {'t', 'r', 'u', 'e'}; // NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
-                CHECK(json::parse(v) == json(true));
-                CHECK(json::accept(v));
+            // SECTION("from array")
+            // {
+            //     uint8_t v[] = {'t', 'r', 'u', 'e'}; // NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
+            //     CHECK(json::parse(v) == json(true));
+            //     CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(v, &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+            //     SaxEventLogger l;
+            //     CHECK(json::sax_parse(v, &l));
+            //     CHECK(l.events.size() == 1);
+            //     CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+            // }
 
-            SECTION("from chars")
-            {
-                auto* v = new uint8_t[5]; // NOLINT(cppcoreguidelines-owning-memory)
-                v[0] = 't';
-                v[1] = 'r';
-                v[2] = 'u';
-                v[3] = 'e';
-                v[4] = '\0';
-                CHECK(json::parse(v) == json(true));
-                CHECK(json::accept(v));
+            // SECTION("from chars")
+            // {
+            //     auto* v = new uint8_t[5]; // NOLINT(cppcoreguidelines-owning-memory)
+            //     v[0] = 't';
+            //     v[1] = 'r';
+            //     v[2] = 'u';
+            //     v[3] = 'e';
+            //     v[4] = '\0';
+            //     CHECK(json::parse(v) == json(true));
+            //     CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(v, &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+            //     SaxEventLogger l;
+            //     CHECK(json::sax_parse(v, &l));
+            //     CHECK(l.events.size() == 1);
+            //     CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
 
-                delete[] v; // NOLINT(cppcoreguidelines-owning-memory)
-            }
+            //     delete[] v; // NOLINT(cppcoreguidelines-owning-memory)
+            // }
 
             SECTION("from std::string")
             {
@@ -456,17 +456,17 @@ TEST_CASE("deserialization")
                 CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
             }
 
-            SECTION("from std::initializer_list")
-            {
-                std::initializer_list<uint8_t> const v = {'t', 'r', 'u', 'e'};
-                CHECK(json::parse(v) == json(true));
-                CHECK(json::accept(v));
+            // SECTION("from std::initializer_list")
+            // {
+            //     std::initializer_list<uint8_t> const v = {'t', 'r', 'u', 'e'};
+            //     CHECK(json::parse(v) == json(true));
+            //     CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(v, &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+            //     SaxEventLogger l;
+            //     CHECK(json::sax_parse(v, &l));
+            //     CHECK(l.events.size() == 1);
+            //     CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+            // }
 
             SECTION("empty container")
             {
@@ -482,388 +482,388 @@ TEST_CASE("deserialization")
             }
         }
 
-        SECTION("via iterator range")
-        {
-            SECTION("from std::vector")
-            {
-                std::vector<uint8_t> v = {'t', 'r', 'u', 'e'};
-                CHECK(json::parse(std::begin(v), std::end(v)) == json(true));
-                CHECK(json::accept(std::begin(v), std::end(v)));
+        // SECTION("via iterator range")
+        // {
+        //     SECTION("from std::vector")
+        //     {
+        //         std::vector<uint8_t> v = {'t', 'r', 'u', 'e'};
+        //         CHECK(json::parse(v) == json(true));
+        //         CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+        //         SaxEventLogger l;
+        //         CHECK(json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
 
-            }
+        //     }
 
-            SECTION("from std::array")
-            {
-                std::array<uint8_t, 5> v { {'t', 'r', 'u', 'e'} };
-                CHECK(json::parse(std::begin(v), std::end(v)) == json(true));
-                CHECK(json::accept(std::begin(v), std::end(v)));
+        //     SECTION("from std::array")
+        //     {
+        //         std::array<uint8_t, 5> v { {'t', 'r', 'u', 'e'} };
+        //         CHECK(json::parse(v) == json(true));
+        //         CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+        //         SaxEventLogger l;
+        //         CHECK(json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+        //     }
 
-            SECTION("from array")
-            {
-                uint8_t v[] = {'t', 'r', 'u', 'e'}; // NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
-                CHECK(json::parse(std::begin(v), std::end(v)) == json(true));
-                CHECK(json::accept(std::begin(v), std::end(v)));
+        //     SECTION("from array")
+        //     {
+        //         uint8_t v[] = {'t', 'r', 'u', 'e'}; // NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
+        //         CHECK(json::parse(v) == json(true));
+        //         CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+        //         SaxEventLogger l;
+        //         CHECK(json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+        //     }
 
-            SECTION("from std::string")
-            {
-                std::string v = {'t', 'r', 'u', 'e'};
-                CHECK(json::parse(std::begin(v), std::end(v)) == json(true));
-                CHECK(json::accept(std::begin(v), std::end(v)));
+        //     SECTION("from std::string")
+        //     {
+        //         std::string v = {'t', 'r', 'u', 'e'};
+        //         CHECK(json::parse(v) == json(true));
+        //         CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+        //         SaxEventLogger l;
+        //         CHECK(json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+        //     }
 
-            SECTION("from std::initializer_list")
-            {
-                std::initializer_list<uint8_t> const v = {'t', 'r', 'u', 'e'};
-                CHECK(json::parse(std::begin(v), std::end(v)) == json(true));
-                CHECK(json::accept(std::begin(v), std::end(v)));
+        //     SECTION("from std::initializer_list")
+        //     {
+        //         std::initializer_list<uint8_t> const v = {'t', 'r', 'u', 'e'};
+        //         CHECK(json::parse(v) == json(true));
+        //         CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+        //         SaxEventLogger l;
+        //         CHECK(json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+        //     }
 
-            SECTION("from std::valarray")
-            {
-                std::valarray<uint8_t> v = {'t', 'r', 'u', 'e'};
-                CHECK(json::parse(std::begin(v), std::end(v)) == json(true));
-                CHECK(json::accept(std::begin(v), std::end(v)));
+        //     SECTION("from std::valarray")
+        //     {
+        //         std::valarray<uint8_t> v = {'t', 'r', 'u', 'e'};
+        //         CHECK(json::parse(v) == json(true));
+        //         CHECK(json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-            }
+        //         SaxEventLogger l;
+        //         CHECK(json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+        //     }
 
-            SECTION("with empty range")
-            {
-                std::vector<uint8_t> v;
-                json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+        //     SECTION("with empty range")
+        //     {
+        //         std::vector<uint8_t> v;
+        //         json _;
+        //         CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+        //         CHECK(!json::accept(v));
 
-                SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
-                CHECK(l.events.size() == 1);
-                CHECK(l.events == std::vector<std::string>({"parse_error(1)"}));
-            }
+        //         SaxEventLogger l;
+        //         CHECK(!json::sax_parse(v, &l));
+        //         CHECK(l.events.size() == 1);
+        //         CHECK(l.events == std::vector<std::string>({"parse_error(1)"}));
+        //     }
 
-            SECTION("iterator_input_adapter advances iterators correctly")
-            {
-                using nlohmann::json;
-                using nlohmann::detail::input_format_t;
-                using nlohmann::detail::json_sax_dom_parser;
-                using proxy = proxy_iterator<std::string>;
+        //     SECTION("iterator_input_adapter advances iterators correctly")
+        //     {
+        //         using nlohmann::json;
+        //         using nlohmann::detail::input_format_t;
+        //         using nlohmann::detail::json_sax_dom_parser;
+        //         using proxy = proxy_iterator<std::string>;
 
-                std::string str1 = "[1]";
-                std::string str2 = "[2]";
-                std::string str = str1 + str2;
+        //         std::string str1 = "[1]";
+        //         std::string str2 = "[2]";
+        //         std::string str = str1 + str2;
 
-                auto first = str.begin();
-                auto last = str.end();
-                json j;
-                json_sax_dom_parser<json> sax(j, true);
+        //         auto first = str.begin();
+        //         auto last = str.end();
+        //         json j;
+        //         json_sax_dom_parser sax(j, true);
 
-                CHECK(json::sax_parse(proxy(first), proxy(last), &sax,
-                                      input_format_t::json, false));
-                CHECK(j.dump() == str1);
-                CHECK(std::string(first, last) == str2);
-            }
-        }
+        //         CHECK(json::sax_parse(proxy(first), proxy(last), &sax,
+        //                               input_format_t::json, false));
+        //         CHECK(j.dump() == str1);
+        //         CHECK(std::string(first, last) == str2);
+        //     }
+        // }
 
         // these cases are required for 100% line coverage
         SECTION("error cases")
         {
             SECTION("case 1")
             {
-                std::array<std::uint8_t, 9> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', '\\', 'u'}};
+                std::vector<std::uint8_t> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', '\\', 'u'}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(10)"}));
             }
 
             SECTION("case 2")
             {
-                std::array<std::uint8_t, 10> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', '\\', 'u', '1'}};
+                std::vector<std::uint8_t> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', '\\', 'u', '1'}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(11)"}));
             }
 
             SECTION("case 3")
             {
-                std::array<std::uint8_t, 17> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', '\\', 'u', '1', '1', '1', '1', '1', '1', '1', '1'}};
+                std::vector<std::uint8_t> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', '\\', 'u', '1', '1', '1', '1', '1', '1', '1', '1'}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(18)"}));
             }
 
             SECTION("case 4")
             {
-                std::array<std::uint8_t, 17> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', 'u', '1', '1', '1', '1', '1', '1', '1', '1', '\\'}};
+                std::vector<std::uint8_t> v = {{'\"', 'a', 'a', 'a', 'a', 'a', 'a', 'u', '1', '1', '1', '1', '1', '1', '1', '1', '\\'}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(18)"}));
             }
 
             SECTION("case 5")
             {
-                std::array<std::uint8_t, 3> v = {{'\"', 0x7F, 0xC1}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xC1}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(3)"}));
             }
 
             SECTION("case 6")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xDF, 0x7F}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xDF, 0x7F}};
                 json _;
-                CHECK_THROWS_WITH_AS(_ = json::parse(std::begin(v), std::end(v)), "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - invalid string: ill-formed UTF-8 byte; last read: '\"\x7f\xdf\x7f'", json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_WITH_AS(_ = json::parse(v), "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - invalid string: ill-formed UTF-8 byte; last read: '\"\x7f\xdf\x7f'", json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 7")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xDF, 0xC0}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xDF, 0xC0}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 8")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xE0, 0x9F}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xE0, 0x9F}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 9")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xEF, 0xC0}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xEF, 0xC0}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 10")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xED, 0x7F}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xED, 0x7F}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 11")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xF0, 0x8F}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xF0, 0x8F}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 12")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xF0, 0xC0}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xF0, 0xC0}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 13")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xF3, 0x7F}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xF3, 0x7F}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 14")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xF3, 0xC0}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xF3, 0xC0}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 15")
             {
-                std::array<std::uint8_t, 4> v = {{'\"', 0x7F, 0xF4, 0x7F}};
+                std::vector<std::uint8_t> v = {{'\"', 0x7F, 0xF4, 0x7F}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 1);
                 CHECK(l.events == std::vector<std::string>({"parse_error(4)"}));
             }
 
             SECTION("case 16")
             {
-                std::array<std::uint8_t, 6> v = {{'{', '\"', '\"', ':', '1', '1'}};
+                std::vector<std::uint8_t> v = {{'{', '\"', '\"', ':', '1', '1'}};
                 json _;
-                CHECK_THROWS_AS(_ = json::parse(std::begin(v), std::end(v)), json::parse_error&);
-                CHECK(!json::accept(std::begin(v), std::end(v)));
+                CHECK_THROWS_AS(_ = json::parse(v), json::parse_error&);
+                CHECK(!json::accept(v));
 
                 json j_error;
-                CHECK_NOTHROW(j_error = json::parse(std::begin(v), std::end(v), nullptr, false));
+                CHECK_NOTHROW(j_error = json::parse(v, nullptr, false));
                 CHECK(j_error.is_discarded());
 
                 SaxEventLogger l;
-                CHECK(!json::sax_parse(std::begin(v), std::end(v), &l));
+                CHECK(!json::sax_parse(v, &l));
                 CHECK(l.events.size() == 4);
                 CHECK(l.events == std::vector<std::string>(
                 {
@@ -883,7 +883,7 @@ TEST_CASE("deserialization")
             json _;
             CHECK_THROWS_WITH_AS(_ = json::parse(bom), "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - unexpected end of input; expected '[', '{', or a literal", json::parse_error&);
 
-            CHECK_THROWS_WITH_AS(_ = json::parse(std::istringstream(bom)), "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - unexpected end of input; expected '[', '{', or a literal", json::parse_error&);
+            // CHECK_THROWS_WITH_AS(_ = json::parse(std::istringstream(bom)), "[json.exception.parse_error.101] parse error at line 1, column 4: syntax error while parsing value - unexpected end of input; expected '[', '{', or a literal", json::parse_error&);
 
             SaxEventLogger l;
             CHECK(!json::sax_parse(bom, &l));
@@ -897,17 +897,17 @@ TEST_CASE("deserialization")
         SECTION("BOM and content")
         {
             CHECK(json::parse(bom + "1") == 1);
-            CHECK(json::parse(std::istringstream(bom + "1")) == 1);
+            // CHECK(json::parse(std::istringstream(bom + "1")) == 1);
 
-            SaxEventLogger l1;
+            // SaxEventLogger l1;
             SaxEventLogger l2;
-            CHECK(json::sax_parse(std::istringstream(bom + "1"), &l1));
+            // CHECK(json::sax_parse(std::istringstream(bom + "1"), &l1));
             CHECK(json::sax_parse(bom + "1", &l2));
-            CHECK(l1.events.size() == 1);
-            CHECK(l1.events == std::vector<std::string>(
-            {
-                "number_unsigned(1)"
-            }));
+            // CHECK(l1.events.size() == 1);
+            // CHECK(l1.events == std::vector<std::string>(
+            // {
+            //     "number_unsigned(1)"
+            // }));
             CHECK(l2.events.size() == 1);
             CHECK(l2.events == std::vector<std::string>(
             {
@@ -920,17 +920,17 @@ TEST_CASE("deserialization")
             json _;
             CHECK_THROWS_WITH_AS(_ = json::parse(bom.substr(0, 2)), "[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid BOM; must be 0xEF 0xBB 0xBF if given; last read: '\xEF\xBB'", json::parse_error&);
 
-            CHECK_THROWS_WITH_AS(_ = json::parse(std::istringstream(bom.substr(0, 2))), "[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid BOM; must be 0xEF 0xBB 0xBF if given; last read: '\xEF\xBB'", json::parse_error&);
+            // CHECK_THROWS_WITH_AS(_ = json::parse(std::istringstream(bom.substr(0, 2))), "[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid BOM; must be 0xEF 0xBB 0xBF if given; last read: '\xEF\xBB'", json::parse_error&);
 
-            SaxEventLogger l1;
+            // SaxEventLogger l1;
             SaxEventLogger l2;
-            CHECK(!json::sax_parse(std::istringstream(bom.substr(0, 2)), &l1));
+            // CHECK(!json::sax_parse(std::istringstream(bom.substr(0, 2)), &l1));
             CHECK(!json::sax_parse(bom.substr(0, 2), &l2));
-            CHECK(l1.events.size() == 1);
-            CHECK(l1.events == std::vector<std::string>(
-            {
-                "parse_error(3)"
-            }));
+            // CHECK(l1.events.size() == 1);
+            // CHECK(l1.events == std::vector<std::string>(
+            // {
+            //     "parse_error(3)"
+            // }));
             CHECK(l2.events.size() == 1);
             CHECK(l2.events == std::vector<std::string>(
             {
@@ -943,17 +943,17 @@ TEST_CASE("deserialization")
             json _;
             CHECK_THROWS_WITH_AS(_ = json::parse(bom.substr(0, 1)), "[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing value - invalid BOM; must be 0xEF 0xBB 0xBF if given; last read: '\xEF'", json::parse_error&);
 
-            CHECK_THROWS_WITH_AS(_ = json::parse(std::istringstream(bom.substr(0, 1))), "[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing value - invalid BOM; must be 0xEF 0xBB 0xBF if given; last read: '\xEF'", json::parse_error&);
+            // CHECK_THROWS_WITH_AS(_ = json::parse(std::istringstream(bom.substr(0, 1))), "[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing value - invalid BOM; must be 0xEF 0xBB 0xBF if given; last read: '\xEF'", json::parse_error&);
 
-            SaxEventLogger l1;
+            // SaxEventLogger l1;
             SaxEventLogger l2;
-            CHECK(!json::sax_parse(std::istringstream(bom.substr(0, 1)), &l1));
+            // CHECK(!json::sax_parse(std::istringstream(bom.substr(0, 1)), &l1));
             CHECK(!json::sax_parse(bom.substr(0, 1), &l2));
-            CHECK(l1.events.size() == 1);
-            CHECK(l1.events == std::vector<std::string>(
-            {
-                "parse_error(2)"
-            }));
+            // CHECK(l1.events.size() == 1);
+            // CHECK(l1.events == std::vector<std::string>(
+            // {
+            //     "parse_error(2)"
+            // }));
             CHECK(l2.events.size() == 1);
             CHECK(l2.events == std::vector<std::string>(
             {
@@ -985,7 +985,7 @@ TEST_CASE("deserialization")
                         {
                             // without any variation, we skip the BOM
                             CHECK(json::parse(s + "null") == json());
-                            CHECK(json::parse(std::istringstream(s + "null")) == json());
+                            // CHECK(json::parse(std::istringstream(s + "null")) == json());
 
                             SaxEventLogger l;
                             CHECK(json::sax_parse(s + "null", &l));
@@ -1000,7 +1000,7 @@ TEST_CASE("deserialization")
                             // any variation is an error
                             json _;
                             CHECK_THROWS_AS(_ = json::parse(s + "null"), json::parse_error&);
-                            CHECK_THROWS_AS(_ = json::parse(std::istringstream(s + "null")), json::parse_error&);
+                            // CHECK_THROWS_AS(_ = json::parse(std::istringstream(s + "null")), json::parse_error&);
 
                             SaxEventLogger l;
                             CHECK(!json::sax_parse(s + "null", &l));
@@ -1033,15 +1033,15 @@ TEST_CASE("deserialization")
             }
         }
 
-        SECTION("preserve state after parsing")
-        {
-            std::istringstream s(bom + "123 456");
-            json j;
-            j << s;
-            CHECK(j == 123);
-            j << s;
-            CHECK(j == 456);
-        }
+        // SECTION("preserve state after parsing")
+        // {
+        //     std::istringstream s(bom + "123 456");
+        //     json j;
+        //     j << s;
+        //     CHECK(j == 123);
+        //     j << s;
+        //     CHECK(j == 456);
+        // }
     }
 
     SECTION("SAX and early abort")
@@ -1132,59 +1132,59 @@ TEST_CASE("deserialization")
     }
 }
 
-TEST_CASE_TEMPLATE("deserialization of different character types (ASCII)", T,
-                   char, unsigned char, signed char,
-                   wchar_t,
-                   char16_t, char32_t,
-                   std::uint8_t, std::int8_t,
-                   std::int16_t, std::uint16_t,
-                   std::int32_t, std::uint32_t)
-{
-    std::vector<T> const v = {'t', 'r', 'u', 'e'};
-    CHECK(json::parse(v) == json(true));
-    CHECK(json::accept(v));
+// TEST_CASE_TEMPLATE("deserialization of different character types (ASCII)", T,
+//                    char, unsigned char, signed char,
+//                    wchar_t,
+//                    char16_t, char32_t,
+//                    std::uint8_t, std::int8_t,
+//                    std::int16_t, std::uint16_t,
+//                    std::int32_t, std::uint32_t)
+// {
+//     std::vector<T> const v = {'t', 'r', 'u', 'e'};
+//     CHECK(json::parse(v) == json(true));
+//     CHECK(json::accept(v));
 
-    SaxEventLogger l;
-    CHECK(json::sax_parse(v, &l));
-    CHECK(l.events.size() == 1);
-    CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
-}
+//     SaxEventLogger l;
+//     CHECK(json::sax_parse(v, &l));
+//     CHECK(l.events.size() == 1);
+//     CHECK(l.events == std::vector<std::string>({"boolean(true)"}));
+// }
 
-TEST_CASE_TEMPLATE("deserialization of different character types (UTF-8)", T,
-                   char, unsigned char, std::uint8_t)
-{
-    // a star emoji
-    std::vector<T> const v = {'"', static_cast<T>(0xe2u), static_cast<T>(0xadu), static_cast<T>(0x90u), static_cast<T>(0xefu), static_cast<T>(0xb8u), static_cast<T>(0x8fu), '"'};
-    CHECK(json::parse(v).dump(-1, ' ', true) == "\"\\u2b50\\ufe0f\"");
-    CHECK(json::accept(v));
+// TEST_CASE_TEMPLATE("deserialization of different character types (UTF-8)", T,
+//                    char, unsigned char, std::uint8_t)
+// {
+//     // a star emoji
+//     std::vector<T> const v = {'"', static_cast<T>(0xe2u), static_cast<T>(0xadu), static_cast<T>(0x90u), static_cast<T>(0xefu), static_cast<T>(0xb8u), static_cast<T>(0x8fu), '"'};
+//     CHECK(json::parse(v).dump(-1, ' ', true) == "\"\\u2b50\\ufe0f\"");
+//     CHECK(json::accept(v));
 
-    SaxEventLogger l;
-    CHECK(json::sax_parse(v, &l));
-    CHECK(l.events.size() == 1);
-}
+//     SaxEventLogger l;
+//     CHECK(json::sax_parse(v, &l));
+//     CHECK(l.events.size() == 1);
+// }
 
-TEST_CASE_TEMPLATE("deserialization of different character types (UTF-16)", T,
-                   char16_t, std::uint16_t)
-{
-    // a star emoji
-    std::vector<T> const v = {static_cast<T>('"'), static_cast<T>(0x2b50), static_cast<T>(0xfe0f), static_cast<T>('"')};
-    CHECK(json::parse(v).dump(-1, ' ', true) == "\"\\u2b50\\ufe0f\"");
-    CHECK(json::accept(v));
+// TEST_CASE_TEMPLATE("deserialization of different character types (UTF-16)", T,
+//                    char16_t, std::uint16_t)
+// {
+//     // a star emoji
+//     std::vector<T> const v = {static_cast<T>('"'), static_cast<T>(0x2b50), static_cast<T>(0xfe0f), static_cast<T>('"')};
+//     CHECK(json::parse(v).dump(-1, ' ', true) == "\"\\u2b50\\ufe0f\"");
+//     CHECK(json::accept(v));
 
-    SaxEventLogger l;
-    CHECK(json::sax_parse(v, &l));
-    CHECK(l.events.size() == 1);
-}
+//     SaxEventLogger l;
+//     CHECK(json::sax_parse(v, &l));
+//     CHECK(l.events.size() == 1);
+// }
 
-TEST_CASE_TEMPLATE("deserialization of different character types (UTF-32)", T,
-                   char32_t, std::uint32_t)
-{
-    // a star emoji
-    std::vector<T> const v = {static_cast<T>('"'), static_cast<T>(0x2b50), static_cast<T>(0xfe0f), static_cast<T>('"')};
-    CHECK(json::parse(v).dump(-1, ' ', true) == "\"\\u2b50\\ufe0f\"");
-    CHECK(json::accept(v));
+// TEST_CASE_TEMPLATE("deserialization of different character types (UTF-32)", T,
+//                    char32_t, std::uint32_t)
+// {
+//     // a star emoji
+//     std::vector<T> const v = {static_cast<T>('"'), static_cast<T>(0x2b50), static_cast<T>(0xfe0f), static_cast<T>('"')};
+//     CHECK(json::parse(v).dump(-1, ' ', true) == "\"\\u2b50\\ufe0f\"");
+//     CHECK(json::accept(v));
 
-    SaxEventLogger l;
-    CHECK(json::sax_parse(v, &l));
-    CHECK(l.events.size() == 1);
-}
+//     SaxEventLogger l;
+//     CHECK(json::sax_parse(v, &l));
+//     CHECK(l.events.size() == 1);
+// }

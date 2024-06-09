@@ -71,11 +71,6 @@ private:
     friend class ::nlohmann::detail::json_sax_dom_callback_parser;
     friend class ::nlohmann::detail::exception;
 
-    static ::nlohmann::detail::parser parser(const detail::iterator_input_adapter &adapter,
-                                             detail::parser_callback_t cb = nullptr,
-                                             const bool allow_exceptions = true,
-                                             const bool ignore_comments = false);
-
     using primitive_iterator_t = ::nlohmann::detail::primitive_iterator_t;
     using internal_iterator = ::nlohmann::detail::internal_iterator<ordered_json>;
     template<typename T> using iter_impl = ::nlohmann::detail::iter_impl<T>;
@@ -92,6 +87,11 @@ private:
 public:
 #endif
     using serializer = ::nlohmann::detail::serializer;
+
+    static ::nlohmann::detail::parser parser(const detail::iterator_input_adapter &adapter,
+                                             detail::parser_callback_t cb = nullptr,
+                                             const bool allow_exceptions = true,
+                                             const bool ignore_comments = false);
 
 public:
     using value_t = detail::value_t;
@@ -123,6 +123,8 @@ public:
     using binary_t = byte_container_with_subtype;
     using json_sax_t = json_sax;
     using string_t = std::string;
+    using array_t = std::vector<ordered_json>;
+    using boolean_t = bool;
 
     static ordered_json meta();
 
@@ -206,6 +208,13 @@ public:
     {
         m_data.m_type = value_t::array;
         m_data.m_value.array = create<std::vector<ordered_json>>(values.begin(), values.end());
+    }
+
+    template<typename T, std::enable_if_t<std::is_enum<T>::value, int> = 0>
+    ordered_json(T enumValue)
+    {
+        m_data.m_type = value_t::number_integer;
+        m_data.m_value = int64_t(enumValue);
     }
 
     static ordered_json binary(const std::vector<uint8_t> &init);
@@ -361,14 +370,27 @@ public:
     {
         return getArray<std::vector<std::string>>();
     }
+    template<> ordered_json get<ordered_json>() const
+    {
+        return *this;
+    }
 
     template<typename T> T &get_ref()
     {
-        auto *ptr = get_impl_ptr(static_cast<T *>(nullptr));
+        auto *ptr = get_impl_ptr(static_cast<typename std::remove_reference<T>::type *>(nullptr));
         if (!ptr) {
             throw type_error::create(302, "invalid type");
         }
         return *ptr;
+    }
+
+    template<typename T> T *get_ptr()
+    {
+        auto *ptr = get_impl_ptr(static_cast<typename std::remove_reference<T>::type *>(nullptr));
+        if (!ptr) {
+            throw type_error::create(302, "invalid type");
+        }
+        return ptr;
     }
 
     template<typename ValueType>
@@ -560,6 +582,7 @@ public:
                               const bool ignore_comments = false);
 
     static bool accept(const std::string &i, const bool ignore_comments = false);
+    static bool accept(const std::vector<uint8_t> &i, const bool ignore_comments = false);
 
     static bool sax_parse(const std::string &i, json_sax *sax,
                           input_format_t format = input_format_t::json, const bool strict = true,

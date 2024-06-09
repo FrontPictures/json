@@ -20,6 +20,7 @@ using nlohmann::json;
 #include <unordered_map>
 #include <unordered_set>
 #include <valarray>
+#include <map>
 
 TEST_CASE("constructors")
 {

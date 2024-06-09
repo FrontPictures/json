@@ -27,9 +27,8 @@ template<typename T> class iter_impl
     friend T;
     friend iteration_proxy<iter_impl>;
     friend iteration_proxy_value<iter_impl>;
-    friend class iter_impl<const T>;
-    friend class iter_impl<T>;
-    friend class iter_impl<std::remove_const<T>>;
+    friend iter_impl<ordered_json>;
+    friend iter_impl<const ordered_json>;
 
     using object_t = nlohmann::ordered_map<std::string, T>;
 

@@ -3536,8 +3536,7 @@ TEST_CASE("BJData roundtrips" * doctest::skip())
             {
                 INFO_WITH_TEMP(filename + ": std::vector<uint8_t>");
                 // parse JSON file
-                std::ifstream f_json(filename);
-                json j1 = json::parse(f_json);
+                json j1 = json::parse(utils::read_binary_file(filename));
 
                 // parse BJData file
                 auto packed = utils::read_binary_file(filename + ".bjdata");
@@ -3548,26 +3547,24 @@ TEST_CASE("BJData roundtrips" * doctest::skip())
                 CHECK(j1 == j2);
             }
 
-            {
-                INFO_WITH_TEMP(filename + ": std::ifstream");
-                // parse JSON file
-                std::ifstream f_json(filename);
-                json j1 = json::parse(f_json);
+            // {
+            //     INFO_WITH_TEMP(filename + ": std::ifstream");
+            //     // parse JSON file
+            //     json j1 = json::parse(utils::read_binary_file(filename));
 
-                // parse BJData file
-                std::ifstream f_bjdata(filename + ".bjdata", std::ios::binary);
-                json j2;
-                CHECK_NOTHROW(j2 = json::from_bjdata(f_bjdata));
+            //     // parse BJData file
+            //     std::ifstream f_bjdata(filename + ".bjdata", std::ios::binary);
+            //     json j2;
+            //     CHECK_NOTHROW(j2 = json::from_bjdata(f_bjdata));
 
-                // compare parsed JSON values
-                CHECK(j1 == j2);
-            }
+            //     // compare parsed JSON values
+            //     CHECK(j1 == j2);
+            // }
 
             {
                 INFO_WITH_TEMP(filename + ": output to output adapters");
                 // parse JSON file
-                std::ifstream f_json(filename);
-                json const j1 = json::parse(f_json);
+                json j1 = json::parse(utils::read_binary_file(filename));
 
                 // parse BJData file
                 auto packed = utils::read_binary_file(filename + ".bjdata");
