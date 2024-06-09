@@ -1412,62 +1412,57 @@ bool nlohmann::ordered_json::is_primitive() const noexcept
     return is_null() || is_string() || is_boolean() || is_number() || is_binary();
 }
 
-nlohmann::ordered_json nlohmann::ordered_json::from_cbor(const std::vector<uint8_t> &i,
+nlohmann::ordered_json nlohmann::ordered_json::from_cbor(const detail::iterator_input_adapter &ia,
                                                          const bool strict,
                                                          const bool allow_exceptions,
                                                          const cbor_tag_handler_t tag_handler)
 {
     ordered_json result;
     detail::json_sax_dom_parser sdp(result, allow_exceptions);
-    auto ia = detail::input_adapter(i);
     const bool res = binary_reader(ia, input_format_t::cbor)
                          .sax_parse(input_format_t::cbor, &sdp, strict, tag_handler);
     return res ? result : ordered_json(value_t::discarded);
 }
 
-nlohmann::ordered_json nlohmann::ordered_json::from_msgpack(const std::vector<uint8_t> &i,
+nlohmann::ordered_json nlohmann::ordered_json::from_msgpack(const detail::iterator_input_adapter &ia,
                                                             const bool strict,
                                                             const bool allow_exceptions)
 {
     ordered_json result;
     detail::json_sax_dom_parser sdp(result, allow_exceptions);
-    auto ia = detail::input_adapter(i);
     const bool res = binary_reader(ia, input_format_t::msgpack)
                          .sax_parse(input_format_t::msgpack, &sdp, strict);
     return res ? result : ordered_json(value_t::discarded);
 }
 
-nlohmann::ordered_json nlohmann::ordered_json::from_ubjson(const std::vector<uint8_t> &i,
+nlohmann::ordered_json nlohmann::ordered_json::from_ubjson(const detail::iterator_input_adapter &ia,
                                                            const bool strict,
                                                            const bool allow_exceptions)
 {
     ordered_json result;
     detail::json_sax_dom_parser sdp(result, allow_exceptions);
-    auto ia = detail::input_adapter(i);
     const bool res = binary_reader(ia, input_format_t::ubjson)
                          .sax_parse(input_format_t::ubjson, &sdp, strict);
     return res ? result : ordered_json(value_t::discarded);
 }
 
-nlohmann::ordered_json nlohmann::ordered_json::from_bjdata(const std::vector<uint8_t> &i,
+nlohmann::ordered_json nlohmann::ordered_json::from_bjdata(const detail::iterator_input_adapter &ia,
                                                            const bool strict,
                                                            const bool allow_exceptions)
 {
     ordered_json result;
     detail::json_sax_dom_parser sdp(result, allow_exceptions);
-    auto ia = detail::input_adapter(i);
     const bool res = binary_reader(ia, input_format_t::bjdata)
                          .sax_parse(input_format_t::bjdata, &sdp, strict);
     return res ? result : ordered_json(value_t::discarded);
 }
 
-nlohmann::ordered_json nlohmann::ordered_json::from_bson(const std::vector<uint8_t> &i,
+nlohmann::ordered_json nlohmann::ordered_json::from_bson(const detail::iterator_input_adapter &ia,
                                                          const bool strict,
                                                          const bool allow_exceptions)
 {
     ordered_json result;
     detail::json_sax_dom_parser sdp(result, allow_exceptions);
-    auto ia = detail::input_adapter(i);
     const bool res = binary_reader(ia, input_format_t::bson)
                          .sax_parse(input_format_t::bson, &sdp, strict);
     return res ? result : ordered_json(value_t::discarded);

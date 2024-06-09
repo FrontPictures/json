@@ -17,6 +17,8 @@ namespace detail {
 class iterator_input_adapter
 {
 public:
+    iterator_input_adapter(const std::string &str);
+    iterator_input_adapter(const std::vector<uint8_t> &container);
     iterator_input_adapter(std::string::const_iterator first, std::string::const_iterator last);
     iterator_input_adapter(std::vector<uint8_t>::const_iterator first,
                            std::vector<uint8_t>::const_iterator last);

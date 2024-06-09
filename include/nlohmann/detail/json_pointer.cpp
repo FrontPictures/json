@@ -436,6 +436,11 @@ void nlohmann::json_pointer::flatten(const std::string &reference_string,
     }
 }
 
+std::strong_ordering nlohmann::json_pointer::operator<=>(const std::string &rhs) const
+{
+    return (*this) <=> json_pointer(rhs);
+}
+
 nlohmann::ordered_json nlohmann::json_pointer::unflatten(const ordered_json &value)
 {
     if (!value.is_object()) {

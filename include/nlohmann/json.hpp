@@ -40,6 +40,8 @@
 #include "nlohmann/detail/value_t.hpp"
 #include "nlohmann/ordered_map.hpp"
 #include "nlohmann/detail/output/error_handler_t.h"
+#include "nlohmann/detail/input/input_adapters.hpp"
+#include "nlohmann/detail/output/output_adapters.hpp"
 
 namespace nlohmann {
 class json_sax;
@@ -83,6 +85,12 @@ private:
     using json_reverse_iterator = ::nlohmann::detail::json_reverse_iterator<Base>;
     using binary_reader = ::nlohmann::detail::binary_reader;
     using binary_writer = ::nlohmann::detail::binary_writer;
+
+#ifndef JSON_TESTS_PRIVATE
+private:
+#else
+public:
+#endif
     using serializer = ::nlohmann::detail::serializer;
 
 public:
@@ -109,6 +117,9 @@ public:
     using reverse_iterator = json_reverse_iterator<typename ordered_json::iterator>;
     using const_reverse_iterator = json_reverse_iterator<typename ordered_json::const_iterator>;
     using object_t = nlohmann::ordered_map<std::string, ordered_json>;
+    using size_type = size_t;
+    using number_integer_t = int64_t;
+    using number_float_t = double;
 
     static ordered_json meta();
 
@@ -356,6 +367,11 @@ public:
         throw(type_error::create(306, std::string("cannot use value() with ") + type_name()));
     }
 
+    std::string value(const std::string &key, const char *default_value) const
+    {
+        return value(key, std::string(default_value));
+    }
+
     template<class ValueType>
     ValueType value(const json_pointer &ptr, const ValueType &default_value) const
     {
@@ -531,7 +547,9 @@ public:
 
     const char *type_name() const noexcept;
 
+#ifndef JSON_TESTS_PRIVATE
 private:
+#endif
     class data
     {
     public:
@@ -570,16 +588,16 @@ public:
     static std::vector<uint8_t> to_bson(const ordered_json &j);
     static void to_bson(const ordered_json &j, const detail::output_adapter &o);
 
-    static ordered_json from_cbor(const std::vector<uint8_t> &i, const bool strict = true,
+    static ordered_json from_cbor(const detail::iterator_input_adapter &ia, const bool strict = true,
                                   const bool allow_exceptions = true,
                                   const cbor_tag_handler_t tag_handler = cbor_tag_handler_t::error);
-    static ordered_json from_msgpack(const std::vector<uint8_t> &i, const bool strict = true,
+    static ordered_json from_msgpack(const detail::iterator_input_adapter &ia, const bool strict = true,
                                      const bool allow_exceptions = true);
-    static ordered_json from_ubjson(const std::vector<uint8_t> &i, const bool strict = true,
+    static ordered_json from_ubjson(const detail::iterator_input_adapter &ia, const bool strict = true,
                                     const bool allow_exceptions = true);
-    static ordered_json from_bjdata(const std::vector<uint8_t> &i, const bool strict = true,
+    static ordered_json from_bjdata(const detail::iterator_input_adapter &ia, const bool strict = true,
                                     const bool allow_exceptions = true);
-    static ordered_json from_bson(const std::vector<uint8_t> &i, const bool strict = true,
+    static ordered_json from_bson(const detail::iterator_input_adapter &ia, const bool strict = true,
                                   const bool allow_exceptions = true);
 
     reference operator[](const json_pointer &ptr) { return ptr.get_unchecked(this); }

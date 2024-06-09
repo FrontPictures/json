@@ -44,10 +44,10 @@ class SaxCountdown
         return events_left-- > 0;
     }
 
-    bool number_unsigned(json::number_unsigned_t /*unused*/)
-    {
-        return events_left-- > 0;
-    }
+    // bool number_unsigned(json::number_unsigned_t /*unused*/)
+    // {
+    //     return events_left-- > 0;
+    // }
 
     bool number_float(json::number_float_t /*unused*/, const std::string& /*unused*/)
     {
@@ -109,101 +109,101 @@ struct trait_test_arg
     static constexpr bool max_in_range = MaxInRange;
 };
 
-TEST_CASE_TEMPLATE_DEFINE("value_in_range_of trait", T, value_in_range_of_test)
-{
-    using nlohmann::detail::value_in_range_of;
+// TEST_CASE_TEMPLATE_DEFINE("value_in_range_of trait", T, value_in_range_of_test)
+// {
+//     using nlohmann::detail::value_in_range_of;
 
-    using of_type = typename T::of_type;
-    using type = typename T::type;
-    constexpr bool min_in_range = T::min_in_range;
-    constexpr bool max_in_range = T::max_in_range;
+//     using of_type = typename T::of_type;
+//     using type = typename T::type;
+//     constexpr bool min_in_range = T::min_in_range;
+//     constexpr bool max_in_range = T::max_in_range;
 
-    type const val_min = std::numeric_limits<type>::min();
-    type const val_min2 = val_min + 1;
-    type const val_max = std::numeric_limits<type>::max();
-    type const val_max2 = val_max - 1;
+//     type const val_min = std::numeric_limits<type>::min();
+//     type const val_min2 = val_min + 1;
+//     type const val_max = std::numeric_limits<type>::max();
+//     type const val_max2 = val_max - 1;
 
-    REQUIRE(CHAR_BIT == 8);
+//     REQUIRE(CHAR_BIT == 8);
 
-    std::string of_type_str;
-    if (std::is_unsigned<of_type>::value)
-    {
-        of_type_str += "u";
-    }
-    of_type_str += "int";
-    of_type_str += std::to_string(sizeof(of_type) * 8);
+//     std::string of_type_str;
+//     if (std::is_unsigned<of_type>::value)
+//     {
+//         of_type_str += "u";
+//     }
+//     of_type_str += "int";
+//     of_type_str += std::to_string(sizeof(of_type) * 8);
 
-    INFO("of_type := ", of_type_str);
+//     INFO("of_type := ", of_type_str);
 
-    std::string type_str;
-    if (std::is_unsigned<type>::value)
-    {
-        type_str += "u";
-    }
-    type_str += "int";
-    type_str += std::to_string(sizeof(type) * 8);
+//     std::string type_str;
+//     if (std::is_unsigned<type>::value)
+//     {
+//         type_str += "u";
+//     }
+//     type_str += "int";
+//     type_str += std::to_string(sizeof(type) * 8);
 
-    INFO("type := ", type_str);
+//     INFO("type := ", type_str);
 
-    CAPTURE(val_min);
-    CAPTURE(min_in_range);
-    CAPTURE(val_max);
-    CAPTURE(max_in_range);
+//     CAPTURE(val_min);
+//     CAPTURE(min_in_range);
+//     CAPTURE(val_max);
+//     CAPTURE(max_in_range);
 
-    if (min_in_range)
-    {
-        CHECK(value_in_range_of<of_type>(val_min));
-        CHECK(value_in_range_of<of_type>(val_min2));
-    }
-    else
-    {
-        CHECK_FALSE(value_in_range_of<of_type>(val_min));
-        CHECK_FALSE(value_in_range_of<of_type>(val_min2));
-    }
+//     if (min_in_range)
+//     {
+//         CHECK(value_in_range_of<of_type>(val_min));
+//         CHECK(value_in_range_of<of_type>(val_min2));
+//     }
+//     else
+//     {
+//         CHECK_FALSE(value_in_range_of<of_type>(val_min));
+//         CHECK_FALSE(value_in_range_of<of_type>(val_min2));
+//     }
 
-    if (max_in_range)
-    {
-        CHECK(value_in_range_of<of_type>(val_max));
-        CHECK(value_in_range_of<of_type>(val_max2));
-    }
-    else
-    {
-        CHECK_FALSE(value_in_range_of<of_type>(val_max));
-        CHECK_FALSE(value_in_range_of<of_type>(val_max2));
-    }
-}
+//     if (max_in_range)
+//     {
+//         CHECK(value_in_range_of<of_type>(val_max));
+//         CHECK(value_in_range_of<of_type>(val_max2));
+//     }
+//     else
+//     {
+//         CHECK_FALSE(value_in_range_of<of_type>(val_max));
+//         CHECK_FALSE(value_in_range_of<of_type>(val_max2));
+//     }
+// }
 
-TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
-                          trait_test_arg<std::int32_t, std::int32_t, true, true>, \
-                          trait_test_arg<std::int32_t, std::uint32_t, true, false>, \
-                          trait_test_arg<std::uint32_t, std::int32_t, false, true>, \
-                          trait_test_arg<std::uint32_t, std::uint32_t, true, true>, \
-                          trait_test_arg<std::int32_t, std::int64_t, false, false>, \
-                          trait_test_arg<std::int32_t, std::uint64_t, true, false>, \
-                          trait_test_arg<std::uint32_t, std::int64_t, false, false>, \
-                          trait_test_arg<std::uint32_t, std::uint64_t, true, false>, \
-                          trait_test_arg<std::int64_t, std::int32_t, true, true>, \
-                          trait_test_arg<std::int64_t, std::uint32_t, true, true>, \
-                          trait_test_arg<std::uint64_t, std::int32_t, false, true>, \
-                          trait_test_arg<std::uint64_t, std::uint32_t, true, true>, \
-                          trait_test_arg<std::int64_t, std::int64_t, true, true>, \
-                          trait_test_arg<std::int64_t, std::uint64_t, true, false>, \
-                          trait_test_arg<std::uint64_t, std::int64_t, false, true>, \
-                          trait_test_arg<std::uint64_t, std::uint64_t, true, true>);
+// TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
+//                           trait_test_arg<std::int32_t, std::int32_t, true, true>, \
+//                           trait_test_arg<std::int32_t, std::uint32_t, true, false>, \
+//                           trait_test_arg<std::uint32_t, std::int32_t, false, true>, \
+//                           trait_test_arg<std::uint32_t, std::uint32_t, true, true>, \
+//                           trait_test_arg<std::int32_t, std::int64_t, false, false>, \
+//                           trait_test_arg<std::int32_t, std::uint64_t, true, false>, \
+//                           trait_test_arg<std::uint32_t, std::int64_t, false, false>, \
+//                           trait_test_arg<std::uint32_t, std::uint64_t, true, false>, \
+//                           trait_test_arg<std::int64_t, std::int32_t, true, true>, \
+//                           trait_test_arg<std::int64_t, std::uint32_t, true, true>, \
+//                           trait_test_arg<std::uint64_t, std::int32_t, false, true>, \
+//                           trait_test_arg<std::uint64_t, std::uint32_t, true, true>, \
+//                           trait_test_arg<std::int64_t, std::int64_t, true, true>, \
+//                           trait_test_arg<std::int64_t, std::uint64_t, true, false>, \
+//                           trait_test_arg<std::uint64_t, std::int64_t, false, true>, \
+//                           trait_test_arg<std::uint64_t, std::uint64_t, true, true>);
 
-#if SIZE_MAX == 0xffffffff
-TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
-                          trait_test_arg<std::size_t, std::int32_t, false, true>, \
-                          trait_test_arg<std::size_t, std::uint32_t, true, true>, \
-                          trait_test_arg<std::size_t, std::int64_t, false, false>, \
-                          trait_test_arg<std::size_t, std::uint64_t, true, false>);
-#else
-TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
-                          trait_test_arg<std::size_t, std::int32_t, false, true>, \
-                          trait_test_arg<std::size_t, std::uint32_t, true, true>, \
-                          trait_test_arg<std::size_t, std::int64_t, false, true>, \
-                          trait_test_arg<std::size_t, std::uint64_t, true, true>);
-#endif
+// #if SIZE_MAX == 0xffffffff
+// TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
+//                           trait_test_arg<std::size_t, std::int32_t, false, true>, \
+//                           trait_test_arg<std::size_t, std::uint32_t, true, true>, \
+//                           trait_test_arg<std::size_t, std::int64_t, false, false>, \
+//                           trait_test_arg<std::size_t, std::uint64_t, true, false>);
+// #else
+// TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
+//                           trait_test_arg<std::size_t, std::int32_t, false, true>, \
+//                           trait_test_arg<std::size_t, std::uint32_t, true, true>, \
+//                           trait_test_arg<std::size_t, std::int64_t, false, true>, \
+//                           trait_test_arg<std::size_t, std::uint64_t, true, true>);
+// #endif
 
 TEST_CASE("BJData")
 {

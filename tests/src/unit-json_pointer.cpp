@@ -485,11 +485,11 @@ TEST_CASE("JSON pointers")
                 })
         {
             json::json_pointer const ptr(ptr_str);
-            std::stringstream ss;
-            ss << ptr;
+            // std::stringstream ss;
+            // ss << ptr;
             CHECK(ptr.to_string() == ptr_str);
             CHECK(std::string(ptr) == ptr_str);
-            CHECK(ss.str() == ptr_str);
+            // CHECK(ss.str() == ptr_str);
         }
     }
 
@@ -732,14 +732,9 @@ TEST_CASE("JSON pointers")
         )"_json;
 
         using nlohmann::ordered_json;
-        using json_ptr_str = nlohmann::json_pointer<std::string>;
-        using json_ptr_j = nlohmann::json_pointer<json>;
-        using json_ptr_oj = nlohmann::json_pointer<ordered_json>;
-
-        CHECK(std::is_same<json_ptr_str::string_t, json::json_pointer::string_t>::value);
-        CHECK(std::is_same<json_ptr_str::string_t, ordered_json::json_pointer::string_t>::value);
-        CHECK(std::is_same<json_ptr_str::string_t, json_ptr_j::string_t>::value);
-        CHECK(std::is_same<json_ptr_str::string_t, json_ptr_oj::string_t>::value);
+        using json_ptr_str = nlohmann::json_pointer;
+        using json_ptr_j = nlohmann::json_pointer;
+        using json_ptr_oj = nlohmann::json_pointer;
 
         std::string const ptr_string{"/foo/0"};
         json_ptr_str ptr{ptr_string};

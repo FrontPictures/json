@@ -1,5 +1,14 @@
 #include "input_adapters.hpp"
 
+nlohmann::detail::iterator_input_adapter::iterator_input_adapter(const std::string &str)
+    : current(str.begin()), end(str.end())
+{}
+
+nlohmann::detail::iterator_input_adapter::iterator_input_adapter(
+    const std::vector<uint8_t> &container)
+    : vcurrent(container.begin()), vend(container.end()), vectorType(true)
+{}
+
 nlohmann::detail::iterator_input_adapter::iterator_input_adapter(std::string::const_iterator first,
                                                                  std::string::const_iterator last)
     : current(first), end(last)

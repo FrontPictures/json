@@ -42,7 +42,9 @@ public:
     void dump(const ordered_json &val, const bool pretty_print, const bool ensure_ascii,
               const unsigned int indent_step, const unsigned int current_indent = 0);
 
+#ifndef JSON_TESTS_PRIVATE
 private:
+#endif
     void dump_escaped(const std::string &s, const bool ensure_ascii);
 
 private:

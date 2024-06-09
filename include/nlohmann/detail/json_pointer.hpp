@@ -28,6 +28,7 @@ class json_pointer
 public:
     explicit json_pointer(const std::string &s = "") : reference_tokens(split(s)) {}
     std::string to_string() const;
+    operator std::string() const { return to_string(); }
     json_pointer &operator/=(const json_pointer &ptr);
     json_pointer &operator/=(std::string token);
     json_pointer &operator/=(size_t array_idx) { return *this /= std::to_string(array_idx); }
@@ -75,6 +76,8 @@ private:
 public:
     bool operator==(const json_pointer &rhs) const noexcept;
     std::strong_ordering operator<=>(const json_pointer &rhs) const noexcept;
+    bool operator==(const std::string &rhs) const { return (*this) == json_pointer(rhs); }
+    std::strong_ordering operator<=>(const std::string &rhs) const;
 
 private:
     std::vector<std::string> reference_tokens;
