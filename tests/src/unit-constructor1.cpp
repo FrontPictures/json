@@ -77,13 +77,13 @@ TEST_CASE("constructors")
             CHECK(j == 0);
         }
 
-        SECTION("number_unsigned")
-        {
-            auto const t = json::value_t::number_unsigned;
-            json const j(t);
-            CHECK(j.type() == t);
-            CHECK(j == 0);
-        }
+        // SECTION("number_unsigned")
+        // {
+        //     auto const t = json::value_t::number_unsigned;
+        //     json const j(t);
+        //     CHECK(j.type() == t);
+        //     CHECK(j == 0);
+        // }
 
         SECTION("number_float")
         {

@@ -1107,8 +1107,16 @@ nlohmann::ordered_json nlohmann::ordered_json::parse(const std::string &str,
                                                      const bool allow_exceptions,
                                                      const bool ignore_comments)
 {
+    return parse(detail::input_adapter(str), cb, allow_exceptions, ignore_comments);
+}
+
+nlohmann::ordered_json nlohmann::ordered_json::parse(const detail::iterator_input_adapter &ia,
+                                                     const parser_callback_t cb,
+                                                     const bool allow_exceptions,
+                                                     const bool ignore_comments)
+{
     ordered_json result;
-    parser(detail::input_adapter(str), cb, allow_exceptions, ignore_comments).parse(true, result);
+    parser(ia, cb, allow_exceptions, ignore_comments).parse(true, result);
     return result;
 }
 

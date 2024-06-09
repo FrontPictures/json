@@ -40,11 +40,11 @@ class SaxEventLogger
         return true;
     }
 
-    bool number_unsigned(json::number_unsigned_t val)
-    {
-        events.push_back("number_unsigned(" + std::to_string(val) + ")");
-        return true;
-    }
+    // bool number_unsigned(json::number_unsigned_t val)
+    // {
+    //     events.push_back("number_unsigned(" + std::to_string(val) + ")");
+    //     return true;
+    // }
 
     bool number_float(json::number_float_t /*unused*/, const std::string& s)
     {

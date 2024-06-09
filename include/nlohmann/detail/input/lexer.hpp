@@ -27,7 +27,7 @@ class lexer
 {
 public:
     using token_type = lexer_token_type;
-    const char *token_type_name(const lexer_token_type t) { return lexer_token_type_name(t); }
+    static const char *token_type_name(const lexer_token_type t);
 
     explicit lexer(const iterator_input_adapter &adapter, bool ignore_comments_ = false) noexcept;
     ~lexer();

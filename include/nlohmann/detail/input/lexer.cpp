@@ -2,9 +2,15 @@
 #include <array>
 #include "input_adapters.hpp"
 
+const char *nlohmann::detail::lexer::token_type_name(const lexer_token_type t)
+{
+    return lexer_token_type_name(t);
+}
+
 nlohmann::detail::lexer::lexer(const iterator_input_adapter &adapter,
                                bool ignore_comments_) noexcept
-    : ia(new iterator_input_adapter(adapter)), ignore_comments(ignore_comments_), decimal_point_char('.')
+    : ia(new iterator_input_adapter(adapter)), ignore_comments(ignore_comments_),
+      decimal_point_char('.')
 {}
 
 nlohmann::detail::lexer::~lexer() = default;

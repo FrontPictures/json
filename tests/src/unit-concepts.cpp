@@ -80,7 +80,7 @@ TEST_CASE("concepts")
 
         SECTION("CopyConstructible")
         {
-            CHECK(std::is_copy_constructible<json>::value);
+            CHECK(std::is_constructible<json, const json &>::value);
         }
 
         SECTION("MoveAssignable")

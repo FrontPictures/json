@@ -19,10 +19,11 @@ using nlohmann::json;
 #include <iterator>
 #include <sstream>
 #include <valarray>
+#include "nlohmann/detail/input/json_sax.hpp"
 
 namespace
 {
-struct SaxEventLogger : public nlohmann::json_sax<json>
+struct SaxEventLogger : public nlohmann::json_sax
 {
     bool null() override
     {
@@ -42,11 +43,11 @@ struct SaxEventLogger : public nlohmann::json_sax<json>
         return true;
     }
 
-    bool number_unsigned(json::number_unsigned_t val) override
-    {
-        events.push_back("number_unsigned(" + std::to_string(val) + ")");
-        return true;
-    }
+    // bool number_unsigned(json::number_unsigned_t val) override
+    // {
+    //     events.push_back("number_unsigned(" + std::to_string(val) + ")");
+    //     return true;
+    // }
 
     bool number_float(json::number_float_t /*val*/, const std::string& s) override
     {
@@ -228,12 +229,12 @@ TEST_CASE("deserialization")
             ss1 << R"(["foo",1,2,3,false,{"one":1}])";
             ss2 << R"(["foo",1,2,3,false,{"one":1}])";
             ss3 << R"(["foo",1,2,3,false,{"one":1}])";
-            json j = json::parse(ss1);
-            CHECK(json::accept(ss2));
+            json j = json::parse(ss1.str());
+            CHECK(json::accept(ss2.str()));
             CHECK(j == json({"foo", 1, 2, 3, false, {{"one", 1}}}));
 
             SaxEventLogger l;
-            CHECK(json::sax_parse(ss3, &l));
+            CHECK(json::sax_parse(ss3.str(), &l));
             CHECK(l.events.size() == 11);
             CHECK(l.events == std::vector<std::string>(
             {

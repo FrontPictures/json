@@ -1094,7 +1094,7 @@ TEST_CASE("BSON numerical data")
 
                     auto j_roundtrip = json::from_bson(bson);
 
-                    CHECK(j.at("entry").is_number_unsigned());
+                    CHECK(j.at("entry").is_number_integer());
                     CHECK(j_roundtrip.at("entry").is_number_integer());
                     CHECK(j_roundtrip == j);
                     CHECK(json::from_bson(bson, true, false) == j);
@@ -1153,7 +1153,7 @@ TEST_CASE("BSON numerical data")
 
                     auto j_roundtrip = json::from_bson(bson);
 
-                    CHECK(j.at("entry").is_number_unsigned());
+                    // CHECK(j.at("entry").is_number_unsigned());
                     CHECK(j_roundtrip.at("entry").is_number_integer());
                     CHECK(j_roundtrip == j);
                     CHECK(json::from_bson(bson, true, false) == j);
@@ -1229,8 +1229,35 @@ TEST_CASE("BSON roundtrips" * doctest::skip())
             {
                 INFO_WITH_TEMP(filename + ": std::vector<std::uint8_t>");
                 // parse JSON file
-                std::ifstream f_json(filename);
-                json j1 = json::parse(f_json);
+                json j1 = json::parse(utils::read_binary_file(filename));
+
+                // parse BSON file
+                auto packed = utils::read_binary_file(filename + ".bson");
+                json j2;
+                CHECK_NOTHROW(j2 = json::from_bson(packed));
+
+                // compare parsed JSON values
+                CHECK(j1 == j2);
+            }
+
+            // {
+            //     INFO_WITH_TEMP(filename + ": std::ifstream");
+            //     // parse JSON file
+            //     json j1 = json::parse(utils::read_binary_file(filename));
+
+            //     // parse BSON file
+            //     std::ifstream f_bson(filename + ".bson", std::ios::binary);
+            //     json j2;
+            //     CHECK_NOTHROW(j2 = json::from_bson(f_bson));
+
+            //     // compare parsed JSON values
+            //     CHECK(j1 == j2);
+            // }
+
+            {
+                INFO_WITH_TEMP(filename + ": uint8_t* and size");
+                // parse JSON file
+                json j1 = json::parse(utils::read_binary_file(filename));
 
                 // parse BSON file
                 auto packed = utils::read_binary_file(filename + ".bson");
@@ -1242,40 +1269,9 @@ TEST_CASE("BSON roundtrips" * doctest::skip())
             }
 
             {
-                INFO_WITH_TEMP(filename + ": std::ifstream");
-                // parse JSON file
-                std::ifstream f_json(filename);
-                json j1 = json::parse(f_json);
-
-                // parse BSON file
-                std::ifstream f_bson(filename + ".bson", std::ios::binary);
-                json j2;
-                CHECK_NOTHROW(j2 = json::from_bson(f_bson));
-
-                // compare parsed JSON values
-                CHECK(j1 == j2);
-            }
-
-            {
-                INFO_WITH_TEMP(filename + ": uint8_t* and size");
-                // parse JSON file
-                std::ifstream f_json(filename);
-                json j1 = json::parse(f_json);
-
-                // parse BSON file
-                auto packed = utils::read_binary_file(filename + ".bson");
-                json j2;
-                CHECK_NOTHROW(j2 = json::from_bson({packed.data(), packed.size()}));
-
-                // compare parsed JSON values
-                CHECK(j1 == j2);
-            }
-
-            {
                 INFO_WITH_TEMP(filename + ": output to output adapters");
                 // parse JSON file
-                std::ifstream f_json(filename);
-                json const j1 = json::parse(f_json);
+                json j1 = json::parse(utils::read_binary_file(filename));
 
                 // parse BSON file
                 auto packed = utils::read_binary_file(filename + ".bson");

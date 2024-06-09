@@ -11,6 +11,7 @@
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
+#include <cmath>
 #include <fstream>
 #include <sstream>
 #include <iomanip>
@@ -19,6 +20,7 @@ using nlohmann::json;
 #include <set>
 #include "make_test_data_available.hpp"
 #include "test_utils.hpp"
+#include "nlohmann/detail/input/json_sax.hpp"
 
 namespace
 {
@@ -43,10 +45,10 @@ class SaxCountdown
         return events_left-- > 0;
     }
 
-    bool number_unsigned(json::number_unsigned_t /*unused*/)
-    {
-        return events_left-- > 0;
-    }
+    // bool number_unsigned(json::number_unsigned_t /*unused*/)
+    // {
+    //     return events_left-- > 0;
+    // }
 
     bool number_float(json::number_float_t /*unused*/, const std::string& /*unused*/)
     {
@@ -660,7 +662,7 @@ TEST_CASE("CBOR")
                         const json j = i;
 
                         // check type
-                        CHECK(j.is_number_unsigned());
+                        CHECK(j.is_number_integer());
 
                         // create expected byte vector
                         const std::vector<uint8_t> expected
@@ -692,7 +694,7 @@ TEST_CASE("CBOR")
                         const json j = i;
 
                         // check type
-                        CHECK(j.is_number_unsigned());
+                        CHECK(j.is_number_integer());
 
                         // create expected byte vector
                         const std::vector<uint8_t> expected
@@ -727,7 +729,7 @@ TEST_CASE("CBOR")
                         const json j = i;
 
                         // check type
-                        CHECK(j.is_number_unsigned());
+                        CHECK(j.is_number_integer());
 
                         // create expected byte vector
                         const std::vector<uint8_t> expected
@@ -766,7 +768,7 @@ TEST_CASE("CBOR")
                         const json j = i;
 
                         // check type
-                        CHECK(j.is_number_unsigned());
+                        CHECK(j.is_number_integer());
 
                         // create expected byte vector
                         const std::vector<uint8_t> expected
@@ -810,7 +812,7 @@ TEST_CASE("CBOR")
                         const json j = i;
 
                         // check type
-                        CHECK(j.is_number_unsigned());
+                        CHECK(j.is_number_integer());
 
                         // create expected byte vector
                         const std::vector<uint8_t> expected
@@ -1632,7 +1634,7 @@ TEST_CASE("CBOR")
                 };
 
                 json j;
-                auto cbp = nlohmann::detail::json_sax_dom_callback_parser<json>(j, callback, true);
+                auto cbp = nlohmann::detail::json_sax_dom_callback_parser(j, callback, true);
                 CHECK(json::sax_parse(input, &cbp, json::input_format_t::cbor));
                 CHECK(j.at("foo").is_binary());
                 CHECK(binary_seen);

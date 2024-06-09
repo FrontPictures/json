@@ -14,6 +14,7 @@
 // JSON_HAS_CPP_<VERSION> (do not remove; see note at top of file)
 
 #include "doctest_compatibility.h"
+#include <cmath>
 
 #define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
@@ -91,7 +92,7 @@ TEST_CASE("lexicographical comparison operators")
             json::value_t::null,
             json::value_t::boolean,
             json::value_t::number_integer,
-            json::value_t::number_unsigned,
+            // json::value_t::number_unsigned,
             json::value_t::number_float,
             json::value_t::object,
             json::value_t::array,

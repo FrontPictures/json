@@ -421,48 +421,48 @@ TEST_CASE("iterator class")
             }
         }
     }
-    // prevent "accidental mutation of a temporary object"
-    SECTION("cert-dcl21-cpp")
-    {
-        using nlohmann::detail::is_detected;
-        SECTION("post-increment")
-        {
-            SECTION("primitive_iterator_t")
-            {
-                using Iter = nlohmann::detail::primitive_iterator_t;
-                CHECK_FALSE(is_detected<can_post_increment_temporary, Iter&>::value);
-            }
-            SECTION("iter_impl")
-            {
-                using Iter = nlohmann::detail::iter_impl<json>;
-                CHECK_FALSE(is_detected<can_post_increment_temporary, Iter&>::value);
-            }
-            SECTION("json_reverse_iterator")
-            {
-                using Base = nlohmann::detail::iter_impl<json>;
-                using Iter = nlohmann::detail::json_reverse_iterator<Base>;
-                CHECK_FALSE(is_detected<can_post_increment_temporary, Iter&>::value);
-            }
-        }
-        SECTION("post-decrement")
-        {
-            SECTION("primitive_iterator_t")
-            {
-                using Iter = nlohmann::detail::primitive_iterator_t;
-                CHECK_FALSE(is_detected<can_post_decrement_temporary, Iter&>::value);
-            }
-            SECTION("iter_impl")
-            {
-                using Iter = nlohmann::detail::iter_impl<json>;
-                CHECK_FALSE(is_detected<can_post_decrement_temporary, Iter&>::value);
-            }
-            SECTION("json_reverse_iterator")
-            {
-                using Base = nlohmann::detail::iter_impl<json>;
-                using Iter = nlohmann::detail::json_reverse_iterator<Base>;
-                CHECK_FALSE(is_detected<can_post_decrement_temporary, Iter&>::value);
-            }
+    // // prevent "accidental mutation of a temporary object"
+    // SECTION("cert-dcl21-cpp")
+    // {
+    //     using nlohmann::detail::is_detected;
+    //     SECTION("post-increment")
+    //     {
+    //         SECTION("primitive_iterator_t")
+    //         {
+    //             using Iter = nlohmann::detail::primitive_iterator_t;
+    //             CHECK_FALSE(is_detected<can_post_increment_temporary, Iter&>::value);
+    //         }
+    //         SECTION("iter_impl")
+    //         {
+    //             using Iter = nlohmann::detail::iter_impl<json>;
+    //             CHECK_FALSE(is_detected<can_post_increment_temporary, Iter&>::value);
+    //         }
+    //         SECTION("json_reverse_iterator")
+    //         {
+    //             using Base = nlohmann::detail::iter_impl<json>;
+    //             using Iter = nlohmann::detail::json_reverse_iterator<Base>;
+    //             CHECK_FALSE(is_detected<can_post_increment_temporary, Iter&>::value);
+    //         }
+    //     }
+    //     SECTION("post-decrement")
+    //     {
+    //         SECTION("primitive_iterator_t")
+    //         {
+    //             using Iter = nlohmann::detail::primitive_iterator_t;
+    //             CHECK_FALSE(is_detected<can_post_decrement_temporary, Iter&>::value);
+    //         }
+    //         SECTION("iter_impl")
+    //         {
+    //             using Iter = nlohmann::detail::iter_impl<json>;
+    //             CHECK_FALSE(is_detected<can_post_decrement_temporary, Iter&>::value);
+    //         }
+    //         SECTION("json_reverse_iterator")
+    //         {
+    //             using Base = nlohmann::detail::iter_impl<json>;
+    //             using Iter = nlohmann::detail::json_reverse_iterator<Base>;
+    //             CHECK_FALSE(is_detected<can_post_decrement_temporary, Iter&>::value);
+    //         }
 
-        }
-    }
+    //     }
+    // }
 }

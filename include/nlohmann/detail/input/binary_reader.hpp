@@ -97,7 +97,11 @@ private:
     std::string exception_message(const input_format_t format, const std::string &detail,
                                   const std::string &context) const;
 
+#ifndef JSON_TESTS_PRIVATE
 private:
+#else
+public:
+#endif
     static constexpr size_t npos = static_cast<size_t>(-1);
     std::unique_ptr<iterator_input_adapter> ia;
     uint64_t current = uint64_t(EOF);

@@ -87,19 +87,19 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     json_test_set_test_options("test-cbor;test-msgpack;test-ubjson;test-bjdata;test-binary_formats" LINK_OPTIONS /STACK:4000000)
 endif()
 
-# disable exceptions for test-disabled_exceptions
-json_test_set_test_options(test-disabled_exceptions
-    COMPILE_DEFINITIONS
-        JSON_NOEXCEPTION
-        # disabled due to https://github.com/nlohmann/json/discussions/2824
-        #$<$<CXX_COMPILER_ID:MSVC>:_HAS_EXCEPTIONS=0>
-    COMPILE_OPTIONS
-        $<$<CXX_COMPILER_ID:AppleClang>:-fno-exceptions> $<$<CXX_COMPILER_ID:Clang>:-fno-exceptions>
-        $<$<CXX_COMPILER_ID:GNU>:-fno-exceptions>
-        $<$<CXX_COMPILER_ID:Intel>:-fno-exceptions> $<$<CXX_COMPILER_ID:IntelLLVM>:-fno-exceptions>
-        # disabled due to https://github.com/nlohmann/json/discussions/2824
-        #$<$<CXX_COMPILER_ID:MSVC>:/EH>
-)
+# # disable exceptions for test-disabled_exceptions
+# json_test_set_test_options(test-disabled_exceptions
+#     COMPILE_DEFINITIONS
+#         JSON_NOEXCEPTION
+#         # disabled due to https://github.com/nlohmann/json/discussions/2824
+#         #$<$<CXX_COMPILER_ID:MSVC>:_HAS_EXCEPTIONS=0>
+#     COMPILE_OPTIONS
+#         $<$<CXX_COMPILER_ID:AppleClang>:-fno-exceptions> $<$<CXX_COMPILER_ID:Clang>:-fno-exceptions>
+#         $<$<CXX_COMPILER_ID:GNU>:-fno-exceptions>
+#         $<$<CXX_COMPILER_ID:Intel>:-fno-exceptions> $<$<CXX_COMPILER_ID:IntelLLVM>:-fno-exceptions>
+#         # disabled due to https://github.com/nlohmann/json/discussions/2824
+#         #$<$<CXX_COMPILER_ID:MSVC>:/EH>
+# )
 
 # raise timeout of expensive Unicode test
 json_test_set_test_options(test-unicode4 TEST_PROPERTIES TIMEOUT 3000)

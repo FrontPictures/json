@@ -120,6 +120,9 @@ public:
     using size_type = size_t;
     using number_integer_t = int64_t;
     using number_float_t = double;
+    using binary_t = byte_container_with_subtype;
+    using json_sax_t = json_sax;
+    using string_t = std::string;
 
     static ordered_json meta();
 
@@ -194,7 +197,11 @@ public:
     ordered_json(initializer_list_t init, bool type_deduction = true,
                  value_t manual_type = value_t::array);
 
-    template<typename Container, typename T = typename Container::value_type>
+    template<typename Container, typename T = typename Container::value_type,
+             std::enable_if_t<!(std::is_same<Container, ordered_json>::value
+                                || std::is_same<Container, detail::json_ref<ordered_json>>::value),
+                              int>
+             = 0>
     ordered_json(const Container &values)
     {
         m_data.m_type = value_t::array;
@@ -241,6 +248,7 @@ public:
     operator value_t() const noexcept { return m_data.m_type; }
     explicit operator bool() const { return get<bool>(); }
     explicit operator int() const { return get<int>(); }
+    explicit operator double() const { return get<double>(); }
     operator std::string() const { return get<std::string>(); }
 
 private:
@@ -352,6 +360,15 @@ public:
     template<> std::vector<std::string> get<std::vector<std::string>>() const
     {
         return getArray<std::vector<std::string>>();
+    }
+
+    template<typename T> T &get_ref()
+    {
+        auto *ptr = get_impl_ptr(static_cast<T *>(nullptr));
+        if (!ptr) {
+            throw type_error::create(302, "invalid type");
+        }
+        return *ptr;
     }
 
     template<typename ValueType>
@@ -502,7 +519,9 @@ public:
     void swap(byte_container_with_subtype &other);
     void swap(std::vector<uint8_t> &other);
 
+#ifndef JSON_TESTS_PRIVATE
 private:
+#endif
     static bool compares_unordered(const_reference lhs, const_reference rhs,
                                    bool inverse = false) noexcept;
 
@@ -533,6 +552,10 @@ public:
     static ordered_json parse(const char *str) { return parse(std::string(str)); }
     static ordered_json parse(std::string_view str) { return parse(std::string(str)); }
     static ordered_json parse(const std::string &str, const parser_callback_t cb = nullptr,
+                              const bool allow_exceptions = true,
+                              const bool ignore_comments = false);
+    static ordered_json parse(const detail::iterator_input_adapter &ia,
+                              const parser_callback_t cb = nullptr,
                               const bool allow_exceptions = true,
                               const bool ignore_comments = false);
 
