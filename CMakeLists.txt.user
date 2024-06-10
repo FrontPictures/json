@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 13.0.1, 2024-06-10T08:56:26. -->
+<!-- Written by QtCreator 13.0.1, 2024-06-10T10:25:24. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -94,7 +94,7 @@
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">qt.qt6.643.gcc_64_kit</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveBuildConfiguration">1</value>
    <value type="qlonglong" key="ProjectExplorer.Target.ActiveDeployConfiguration">0</value>
-   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">0</value>
+   <value type="qlonglong" key="ProjectExplorer.Target.ActiveRunConfiguration">51</value>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.0">
     <value type="QString" key="CMake.Build.Type">Debug</value>
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
@@ -233,906 +233,6 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">abi_compat_diag</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.abi_compat_diag</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">abi_compat_diag</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests/abi/diag</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">abi_compat_inline_ns</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.abi_compat_inline_ns</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">abi_compat_inline_ns</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests/abi/inline_ns</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.10">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-bson_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-bson_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-bson_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.11">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-byte_container_with_subtype_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-byte_container_with_subtype_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-byte_container_with_subtype_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.12">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-capacity_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-capacity_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-capacity_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.13">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-cbor_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-cbor_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-cbor_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.14">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_const_iterator_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_const_iterator_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_const_iterator_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.15">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_iterator_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_iterator_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_iterator_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.16">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_lexer_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_lexer_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_lexer_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.17">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_parser_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_parser_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_parser_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.18">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-concepts_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-concepts_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-concepts_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.19">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-constructor1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-constructor1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-constructor1_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.2">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">abi_config_custom</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.abi_config_custom</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">abi_config_custom</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests/abi/config</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.20">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-constructor2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-constructor2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-constructor2_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.21">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-convenience_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-convenience_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-convenience_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.22">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-conversions_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-conversions_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-conversions_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.23">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-deserialization_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-deserialization_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-deserialization_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.24">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-diagnostics_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-diagnostics_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-diagnostics_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.25">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-element_access1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-element_access1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-element_access1_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.26">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-element_access2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-element_access2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-element_access2_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.27">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-hash_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-hash_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-hash_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.28">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-inspection_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-inspection_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-inspection_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.29">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-items_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-items_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-items_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.3">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">abi_config_default</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.abi_config_default</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">abi_config_default</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests/abi/config</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.30">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-iterators1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-iterators1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-iterators1_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.31">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-iterators2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-iterators2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-iterators2_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.32">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-json_patch_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-json_patch_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-json_patch_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.33">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-json_pointer_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-json_pointer_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-json_pointer_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.34">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-large_json_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-large_json_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-large_json_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.35">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-merge_patch_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-merge_patch_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-merge_patch_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.36">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-meta_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-meta_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-meta_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.37">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-modifiers_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-modifiers_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-modifiers_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.38">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-msgpack_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-msgpack_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-msgpack_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.39">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-no-mem-leak-on-adl-serialize_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-no-mem-leak-on-adl-serialize_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-no-mem-leak-on-adl-serialize_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.4">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">abi_config_noversion</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.abi_config_noversion</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">abi_config_noversion</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests/abi/config</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.40">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-noexcept_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-noexcept_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-noexcept_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.41">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-ordered_json_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-ordered_json_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-ordered_json_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.42">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-ordered_map_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-ordered_map_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-ordered_map_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.43">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-pointer_access_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-pointer_access_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-pointer_access_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.44">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-readme_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-readme_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-readme_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.45">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-reference_access_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-reference_access_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-reference_access_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.46">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-regression1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-regression1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-regression1_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.47">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-regression2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-regression2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-regression2_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.48">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-serialization_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-serialization_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-serialization_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.49">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-testsuites_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-testsuites_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-testsuites_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.5">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-comparison_cpp20</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-comparison_cpp20</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-comparison_cpp20</value>
@@ -1142,207 +242,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.50">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-to_chars_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-to_chars_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-to_chars_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.51">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-type_traits_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-type_traits_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-type_traits_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.52">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-ubjson_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-ubjson_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-ubjson_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.53">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-udl_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-udl_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-udl_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.54">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-udt_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-udt_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-udt_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.55">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-udt_macro_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-udt_macro_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-udt_macro_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.56">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode1_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode1_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.57">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode2_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode2_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.58">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode3_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode3_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode3_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.59">
-    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
-    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
-    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
-    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
-    <valuelist type="QVariantList" key="CustomOutputParsers"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
-    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
-    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode4_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode4_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode4_cpp20</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
-    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
-    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
-   </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.6">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1362,7 +262,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.60">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.10">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1373,16 +273,16 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode5_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode5_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode5_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_iterator_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_iterator_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_iterator_cpp20</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.61">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.11">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1393,16 +293,16 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-user_defined_input_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-user_defined_input_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-user_defined_input_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_lexer_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_lexer_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_lexer_cpp20</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.62">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.12">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1413,16 +313,16 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-windows_h_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-windows_h_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-windows_h_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_parser_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_parser_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_parser_cpp20</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.63">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.13">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1433,16 +333,136 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-wstring_cpp20</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-wstring_cpp20</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-wstring_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-concepts_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-concepts_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-concepts_cpp20</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.7">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.14">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-constructor1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-constructor1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-constructor1_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.15">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-constructor2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-constructor2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-constructor2_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.16">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-convenience_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-convenience_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-convenience_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.17">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-conversions_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-conversions_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-conversions_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.18">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-deserialization_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-deserialization_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-deserialization_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.19">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-diagnostics_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-diagnostics_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-diagnostics_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.2">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1462,7 +482,207 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.8">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.20">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-element_access1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-element_access1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-element_access1_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.21">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-element_access2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-element_access2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-element_access2_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.22">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-hash_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-hash_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-hash_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.23">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-inspection_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-inspection_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-inspection_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.24">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-items_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-items_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-items_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.25">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-iterators1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-iterators1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-iterators1_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.26">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-iterators2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-iterators2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-iterators2_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.27">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-json_patch_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-json_patch_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-json_patch_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.28">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-json_pointer_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-json_pointer_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-json_pointer_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.29">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-large_json_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-large_json_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-large_json_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.3">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1482,7 +702,207 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.9">
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.30">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-merge_patch_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-merge_patch_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-merge_patch_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.31">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-meta_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-meta_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-meta_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.32">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-modifiers_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-modifiers_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-modifiers_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.33">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-msgpack_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-msgpack_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-msgpack_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.34">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-noexcept_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-noexcept_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-noexcept_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.35">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-ordered_json_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-ordered_json_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-ordered_json_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.36">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-ordered_map_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-ordered_map_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-ordered_map_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.37">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-pointer_access_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-pointer_access_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-pointer_access_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.38">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-readme_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-readme_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-readme_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.39">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-reference_access_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-reference_access_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-reference_access_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.4">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
@@ -1502,7 +922,350 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
    </valuemap>
-   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">64</value>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.40">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-serialization_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-serialization_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-serialization_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.41">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-testsuites_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-testsuites_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-testsuites_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.42">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-to_chars_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-to_chars_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-to_chars_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.43">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-ubjson_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-ubjson_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-ubjson_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.44">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-udl_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-udl_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-udl_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.45">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode1_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode1_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.46">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode2_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode2_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.47">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode3_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode3_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode3_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.48">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode4_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode4_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode4_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.49">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-unicode5_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-unicode5_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-unicode5_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.5">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-bson_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-bson_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-bson_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.50">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-windows_h_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-windows_h_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-windows_h_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.51">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers">
+     <value type="QString">{da69f701-acd8-4e5b-a954-25d7f8b68d42}</value>
+    </valuelist>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.CustomExecutableRunConfiguration.Executable">ctest</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">CTEST</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">ProjectExplorer.CustomExecutableRunConfiguration</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey"></value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
+    <value type="QString" key="RunConfiguration.Arguments">--rerun-failed --output-on-failure --stop-on-failure</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.6">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-byte_container_with_subtype_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-byte_container_with_subtype_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-byte_container_with_subtype_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.7">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-capacity_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-capacity_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-capacity_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.8">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-cbor_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-cbor_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-cbor_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.9">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="int" key="Analyzer.Valgrind.Callgrind.CostFormat">0</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <value type="QString" key="Analyzer.Valgrind.ValgrindExecutable">/snap/bin/valgrind</value>
+    <value type="QList&lt;int&gt;" key="Analyzer.Valgrind.VisibleErrorKinds"></value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
+    <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph dwarf,4096 -F 250</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test-class_const_iterator_cpp20</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test-class_const_iterator_cpp20</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test-class_const_iterator_cpp20</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/gogan/ext/json/build-json-Desktop_Qt_6_4_3_GCC_64bit-Release/tests</value>
+   </valuemap>
+   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">52</value>
   </valuemap>
  </data>
  <data>
