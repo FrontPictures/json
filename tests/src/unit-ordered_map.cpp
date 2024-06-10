@@ -8,6 +8,7 @@
 
 #include "doctest_compatibility.h"
 
+#include <map>
 #include "nlohmann/json.hpp"
 using nlohmann::ordered_map;
 

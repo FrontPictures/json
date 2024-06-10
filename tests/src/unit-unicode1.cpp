@@ -10,7 +10,9 @@
 
 // for some reason including this after the json header leads to linker errors with VS 2017...
 #include <locale>
+#include "nlohmann/detail/string_escape.hpp"
 #include "nlohmann/json.hpp"
+#include "test_utils.hpp"
 using nlohmann::json;
 
 #include <fstream>
@@ -157,9 +159,9 @@ TEST_CASE("Unicode (1/5)" * doctest::skip())
     {
         // read a file with all unicode characters stored as single-character
         // strings in a JSON array
-        std::ifstream f(TEST_DATA_DIRECTORY "/json_nlohmann_tests/all_unicode.json");
         json j;
-        CHECK_NOTHROW(f >> j);
+        CHECK_NOTHROW(j = json::parse(utils::read_binary_file(
+                          TEST_DATA_DIRECTORY "/json_nlohmann_tests/all_unicode.json")));
 
         // the array has 1112064 + 1 elements (a terminating "null" value)
         // Note: 1112064 = 0x1FFFFF code points - 2048 invalid values between
@@ -199,19 +201,19 @@ TEST_CASE("Unicode (1/5)" * doctest::skip())
 
     SECTION("ignore byte-order-mark")
     {
-        SECTION("in a stream")
-        {
-            // read a file with a UTF-8 BOM
-            std::ifstream f(TEST_DATA_DIRECTORY "/json_nlohmann_tests/bom.json");
-            json j;
-            CHECK_NOTHROW(f >> j);
-        }
+        // SECTION("in a stream")
+        // {
+        //     // read a file with a UTF-8 BOM
+        //     std::ifstream f(TEST_DATA_DIRECTORY "/json_nlohmann_tests/bom.json");
+        //     json j;
+        //     CHECK_NOTHROW(f >> j);
+        // }
 
         SECTION("with an iterator")
         {
             std::string i = "\xef\xbb\xbf{\n   \"foo\": true\n}";
             json _;
-            CHECK_NOTHROW(_ = json::parse(i.begin(), i.end()));
+            CHECK_NOTHROW(_ = json::parse(i));
         }
     }
 

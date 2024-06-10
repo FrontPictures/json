@@ -9,6 +9,7 @@
 #include "doctest_compatibility.h"
 
 #include "nlohmann/json.hpp"
+#include "test_utils.hpp"
 using nlohmann::json;
 #ifdef JSON_TEST_NO_GLOBAL_UDLS
     using namespace nlohmann::literals; // NOLINT(google-build-using-namespace)
@@ -1289,8 +1290,7 @@ TEST_CASE("JSON patch")
                 })
         {
             CAPTURE(filename)
-            std::ifstream f(filename);
-            json const suite = json::parse(f);
+            json const suite = json::parse(utils::read_binary_file(filename));
 
             for (const auto& test : suite)
             {

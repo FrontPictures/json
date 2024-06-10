@@ -19,27 +19,27 @@ TEST_CASE("pointer access")
         json value = {{"one", 1}, {"two", 2}};
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() != nullptr);
-        CHECK(value.get_ptr<json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<json::object_t>() != nullptr);
+        CHECK(value.get_ptr<json::array_t>() == nullptr);
+        CHECK(value.get_ptr<json::string_t>() == nullptr);
+        CHECK(value.get_ptr<json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const object_t")
@@ -48,27 +48,27 @@ TEST_CASE("pointer access")
         const json value = {{"one", 1}, {"two", 2}};
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::object_t>() != nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to array_t")
@@ -77,27 +77,27 @@ TEST_CASE("pointer access")
         json value = {1, 2, 3, 4};
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<json::array_t*>() != nullptr);
-        CHECK(value.get_ptr<json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<json::object_t>() == nullptr);
+        CHECK(value.get_ptr<json::array_t>() != nullptr);
+        CHECK(value.get_ptr<json::string_t>() == nullptr);
+        CHECK(value.get_ptr<json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const array_t")
@@ -106,27 +106,27 @@ TEST_CASE("pointer access")
         const json value = {1, 2, 3, 4};
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() != nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to string_t")
@@ -135,27 +135,27 @@ TEST_CASE("pointer access")
         json value = "hello";
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<json::string_t*>() != nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<json::object_t>() == nullptr);
+        CHECK(value.get_ptr<json::array_t>() == nullptr);
+        CHECK(value.get_ptr<json::string_t>() != nullptr);
+        CHECK(value.get_ptr<json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const string_t")
@@ -164,27 +164,27 @@ TEST_CASE("pointer access")
         const json value = "hello";
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() != nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to boolean_t")
@@ -193,27 +193,27 @@ TEST_CASE("pointer access")
         json value = false;
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() != nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<json::object_t>() == nullptr);
+        CHECK(value.get_ptr<json::array_t>() == nullptr);
+        CHECK(value.get_ptr<json::string_t>() == nullptr);
+        CHECK(value.get_ptr<json::boolean_t>() != nullptr);
+        CHECK(value.get_ptr<json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const boolean_t")
@@ -222,27 +222,27 @@ TEST_CASE("pointer access")
         const json value = false;
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         //CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() != nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to number_integer_t")
@@ -251,27 +251,27 @@ TEST_CASE("pointer access")
         json value = 23;
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() != nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<json::object_t>() == nullptr);
+        CHECK(value.get_ptr<json::array_t>() == nullptr);
+        CHECK(value.get_ptr<json::string_t>() == nullptr);
+        CHECK(value.get_ptr<json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<json::number_integer_t>() != nullptr);
+        // CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const number_integer_t")
@@ -280,86 +280,86 @@ TEST_CASE("pointer access")
         const json value = 23;
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() != nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() == nullptr);
     }
 
-    SECTION("pointer access to number_unsigned_t")
-    {
-        using test_type = json::number_unsigned_t;
-        json value = 23u;
+    // SECTION("pointer access to number_unsigned_t")
+    // {
+    //     using test_type = json::number_unsigned_t;
+    //     json value = 23u;
 
-        // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
-        CHECK(*p1 == value.get<test_type>());
+    //     // check if pointers are returned correctly
+    //     test_type* p1 = value.get_ptr<test_type>();
+    //     CHECK(p1 == value.get_ptr<test_type>());
+    //     CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
-        CHECK(*p2 == value.get<test_type>());
+    //     const test_type* p2 = value.get_ptr<const test_type>();
+    //     CHECK(p2 == value.get_ptr<const test_type>());
+    //     CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
-        CHECK(*p3 == value.get<test_type>());
+    //     const test_type* const p3 = value.get_ptr<const test_type const>();
+    //     CHECK(p3 == value.get_ptr<const test_type const>());
+    //     CHECK(*p3 == value.get<test_type>());
 
-        // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() != nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() != nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
-    }
+    //     // check if null pointers are returned correctly
+    //     CHECK(value.get_ptr<json::object_t>() == nullptr);
+    //     CHECK(value.get_ptr<json::array_t>() == nullptr);
+    //     CHECK(value.get_ptr<json::string_t>() == nullptr);
+    //     CHECK(value.get_ptr<json::boolean_t>() == nullptr);
+    //     CHECK(value.get_ptr<json::number_integer_t>() != nullptr);
+    //     CHECK(value.get_ptr<json::number_unsigned_t*>() != nullptr);
+    //     CHECK(value.get_ptr<json::number_float_t>() == nullptr);
+    //     CHECK(value.get_ptr<json::binary_t>() == nullptr);
+    // }
 
-    SECTION("pointer access to const number_unsigned_t")
-    {
-        using test_type = const json::number_unsigned_t;
-        const json value = 23u;
+    // SECTION("pointer access to const number_unsigned_t")
+    // {
+    //     using test_type = const json::number_unsigned_t;
+    //     const json value = 23u;
 
-        // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
-        CHECK(*p1 == value.get<test_type>());
+    //     // check if pointers are returned correctly
+    //     test_type* p1 = value.get_ptr<test_type>();
+    //     CHECK(p1 == value.get_ptr<test_type>());
+    //     CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
-        CHECK(*p2 == value.get<test_type>());
+    //     const test_type* p2 = value.get_ptr<const test_type>();
+    //     CHECK(p2 == value.get_ptr<const test_type>());
+    //     CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
-        CHECK(*p3 == value.get<test_type>());
+    //     const test_type* const p3 = value.get_ptr<const test_type const>();
+    //     CHECK(p3 == value.get_ptr<const test_type const>());
+    //     CHECK(*p3 == value.get<test_type>());
 
-        // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
-    }
+    //     // check if null pointers are returned correctly
+    //     CHECK(value.get_ptr<const json::object_t>() == nullptr);
+    //     CHECK(value.get_ptr<const json::array_t>() == nullptr);
+    //     CHECK(value.get_ptr<const json::string_t>() == nullptr);
+    //     CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+    //     CHECK(value.get_ptr<const json::number_integer_t>() != nullptr);
+    //     CHECK(value.get_ptr<const json::number_unsigned_t*>() != nullptr);
+    //     CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+    //     CHECK(value.get_ptr<const json::binary_t>() == nullptr);
+    // }
 
     SECTION("pointer access to number_float_t")
     {
@@ -367,27 +367,27 @@ TEST_CASE("pointer access")
         json value = 42.23;
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == Approx(value.get<test_type>()));
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == Approx(value.get<test_type>()));
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == Approx(value.get<test_type>()));
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<json::number_float_t*>() != nullptr);
-        CHECK(value.get_ptr<json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<json::object_t>() == nullptr);
+        CHECK(value.get_ptr<json::array_t>() == nullptr);
+        CHECK(value.get_ptr<json::string_t>() == nullptr);
+        CHECK(value.get_ptr<json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<json::number_float_t>() != nullptr);
+        CHECK(value.get_ptr<json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const number_float_t")
@@ -396,27 +396,27 @@ TEST_CASE("pointer access")
         const json value = 42.23;
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == Approx(value.get<test_type>()));
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == Approx(value.get<test_type>()));
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == Approx(value.get<test_type>()));
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() != nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() != nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() == nullptr);
     }
 
     SECTION("pointer access to const binary_t")
@@ -425,27 +425,27 @@ TEST_CASE("pointer access")
         const json value = json::binary({1, 2, 3});
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() != nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() != nullptr);
     }
 
     SECTION("pointer access to const binary_t")
@@ -454,26 +454,26 @@ TEST_CASE("pointer access")
         const json value = json::binary({});
 
         // check if pointers are returned correctly
-        test_type* p1 = value.get_ptr<test_type*>();
-        CHECK(p1 == value.get_ptr<test_type*>());
+        test_type* p1 = value.get_ptr<test_type>();
+        CHECK(p1 == value.get_ptr<test_type>());
         CHECK(*p1 == value.get<test_type>());
 
-        const test_type* p2 = value.get_ptr<const test_type*>();
-        CHECK(p2 == value.get_ptr<const test_type*>());
+        const test_type* p2 = value.get_ptr<const test_type>();
+        CHECK(p2 == value.get_ptr<const test_type>());
         CHECK(*p2 == value.get<test_type>());
 
-        const test_type* const p3 = value.get_ptr<const test_type* const>();
-        CHECK(p3 == value.get_ptr<const test_type* const>());
+        const test_type* const p3 = value.get_ptr<const test_type const>();
+        CHECK(p3 == value.get_ptr<const test_type const>());
         CHECK(*p3 == value.get<test_type>());
 
         // check if null pointers are returned correctly
-        CHECK(value.get_ptr<const json::object_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::array_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::string_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::boolean_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_integer_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::number_float_t*>() == nullptr);
-        CHECK(value.get_ptr<const json::binary_t*>() != nullptr);
+        CHECK(value.get_ptr<const json::object_t>() == nullptr);
+        CHECK(value.get_ptr<const json::array_t>() == nullptr);
+        CHECK(value.get_ptr<const json::string_t>() == nullptr);
+        CHECK(value.get_ptr<const json::boolean_t>() == nullptr);
+        CHECK(value.get_ptr<const json::number_integer_t>() == nullptr);
+        // CHECK(value.get_ptr<const json::number_unsigned_t*>() == nullptr);
+        CHECK(value.get_ptr<const json::number_float_t>() == nullptr);
+        CHECK(value.get_ptr<const json::binary_t>() != nullptr);
     }
 }

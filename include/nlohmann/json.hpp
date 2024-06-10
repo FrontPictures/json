@@ -201,7 +201,9 @@ public:
 
     template<typename Container, typename T = typename Container::value_type,
              std::enable_if_t<!(std::is_same<Container, ordered_json>::value
-                                || std::is_same<Container, detail::json_ref<ordered_json>>::value),
+                                || std::is_same<Container, detail::json_ref<ordered_json>>::value
+                                || std::is_same<Container, iterator>::value
+                                || std::is_same<Container, const_iterator>::value),
                               int>
              = 0>
     ordered_json(const Container &values)
@@ -217,15 +219,6 @@ public:
         m_data.m_value = int64_t(enumValue);
     }
 
-    static ordered_json binary(const std::vector<uint8_t> &init);
-    static ordered_json binary(const std::vector<uint8_t> &init,
-                               typename byte_container_with_subtype::subtype_type subtype);
-    static ordered_json binary(std::vector<uint8_t> &&init);
-    static ordered_json binary(std::vector<uint8_t> &&init,
-                               typename byte_container_with_subtype::subtype_type subtype);
-    static ordered_json array(initializer_list_t init = {});
-    static ordered_json object(initializer_list_t init = {});
-
     ordered_json(size_t cnt, const ordered_json &val) : m_data{cnt, val} {}
     ordered_json(const_iterator first, const_iterator last);
     ordered_json(const detail::json_ref<ordered_json> &r) : ordered_json(r.moved_or_copied()) {}
@@ -234,6 +227,15 @@ public:
 
     ordered_json &operator=(ordered_json other);
     ~ordered_json() noexcept {}
+
+    static ordered_json binary(const std::vector<uint8_t> &init);
+    static ordered_json binary(const std::vector<uint8_t> &init,
+                               typename byte_container_with_subtype::subtype_type subtype);
+    static ordered_json binary(std::vector<uint8_t> &&init);
+    static ordered_json binary(std::vector<uint8_t> &&init,
+                               typename byte_container_with_subtype::subtype_type subtype);
+    static ordered_json array(initializer_list_t init = {});
+    static ordered_json object(initializer_list_t init = {});
 
     std::string dump(const int indent = -1, const char indent_char = ' ',
                      const bool ensure_ascii = false,
@@ -384,7 +386,25 @@ public:
         return *ptr;
     }
 
+    template<typename T> const T &get_ref() const
+    {
+        auto *ptr = get_impl_ptr(static_cast<typename std::remove_reference<T>::type *>(nullptr));
+        if (!ptr) {
+            throw type_error::create(302, "invalid type");
+        }
+        return *ptr;
+    }
+
     template<typename T> T *get_ptr()
+    {
+        auto *ptr = get_impl_ptr(static_cast<typename std::remove_reference<T>::type *>(nullptr));
+        if (!ptr) {
+            throw type_error::create(302, "invalid type");
+        }
+        return ptr;
+    }
+
+    template<typename T> const T *get_ptr() const
     {
         auto *ptr = get_impl_ptr(static_cast<typename std::remove_reference<T>::type *>(nullptr));
         if (!ptr) {

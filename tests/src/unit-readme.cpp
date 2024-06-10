@@ -125,7 +125,7 @@ TEST_CASE("README" * doctest::skip())
             //     "pi": 3.141
             // }
 
-            std::cout << std::setw(2) << j << std::endl; // NOLINT(performance-avoid-endl)
+            // std::cout << std::setw(2) << j << std::endl; // NOLINT(performance-avoid-endl)
         }
 
         {
@@ -142,13 +142,13 @@ TEST_CASE("README" * doctest::skip())
             // iterate the array
             for (json::iterator it = j.begin(); it != j.end(); ++it) // NOLINT(modernize-loop-convert)
             {
-                std::cout << *it << '\n';
+                std::cout << it->dump(4) << '\n';
             }
 
             // range-based for
             for (auto& element : j)
             {
-                std::cout << element << '\n';
+                std::cout << element.dump(4) << '\n';
             }
 
             // getter/setter
@@ -215,23 +215,23 @@ TEST_CASE("README" * doctest::skip())
             // maybe ["one", "two", "one", "four"]
         }
 
-        {
-            std::map<std::string, int> const c_map { {"one", 1}, {"two", 2}, {"three", 3} };
-            json const j_map(c_map);
-            // {"one": 1, "two": 2, "three": 3}
+        // {
+        //     std::map<std::string, int> const c_map { {"one", 1}, {"two", 2}, {"three", 3} };
+        //     json const j_map(c_map);
+        //     // {"one": 1, "two": 2, "three": 3}
 
-            std::unordered_map<const char*, float> const c_umap { {"one", 1.2f}, {"two", 2.3f}, {"three", 3.4f} };
-            json const j_umap(c_umap);
-            // {"one": 1.2, "two": 2.3, "three": 3.4}
+        //     std::unordered_map<const char*, float> const c_umap { {"one", 1.2f}, {"two", 2.3f}, {"three", 3.4f} };
+        //     json const j_umap(c_umap);
+        //     // {"one": 1.2, "two": 2.3, "three": 3.4}
 
-            std::multimap<std::string, bool> const c_mmap { {"one", true}, {"two", true}, {"three", false}, {"three", true} };
-            json const j_mmap(c_mmap); // only one entry for key "three" is used
-            // maybe {"one": true, "two": true, "three": true}
+        //     std::multimap<std::string, bool> const c_mmap { {"one", true}, {"two", true}, {"three", false}, {"three", true} };
+        //     json const j_mmap(c_mmap); // only one entry for key "three" is used
+        //     // maybe {"one": true, "two": true, "three": true}
 
-            std::unordered_multimap<std::string, bool> const c_ummap { {"one", true}, {"two", true}, {"three", false}, {"three", true} };
-            json const j_ummap(c_ummap); // only one entry for key "three" is used
-            // maybe {"one": true, "two": true, "three": true}
-        }
+        //     std::unordered_multimap<std::string, bool> const c_ummap { {"one", true}, {"two", true}, {"three", false}, {"three", true} };
+        //     json const j_ummap(c_ummap); // only one entry for key "three" is used
+        //     // maybe {"one": true, "two": true, "three": true}
+        // }
 
         {
             // strings

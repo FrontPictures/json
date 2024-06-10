@@ -2,61 +2,7 @@
 #include <array>
 #include <cmath>
 #include <cstddef>
-#include <cstring>
 #include <limits>
-
-namespace {
-constexpr int kAlpha = -60;
-
-template<typename Target, typename Source> Target reinterpret_bits(const Source source)
-{
-    Target target;
-    std::memcpy(&target, &source, sizeof(Source));
-    return target;
-}
-
-struct boundaries
-{
-    diyfp w;
-    diyfp minus;
-    diyfp plus;
-};
-
-/*!
-Compute the (normalized) diyfp representing the input number 'value' and its
-boundaries.
-
-@pre value must be finite and positive
-*/
-boundaries compute_boundaries(double value)
-{
-    constexpr int kPrecision = std::numeric_limits<double>::digits;
-    constexpr int kBias = std::numeric_limits<double>::max_exponent - 1 + (kPrecision - 1);
-    constexpr int kMinExp = 1 - kBias;
-    constexpr uint64_t kHiddenBit = uint64_t{1} << (kPrecision - 1);
-
-    using bits_type = typename std::conditional<kPrecision == 24, std::uint32_t, uint64_t>::type;
-
-    const auto bits = static_cast<uint64_t>(reinterpret_bits<bits_type>(value));
-    const uint64_t E = bits >> (kPrecision - 1);
-    const uint64_t F = bits & (kHiddenBit - 1);
-
-    const bool is_denormal = E == 0;
-    const diyfp v = is_denormal ? diyfp(F, kMinExp)
-                                : diyfp(F + kHiddenBit, static_cast<int>(E) - kBias);
-
-    const bool lower_boundary_is_closer = F == 0 && E > 1;
-    const diyfp m_plus = diyfp(2 * v.f + 1, v.e - 1);
-    const diyfp m_minus = lower_boundary_is_closer ? diyfp(4 * v.f - 1, v.e - 2)
-                                                   : diyfp(2 * v.f - 1, v.e - 1);
-
-    const diyfp w_plus = diyfp::normalize(m_plus);
-
-    const diyfp w_minus = diyfp::normalize_to(m_minus, w_plus.e);
-
-    return {diyfp::normalize(v), w_minus, w_plus};
-}
-} // namespace
 
 grisu2::cached_power grisu2::get_cached_power_for_binary_exponent(int e)
 {
@@ -330,4 +276,33 @@ char *grisu2::format_buffer(char *buf, int len, int decimal_exponent, int min_ex
 
     *buf++ = 'e';
     return append_exponent(buf, n - 1);
+}
+
+grisu2::boundaries grisu2::compute_boundaries(double value)
+{
+    constexpr int kPrecision = std::numeric_limits<double>::digits;
+    constexpr int kBias = std::numeric_limits<double>::max_exponent - 1 + (kPrecision - 1);
+    constexpr int kMinExp = 1 - kBias;
+    constexpr uint64_t kHiddenBit = uint64_t{1} << (kPrecision - 1);
+
+    using bits_type = typename std::conditional<kPrecision == 24, std::uint32_t, uint64_t>::type;
+
+    const auto bits = static_cast<uint64_t>(reinterpret_bits<bits_type>(value));
+    const uint64_t E = bits >> (kPrecision - 1);
+    const uint64_t F = bits & (kHiddenBit - 1);
+
+    const bool is_denormal = E == 0;
+    const diyfp v = is_denormal ? diyfp(F, kMinExp)
+                                : diyfp(F + kHiddenBit, static_cast<int>(E) - kBias);
+
+    const bool lower_boundary_is_closer = F == 0 && E > 1;
+    const diyfp m_plus = diyfp(2 * v.f + 1, v.e - 1);
+    const diyfp m_minus = lower_boundary_is_closer ? diyfp(4 * v.f - 1, v.e - 2)
+                                                   : diyfp(2 * v.f - 1, v.e - 1);
+
+    const diyfp w_plus = diyfp::normalize(m_plus);
+
+    const diyfp w_minus = diyfp::normalize_to(m_minus, w_plus.e);
+
+    return {diyfp::normalize(v), w_minus, w_plus};
 }

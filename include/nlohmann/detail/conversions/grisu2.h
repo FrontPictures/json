@@ -2,8 +2,24 @@
 #define GRISU2_H
 
 #include "diyfp.h"
+#include <cstring>
 
 namespace grisu2 {
+static constexpr int kAlpha = -60;
+
+struct boundaries
+{
+    diyfp w;
+    diyfp minus;
+    diyfp plus;
+};
+
+template<typename Target, typename Source> Target reinterpret_bits(const Source source)
+{
+    Target target;
+    std::memcpy(&target, &source, sizeof(Source));
+    return target;
+}
 
 struct cached_power
 {
@@ -12,6 +28,7 @@ struct cached_power
     int k;
 };
 
+boundaries compute_boundaries(double value);
 cached_power get_cached_power_for_binary_exponent(int e);
 int find_largest_pow10(const std::uint32_t n, std::uint32_t &pow10);
 void grisu2_round(char *buf, int len, uint64_t dist, uint64_t delta, uint64_t rest, uint64_t ten_k);

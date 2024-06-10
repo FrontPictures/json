@@ -74,7 +74,7 @@ public:
     }
 
     iter_impl(const iter_impl<const T> &other) noexcept
-        : m_object(other.m_object), m_it(other.m_it)
+        : m_object(const_cast<T*>(other.m_object)), m_it(other.m_it)
     {}
 
     iter_impl &operator=(const iter_impl<const T> &other) noexcept

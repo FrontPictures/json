@@ -11,9 +11,12 @@
 // double-precision numbers, resp.
 
 #include "doctest_compatibility.h"
+#include <cassert>
 
+#include "nlohmann/detail/conversions/to_chars.hpp"
 #include "nlohmann/json.hpp"
-using nlohmann::detail::dtoa_impl::reinterpret_bits;
+#include "nlohmann/detail/conversions/grisu2.h"
+using grisu2::reinterpret_bits;
 
 namespace
 {
@@ -135,7 +138,7 @@ TEST_CASE("digit gen")
             std::array<char, 32> buf{};
             int len = 0;
             int exponent = 0;
-            nlohmann::detail::dtoa_impl::grisu2(buf.data(), len, exponent, number);
+            grisu2::grisu2(buf.data(), len, exponent, number);
 
             CHECK(digits == std::string(buf.data(), buf.data() + len));
             CHECK(expected_exponent == exponent);
@@ -199,7 +202,7 @@ TEST_CASE("digit gen")
             std::array<char, 32> buf{};
             int len = 0;
             int exponent = 0;
-            nlohmann::detail::dtoa_impl::grisu2(buf.data(), len, exponent, number);
+            grisu2::grisu2(buf.data(), len, exponent, number);
 
             CHECK(digits == std::string(buf.data(), buf.data() + len));
             CHECK(expected_exponent == exponent);
