@@ -15,6 +15,7 @@
 #include <memory>
 #include <string>
 #include <type_traits>
+#include <optional>
 #include "error_handler_t.h"
 
 namespace nlohmann {
@@ -42,17 +43,39 @@ public:
     void dump(const ordered_json &val, const bool pretty_print, const bool ensure_ascii,
               const unsigned int indent_step, const unsigned int current_indent = 0);
 
+    void dumpEmptyObject();
+    int dumpObjectBegin(const bool pretty_print, const unsigned int indent_step,
+                        const unsigned int current_indent, bool oneLiner = false);
+    void dumpKey(std::string_view key, const bool pretty_print, const unsigned int indent,
+                 const bool ensure_ascii = false, bool oneLiner = false);
+    void dumpObjectComa(const bool pretty_print, bool oneLiner = false);
+    void dumpObjectEnd(const bool pretty_print, const unsigned int prevIndent,
+                       bool oneLiner = false);
+
+    void dumpEmptyArray();
+    int dumpArrayBegin(const bool pretty_print, const unsigned int indent_step,
+                       const unsigned int current_indent);
+    void dumpArrayPrettyIndent(std::optional<bool> prevWasObject, const bool thisObject,
+                               const unsigned int indent);
+    void dumpArrayComa();
+    void dumpArrayEnd(const bool pretty_print, const bool wasAnyObject,
+                      const unsigned int prevIndent);
+
+    void dumpString(std::string_view string, const bool ensure_ascii = false);
+    void dumpBool(bool value);
+    void dump_integer(int64_t x);
+    void dump_float(double x);
+    void dumpNull();
+
 #ifndef JSON_TESTS_PRIVATE
 private:
 #endif
-    void dump_escaped(const std::string &s, const bool ensure_ascii);
+    void dump_escaped(std::string_view s, const bool ensure_ascii);
 
 private:
     unsigned int count_digits(uint64_t x) noexcept;
     static std::string hex_bytes(uint8_t byte);
-    void dump_integer(int64_t x);
 
-    void dump_float(double x);
     void dump_float(double x, std::true_type /*is_ieee_single_or_double*/);
     void dump_float(double x, std::false_type /*is_ieee_single_or_double*/);
 

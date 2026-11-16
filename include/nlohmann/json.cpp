@@ -746,6 +746,14 @@ bool nlohmann::ordered_json::contains(const std::string &key) const
     return is_object() && m_data.m_value.object->find(key) != m_data.m_value.object->end();
 }
 
+void nlohmann::ordered_json::reserve_object_items(int size)
+{
+    if (!is_object()) {
+        throw(type_error::create(1, "not an object"));
+    }
+    m_data.m_value.object->reserve(size);
+}
+
 nlohmann::ordered_json::iterator nlohmann::ordered_json::begin() noexcept
 {
     iterator result(this);
@@ -1425,6 +1433,12 @@ bool nlohmann::ordered_json::is_primitive() const noexcept
     return is_null() || is_string() || is_boolean() || is_number() || is_binary();
 }
 
+nlohmann::ordered_json::operator bool() const { return get<bool>(); }
+
+nlohmann::ordered_json::operator int() const { return get<int>(); }
+
+nlohmann::ordered_json::operator double() const { return get<double>(); }
+
 nlohmann::ordered_json nlohmann::ordered_json::from_cbor(const detail::iterator_input_adapter &ia,
                                                          const bool strict,
                                                          const bool allow_exceptions,
@@ -1910,4 +1924,48 @@ void nlohmann::ordered_json::json_value::destroy(value_t t)
 std::size_t std::hash<nlohmann::ordered_json>::operator()(const nlohmann::ordered_json &j) const
 {
     return nlohmann::detail::hash(j);
+}
+
+template<> int64_t nlohmann::ordered_json::get<int64_t>() const
+{
+    if (is_boolean()) {
+        return m_data.m_value.boolean ? 1 : 0;
+    }
+    if (is_number_integer()) {
+        return m_data.m_value.number_integer;
+    }
+    if (is_number_float()) {
+        return m_data.m_value.number_float;
+    }
+    throw type_error::create(302, "invalid type");
+}
+template<> int32_t nlohmann::ordered_json::get<int32_t>() const { return get<int64_t>(); }
+template<> uint32_t nlohmann::ordered_json::get<uint32_t>() const { return get<int64_t>(); }
+template<> uint64_t nlohmann::ordered_json::get<uint64_t>() const { return get<int64_t>(); }
+template<> double nlohmann::ordered_json::get<double>() const
+{
+    if (is_number_integer()) {
+        return m_data.m_value.number_integer;
+    }
+    if (is_number_float()) {
+        return m_data.m_value.number_float;
+    }
+    throw type_error::create(302, "invalid type");
+}
+template<> float nlohmann::ordered_json::get<float>() const { return get<double>(); }
+template<> std::vector<int> nlohmann::ordered_json::get<std::vector<int>>() const
+{
+    return getArray<std::vector<int>>();
+}
+template<> std::vector<float> nlohmann::ordered_json::get<std::vector<float>>() const
+{
+    return getArray<std::vector<float>>();
+}
+template<> std::vector<std::string> nlohmann::ordered_json::get<std::vector<std::string>>() const
+{
+    return getArray<std::vector<std::string>>();
+}
+template<> nlohmann::ordered_json nlohmann::ordered_json::get<nlohmann::ordered_json>() const
+{
+    return *this;
 }

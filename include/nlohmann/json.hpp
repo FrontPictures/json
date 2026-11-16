@@ -18,11 +18,15 @@
 #ifndef INCLUDE_NLOHMANN_JSON_HPP_
 #define INCLUDE_NLOHMANN_JSON_HPP_
 
+#include "nlohmann/json_fwd.hpp"
+
 #include <cstddef>
+#include <cstdint>
 #include <functional>
 #include <initializer_list>
 #include <iterator>
 #include <string>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -188,10 +192,19 @@ public:
     ordered_json(const byte_container_with_subtype &bin);
     ordered_json(byte_container_with_subtype &&bin);
     ordered_json(double val) noexcept;
+#ifdef __APPLE__
+    ordered_json(long val) noexcept : ordered_json(int64_t(val)) {}
+#endif
     ordered_json(uint64_t val) noexcept;
     ordered_json(uint32_t val) noexcept;
     ordered_json(int64_t val) noexcept;
     ordered_json(int val) noexcept;
+    template<typename Integer,
+             std::enable_if_t<
+                 std::is_integral<Integer>::value && !std::is_same<Integer, bool>::value, int>
+             = 0>
+    ordered_json(Integer val) noexcept : ordered_json(int64_t(val))
+    {}
     ordered_json(const std::vector<ordered_json> &arr);
     ordered_json(std::vector<ordered_json> &&arr);
     ordered_json(const nlohmann::ordered_map<std::string, ordered_json> &obj);
@@ -257,9 +270,9 @@ public:
     bool is_discarded() const noexcept { return m_data.m_type == value_t::discarded; }
 
     operator value_t() const noexcept { return m_data.m_type; }
-    explicit operator bool() const { return get<bool>(); }
-    explicit operator int() const { return get<int>(); }
-    explicit operator double() const { return get<double>(); }
+    explicit operator bool() const;
+    explicit operator int() const;
+    explicit operator double() const;
     operator std::string() const { return get<std::string>(); }
 
 private:
@@ -303,29 +316,18 @@ public:
 
     template<typename T, std::enable_if_t<!std::is_enum<T>::value, int> = 0> T get() const
     {
-        auto *ptr = get_impl_ptr(static_cast<T *>(nullptr));
-        if (!ptr) {
-            throw type_error::create(302, "invalid type");
+        using storage_type = std::conditional_t<
+            std::is_integral<T>::value && !std::is_same<T, bool>::value, int64_t, T>;
+        if constexpr (!std::is_same<T, storage_type>::value) {
+            return static_cast<T>(get<storage_type>());
+        } else {
+            auto *ptr = get_impl_ptr(static_cast<T *>(nullptr));
+            if (!ptr) {
+                throw type_error::create(302, "invalid type");
+            }
+            return *ptr;
         }
-        return *ptr;
     }
-
-    template<> int64_t get<int64_t>() const
-    {
-        if (is_boolean()) {
-            return m_data.m_value.boolean ? 1 : 0;
-        }
-        if (is_number_integer()) {
-            return m_data.m_value.number_integer;
-        }
-        if (is_number_float()) {
-            return m_data.m_value.number_float;
-        }
-        throw type_error::create(302, "invalid type");
-    }
-    template<> int32_t get<int32_t>() const { return get<int64_t>(); }
-    template<> uint32_t get<uint32_t>() const { return get<int64_t>(); }
-    template<> uint64_t get<uint64_t>() const { return get<int64_t>(); }
 
     template<typename EnumType, std::enable_if_t<std::is_enum<EnumType>::value, int> = 0>
     EnumType get() const
@@ -333,18 +335,6 @@ public:
         using underlying_type = typename std::underlying_type<EnumType>::type;
         return EnumType(get<underlying_type>());
     }
-
-    template<> double get<double>() const
-    {
-        if (is_number_integer()) {
-            return m_data.m_value.number_integer;
-        }
-        if (is_number_float()) {
-            return m_data.m_value.number_float;
-        }
-        throw type_error::create(302, "invalid type");
-    }
-    template<> float get<float>() const { return get<double>(); }
 
     template<typename Container, typename T = typename Container::value_type>
     Container getArray() const
@@ -358,23 +348,6 @@ public:
             result.push_back(item.get<T>());
         }
         return result;
-    }
-
-    template<> std::vector<int> get<std::vector<int>>() const
-    {
-        return getArray<std::vector<int>>();
-    }
-    template<> std::vector<float> get<std::vector<float>>() const
-    {
-        return getArray<std::vector<float>>();
-    }
-    template<> std::vector<std::string> get<std::vector<std::string>>() const
-    {
-        return getArray<std::vector<std::string>>();
-    }
-    template<> ordered_json get<ordered_json>() const
-    {
-        return *this;
     }
 
     template<typename T> T &get_ref()
@@ -483,7 +456,8 @@ public:
     const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
     const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
 
-public:
+    void reserve_object_items(int size);
+
     iteration_proxy<iterator> items() noexcept { return iteration_proxy<iterator>(*this); }
     iteration_proxy<const_iterator> items() const noexcept
     {
@@ -684,7 +658,16 @@ public:
     void merge_patch(const ordered_json &apply_patch);
 };
 
-using json = ordered_json;
+template<> int64_t ordered_json::get<int64_t>() const;
+template<> int32_t ordered_json::get<int32_t>() const;
+template<> uint32_t ordered_json::get<uint32_t>() const;
+template<> uint64_t ordered_json::get<uint64_t>() const;
+template<> double ordered_json::get<double>() const;
+template<> float ordered_json::get<float>() const;
+template<> std::vector<int> ordered_json::get<std::vector<int>>() const;
+template<> std::vector<float> ordered_json::get<std::vector<float>>() const;
+template<> std::vector<std::string> ordered_json::get<std::vector<std::string>>() const;
+template<> ordered_json ordered_json::get<ordered_json>() const;
 
 inline std::string to_string(const ordered_json &j) { return j.dump(); }
 

@@ -5,6 +5,7 @@
 #include "nlohmann/detail/string_concat.hpp"
 #include "binary_writer.hpp"
 #include "nlohmann/detail/output/output_adapters.hpp"
+#include <optional>
 
 nlohmann::detail::serializer::serializer(std::shared_ptr<output_adapter_protocol> s, const char ichar,
                                          error_handler_t error_handler_)
@@ -25,109 +26,87 @@ void nlohmann::detail::serializer::dump(const ordered_json &val, const bool pret
     switch (val.m_data.m_type) {
     case value_t::object: {
         if (val.m_data.m_value.object->empty()) {
-            o->write_characters("{}", 2);
+            dumpEmptyObject();
             return;
         }
 
         if (pretty_print) {
-            o->write_characters("{\n", 2);
-
-            const auto new_indent = current_indent + indent_step;
-            if (indent_string.size() < new_indent) {
-                indent_string.resize(indent_string.size() * 2, ' ');
-            }
-
+            const auto new_indent = dumpObjectBegin(true, indent_step, current_indent);
             auto i = val.m_data.m_value.object->cbegin();
             for (size_t cnt = 0; cnt < val.m_data.m_value.object->size() - 1; ++cnt, ++i) {
-                o->write_characters(indent_string.c_str(), new_indent);
-                o->write_character('\"');
-                dump_escaped(i->first, ensure_ascii);
-                o->write_characters("\": ", 3);
+                dumpKey(i->first, true, new_indent, ensure_ascii);
                 dump(i->second, true, ensure_ascii, indent_step, new_indent);
-                o->write_characters(",\n", 2);
+                dumpObjectComa(true);
             }
 
-            o->write_characters(indent_string.c_str(), new_indent);
-            o->write_character('\"');
-            dump_escaped(i->first, ensure_ascii);
-            o->write_characters("\": ", 3);
+            dumpKey(i->first, true, new_indent, ensure_ascii);
             dump(i->second, true, ensure_ascii, indent_step, new_indent);
-
-            o->write_character('\n');
-            o->write_characters(indent_string.c_str(), current_indent);
-            o->write_character('}');
+            dumpObjectEnd(true, current_indent);
         } else {
-            o->write_character('{');
+            dumpObjectBegin(false, 0, 0);
 
             auto i = val.m_data.m_value.object->cbegin();
             for (size_t cnt = 0; cnt < val.m_data.m_value.object->size() - 1; ++cnt, ++i) {
-                o->write_character('\"');
-                dump_escaped(i->first, ensure_ascii);
-                o->write_characters("\":", 2);
-                dump(i->second, false, ensure_ascii, indent_step, current_indent);
-                o->write_character(',');
+                dumpKey(i->first, false, 0, ensure_ascii);
+                dump(i->second, false, ensure_ascii, 0, 0);
+                dumpObjectComa(false);
             }
-
-            o->write_character('\"');
-            dump_escaped(i->first, ensure_ascii);
-            o->write_characters("\":", 2);
-            dump(i->second, false, ensure_ascii, indent_step, current_indent);
-
-            o->write_character('}');
+            dumpKey(i->first, false, 0, ensure_ascii);
+            dump(i->second, false, ensure_ascii, 0, 0);
+            dumpObjectEnd(false, 0);
         }
-
         return;
     }
 
     case value_t::array: {
         if (val.m_data.m_value.array->empty()) {
-            o->write_characters("[]", 2);
+            dumpEmptyArray();
             return;
         }
-
         if (pretty_print) {
-            o->write_characters("[\n", 2);
-
-            const auto new_indent = current_indent + indent_step;
-            if (indent_string.size() < new_indent) {
-                indent_string.resize(indent_string.size() * 2, ' ');
-            }
-
+            const auto new_indent = dumpArrayBegin(true, indent_step, current_indent);
+            std::optional<bool> prevWasObject;
+            bool wasAnyObject = false;
             for (auto i = val.m_data.m_value.array->cbegin();
-                 i != val.m_data.m_value.array->cend() - 1; ++i) {
-                o->write_characters(indent_string.c_str(), new_indent);
-                dump(*i, true, ensure_ascii, indent_step, new_indent);
-                o->write_characters(",\n", 2);
+                 i != val.m_data.m_value.array->cend(); ++i) {
+                bool isLast = i == val.m_data.m_value.array->cend() - 1;
+                if (i->is_number() || (i->is_string() && i->m_data.m_value.string->size() <= 20)
+                    || (i->is_object() && i->m_data.m_value.object->empty())
+                    || (i->is_array() && i->m_data.m_value.array->empty()) || i->is_null()
+                    || i->is_boolean()) {
+                    dumpArrayPrettyIndent(prevWasObject, false, new_indent);
+                    prevWasObject = false;
+                    dump(*i, false, ensure_ascii, indent_step, current_indent);
+                    if (!isLast) {
+                        dumpArrayComa();
+                    }
+                } else {
+                    dumpArrayPrettyIndent(prevWasObject, true, new_indent);
+                    dump(*i, true, ensure_ascii, indent_step, new_indent);
+                    if (!isLast) {
+                        dumpArrayComa();
+                    }
+                    prevWasObject = true;
+                    wasAnyObject = true;
+                }
             }
-
-            o->write_characters(indent_string.c_str(), new_indent);
-            dump(val.m_data.m_value.array->back(), true, ensure_ascii, indent_step, new_indent);
-
-            o->write_character('\n');
-            o->write_characters(indent_string.c_str(), current_indent);
-            o->write_character(']');
+            dumpArrayEnd(true, wasAnyObject, current_indent);
         } else {
-            o->write_character('[');
-
+            dumpArrayBegin(false, 0, 0);
             for (auto i = val.m_data.m_value.array->cbegin();
                  i != val.m_data.m_value.array->cend() - 1; ++i) {
-                dump(*i, false, ensure_ascii, indent_step, current_indent);
-                o->write_character(',');
+                dump(*i, false, ensure_ascii, 0, 0);
+                dumpArrayComa();
             }
-
-            dump(val.m_data.m_value.array->back(), false, ensure_ascii, indent_step,
-                 current_indent);
-
-            o->write_character(']');
+            dump(val.m_data.m_value.array->back(), false, ensure_ascii, 0, 0);
+            dumpArrayEnd(false, false, 0);
         }
 
         return;
     }
 
     case value_t::string: {
-        o->write_character('\"');
-        dump_escaped(*val.m_data.m_value.string, ensure_ascii);
-        o->write_character('\"');
+        dumpString(*val.m_data.m_value.string, ensure_ascii);
         return;
     }
 
@@ -189,11 +168,7 @@ void nlohmann::detail::serializer::dump(const ordered_json &val, const bool pret
     }
 
     case value_t::boolean: {
-        if (val.m_data.m_value.boolean) {
-            o->write_characters("true", 4);
-        } else {
-            o->write_characters("false", 5);
-        }
+        dumpBool(val.m_data.m_value.boolean);
         return;
     }
 
@@ -208,12 +183,12 @@ void nlohmann::detail::serializer::dump(const ordered_json &val, const bool pret
     }
 
     case value_t::discarded: {
-        o->write_characters("<discarded>", 11);
+        dumpNull();
         return;
     }
 
     case value_t::null: {
-        o->write_characters("null", 4);
+        dumpNull();
         return;
     }
 
@@ -221,7 +196,143 @@ void nlohmann::detail::serializer::dump(const ordered_json &val, const bool pret
     }
 }
 
-void nlohmann::detail::serializer::dump_escaped(const std::string &s, const bool ensure_ascii)
+void nlohmann::detail::serializer::dumpEmptyObject() { o->write_characters("{}", 2); }
+
+int nlohmann::detail::serializer::dumpObjectBegin(const bool pretty_print,
+                                                  const unsigned int indent_step,
+                                                  const unsigned int current_indent, bool oneLiner)
+{
+    if (!pretty_print) {
+        o->write_character('{');
+        return 0;
+    }
+    if (!oneLiner) {
+        o->write_characters("{\n", 2);
+    } else {
+        o->write_character('{');
+    }
+    const auto new_indent = current_indent + indent_step;
+    if (indent_string.size() < new_indent) {
+        indent_string.resize(indent_string.size() * 2, ' ');
+    }
+    return new_indent;
+}
+
+void nlohmann::detail::serializer::dumpKey(std::string_view key, const bool pretty_print,
+                                           const unsigned int indent, const bool ensure_ascii,
+                                           bool oneLiner)
+{
+    if (!pretty_print) {
+        o->write_character('\"');
+        dump_escaped(key, ensure_ascii);
+        o->write_characters("\":", 2);
+        return;
+    }
+    if (oneLiner) {
+        o->write_character('\"');
+        dump_escaped(key, ensure_ascii);
+        o->write_characters("\": ", 3);
+        return;
+    }
+    o->write_characters(indent_string.c_str(), indent);
+    o->write_character('\"');
+    dump_escaped(key, ensure_ascii);
+    o->write_characters("\": ", 3);
+}
+
+void nlohmann::detail::serializer::dumpObjectComa(const bool pretty_print, bool oneLiner)
+{
+    if (!pretty_print) {
+        o->write_character(',');
+        return;
+    }
+    if (oneLiner) {
+        o->write_characters(", ", 2);
+        return;
+    }
+    o->write_characters(",\n", 2);
+}
+
+void nlohmann::detail::serializer::dumpObjectEnd(const bool pretty_print,
+                                                 const unsigned int prevIndent, bool oneLiner)
+{
+    if (!pretty_print || oneLiner) {
+        o->write_character('}');
+        return;
+    }
+    o->write_character('\n');
+    o->write_characters(indent_string.c_str(), prevIndent);
+    o->write_character('}');
+}
+
+void nlohmann::detail::serializer::dumpEmptyArray() { o->write_characters("[]", 2); }
+
+int nlohmann::detail::serializer::dumpArrayBegin(const bool pretty_print,
+                                                 const unsigned int indent_step,
+                                                 const unsigned int current_indent)
+{
+    o->write_character('[');
+    if (!pretty_print) {
+        return 0;
+    }
+    const auto new_indent = current_indent + indent_step;
+    if (indent_string.size() < new_indent) {
+        indent_string.resize(indent_string.size() * 2, ' ');
+    }
+    return new_indent;
+}
+
+void nlohmann::detail::serializer::dumpArrayPrettyIndent(std::optional<bool> prevWasObject,
+                                                         const bool thisObject,
+                                                         const unsigned int indent)
+{
+    if (!thisObject) {
+        if (!prevWasObject) {
+            return;
+        }
+        if (*prevWasObject) {
+            o->write_character('\n');
+            o->write_characters(indent_string.c_str(), indent);
+            return;
+        }
+        o->write_character(' ');
+        return;
+    }
+    o->write_character('\n');
+    o->write_characters(indent_string.c_str(), indent);
+}
+
+void nlohmann::detail::serializer::dumpArrayComa() { o->write_character(','); }
+
+void nlohmann::detail::serializer::dumpArrayEnd(const bool pretty_print, const bool wasAnyObject,
+                                                const unsigned int prevIndent)
+{
+    if (!wasAnyObject || !pretty_print) {
+        o->write_character(']');
+        return;
+    }
+    o->write_character('\n');
+    o->write_characters(indent_string.c_str(), prevIndent);
+    o->write_character(']');
+}
+
+void nlohmann::detail::serializer::dumpString(std::string_view string, const bool ensure_ascii)
+{
+    o->write_character('\"');
+    dump_escaped(string, ensure_ascii);
+    o->write_character('\"');
+}
+
+void nlohmann::detail::serializer::dumpBool(bool value)
+{
+    if (value) {
+        o->write_characters("true", 4);
+        return;
+    }
+    o->write_characters("false", 5);
+}
+
+void nlohmann::detail::serializer::dump_escaped(std::string_view s, const bool ensure_ascii)
 {
     std::uint32_t codepoint{};
     uint8_t state = UTF8_ACCEPT;
@@ -509,6 +620,8 @@ void nlohmann::detail::serializer::dump_float(double x)
 
     dump_float(x, std::integral_constant<bool, is_ieee_single_or_double>());
 }
+
+void nlohmann::detail::serializer::dumpNull() { o->write_characters("null", 4); }
 
 void nlohmann::detail::serializer::dump_float(double x, std::true_type)
 {
