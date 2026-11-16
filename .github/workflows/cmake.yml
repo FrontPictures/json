@@ -1,0 +1,13 @@
+name: CMake
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S . -B build -DJSON_BuildTests=ON
+      - run: cmake --build build --config Debug --parallel 2
+      - run: ctest --test-dir build -C Debug --output-on-failure
