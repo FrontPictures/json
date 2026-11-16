@@ -116,8 +116,8 @@ TEST_CASE("UBJSON")
             CHECK(result == expected);
 
             // roundtrip
-            CHECK(utils::same_json_values(json::from_ubjson(result), j));
-            CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+            CHECK(json::from_ubjson(result) == j);
+            CHECK(json::from_ubjson(result, true, false) == j);
         }
 
         SECTION("boolean")
@@ -130,8 +130,8 @@ TEST_CASE("UBJSON")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                CHECK(json::from_ubjson(result) == j);
+                CHECK(json::from_ubjson(result, true, false) == j);
             }
 
             SECTION("false")
@@ -142,8 +142,8 @@ TEST_CASE("UBJSON")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                CHECK(json::from_ubjson(result) == j);
+                CHECK(json::from_ubjson(result, true, false) == j);
             }
         }
 
@@ -209,8 +209,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -258,8 +258,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -294,8 +294,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -315,8 +315,8 @@ TEST_CASE("UBJSON")
                     CHECK(restored == -9263);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("-128..-1 (int8)")
@@ -348,8 +348,8 @@ TEST_CASE("UBJSON")
                         CHECK(static_cast<int8_t>(result[1]) == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -383,8 +383,8 @@ TEST_CASE("UBJSON")
                         CHECK(result[1] == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -418,8 +418,8 @@ TEST_CASE("UBJSON")
                         CHECK(result[1] == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -455,8 +455,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -500,8 +500,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -551,8 +551,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
             }
@@ -589,8 +589,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -624,8 +624,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -660,8 +660,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -704,8 +704,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
 
@@ -754,8 +754,8 @@ TEST_CASE("UBJSON")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                        CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                        CHECK(json::from_ubjson(result) == j);
+                        CHECK(json::from_ubjson(result, true, false) == j);
                     }
                 }
             }
@@ -774,9 +774,9 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
+                    CHECK(json::from_ubjson(result) == j);
                     CHECK(json::from_ubjson(result) == v);
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -866,8 +866,8 @@ TEST_CASE("UBJSON")
                     }
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -899,8 +899,8 @@ TEST_CASE("UBJSON")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -933,8 +933,8 @@ TEST_CASE("UBJSON")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -969,8 +969,8 @@ TEST_CASE("UBJSON")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
         }
@@ -1212,8 +1212,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1224,8 +1224,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1236,8 +1236,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1251,8 +1251,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1263,8 +1263,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1275,8 +1275,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1290,8 +1290,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1302,8 +1302,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1314,8 +1314,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1329,8 +1329,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1341,8 +1341,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1353,8 +1353,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1370,8 +1370,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1387,8 +1387,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1399,8 +1399,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1416,8 +1416,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1435,8 +1435,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1447,8 +1447,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
         }
@@ -1465,8 +1465,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1477,8 +1477,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1489,8 +1489,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1504,8 +1504,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1516,8 +1516,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1528,8 +1528,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
 
@@ -1546,8 +1546,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1561,8 +1561,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1576,8 +1576,8 @@ TEST_CASE("UBJSON")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_ubjson(result), j));
-                    CHECK(utils::same_json_values(json::from_ubjson(result, true, false), j));
+                    CHECK(json::from_ubjson(result) == j);
+                    CHECK(json::from_ubjson(result, true, false) == j);
                 }
             }
         }

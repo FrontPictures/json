@@ -229,8 +229,8 @@ TEST_CASE("BJData")
             CHECK(result == expected);
 
             // roundtrip
-            CHECK(utils::same_json_values(json::from_bjdata(result), j));
-            CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+            CHECK(json::from_bjdata(result) == j);
+            CHECK(json::from_bjdata(result, true, false) == j);
         }
 
         SECTION("boolean")
@@ -243,8 +243,8 @@ TEST_CASE("BJData")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                CHECK(json::from_bjdata(result) == j);
+                CHECK(json::from_bjdata(result, true, false) == j);
             }
 
             SECTION("false")
@@ -255,8 +255,8 @@ TEST_CASE("BJData")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                CHECK(json::from_bjdata(result) == j);
+                CHECK(json::from_bjdata(result, true, false) == j);
             }
         }
 
@@ -322,8 +322,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -373,8 +373,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -409,8 +409,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -430,8 +430,8 @@ TEST_CASE("BJData")
                     CHECK(restored == -9263);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("-128..-1 (int8)")
@@ -463,8 +463,8 @@ TEST_CASE("BJData")
                         CHECK(static_cast<int8_t>(result[1]) == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -498,8 +498,8 @@ TEST_CASE("BJData")
                         CHECK(result[1] == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -533,8 +533,8 @@ TEST_CASE("BJData")
                         CHECK(result[1] == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -570,8 +570,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -610,8 +610,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -655,8 +655,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -700,8 +700,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -751,8 +751,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -784,8 +784,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -820,8 +820,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -859,8 +859,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
                 SECTION("65536..2147483647 (int32)")
@@ -902,8 +902,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -946,8 +946,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -996,8 +996,8 @@ TEST_CASE("BJData")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                        CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                        CHECK(json::from_bjdata(result) == j);
+                        CHECK(json::from_bjdata(result, true, false) == j);
                     }
                 }
 
@@ -1017,9 +1017,9 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
+                    CHECK(json::from_bjdata(result) == j);
                     CHECK(json::from_bjdata(result) == v);
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1219,8 +1219,8 @@ TEST_CASE("BJData")
                     }
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1252,8 +1252,8 @@ TEST_CASE("BJData")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1286,8 +1286,8 @@ TEST_CASE("BJData")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1320,8 +1320,8 @@ TEST_CASE("BJData")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1356,8 +1356,8 @@ TEST_CASE("BJData")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
         }
@@ -1635,8 +1635,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1647,8 +1647,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1659,8 +1659,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1674,8 +1674,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1686,8 +1686,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1698,8 +1698,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1713,8 +1713,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1725,8 +1725,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1737,8 +1737,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1752,8 +1752,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1764,8 +1764,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1776,8 +1776,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1793,8 +1793,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1810,8 +1810,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1827,8 +1827,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1844,8 +1844,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1861,8 +1861,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1880,8 +1880,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
         }
@@ -1898,8 +1898,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1910,8 +1910,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true")
@@ -1922,8 +1922,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1937,8 +1937,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1949,8 +1949,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
 
@@ -1967,8 +1967,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=false")
@@ -1982,8 +1982,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
 
                 SECTION("size=true type=true ignore object type marker")
@@ -1997,8 +1997,8 @@ TEST_CASE("BJData")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(utils::same_json_values(json::from_bjdata(result), j));
-                    CHECK(utils::same_json_values(json::from_bjdata(result, true, false), j));
+                    CHECK(json::from_bjdata(result) == j);
+                    CHECK(json::from_bjdata(result, true, false) == j);
                 }
             }
         }
