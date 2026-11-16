@@ -51,3 +51,30 @@ TEST_CASE("value-initialized iterators compare equal")
     CHECK_THROWS_AS(a == value.begin(), json::invalid_iterator);
     CHECK_THROWS_AS(a < value.begin(), json::invalid_iterator);
 }
+
+TEST_CASE("pretty arrays group primitive values on one line")
+{
+    CHECK(json::array().dump(2) == "[]");
+    CHECK(json::array({1, true, nullptr, "short", json::object(), json::array()}).dump(2)
+          == "[1, true, null, \"short\", {}, []]");
+    CHECK(json::array({1, json::object({{"x", 2}}), 3}).dump(2)
+          == "[1,\n  {\n    \"x\": 2\n  },\n  3\n]");
+    CHECK(json::array({json::array({1, 2}), json::array({3, 4})}).dump(2)
+          == "[\n  [1, 2],\n  [3, 4]\n]");
+    CHECK(json::object({{"values", json::array({1, 2})}}).dump(2)
+          == "{\n  \"values\": [1, 2]\n}");
+    const json strings = json::array({std::string(20, 'a'), std::string(21, 'b'), "end"});
+    CHECK(strings.dump(2) == "[\"" + std::string(20, 'a') + "\",\n  \""
+          + std::string(21, 'b') + "\",\n  \"end\"\n]");
+    // The threshold counts UTF-8 bytes, before JSON escaping.
+    const json unicode = json::array({"éééééééééé", "ééééééééééé"});
+    CHECK(unicode.dump(2) == "[\"éééééééééé\",\n  \"ééééééééééé\"\n]");
+    CHECK(json::array({"\"\\\n", "é"}).dump(2, ' ', true)
+          == "[\"\\\"\\\\\\n\", \"\\u00e9\"]");
+    for (const auto &value : {strings, unicode, json::array({1, json::object({{"x", 2}}), 3})}) {
+        CHECK(json::parse(value.dump(2)) == value);
+        CHECK(json::parse(value.dump(0, ' ', true)) == value);
+        CHECK(json::parse(value.dump(2, '\t')) == value);
+        CHECK(json::parse(value.dump()) == value);
+    }
+}
