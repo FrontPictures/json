@@ -20,7 +20,6 @@
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
-#if JSON_HAS_THREE_WAY_COMPARISON
 // this can be replaced with the doctest stl extension header in version 2.5
 namespace doctest
 {
@@ -49,7 +48,6 @@ template<> struct StringMaker<std::partial_ordering>
 };
 } // namespace doctest
 
-#endif
 
 namespace
 {
@@ -67,20 +65,13 @@ TEST_CASE("lexicographical comparison operators")
     constexpr auto f_ = false;
     constexpr auto _t = true;
     constexpr auto nan = std::numeric_limits<json::number_float_t>::quiet_NaN();
-#if JSON_HAS_THREE_WAY_COMPARISON
     constexpr auto lt = std::partial_ordering::less;
     constexpr auto gt = std::partial_ordering::greater;
     constexpr auto eq = std::partial_ordering::equivalent;
     constexpr auto un = std::partial_ordering::unordered;
-#endif
 
-#if JSON_HAS_THREE_WAY_COMPARISON
     INFO("using 3-way comparison");
-#endif
 
-#if JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON
-    INFO("using legacy comparison");
-#endif
 
     //REQUIRE(std::numeric_limits<json::number_float_t>::has_quiet_NaN);
     REQUIRE(std::isnan(nan));
@@ -101,19 +92,16 @@ TEST_CASE("lexicographical comparison operators")
             json::value_t::discarded
         };
 
-        std::vector<std::vector<bool>> expected_lt =
-        {
-            //0   1   2   3   4   5   6   7   8   9
-            {f_, _t, _t, _t, _t, _t, _t, _t, _t, f_}, //  0
-            {f_, f_, _t, _t, _t, _t, _t, _t, _t, f_}, //  1
-            {f_, f_, f_, f_, f_, _t, _t, _t, _t, f_}, //  2
-            {f_, f_, f_, f_, f_, _t, _t, _t, _t, f_}, //  3
-            {f_, f_, f_, f_, f_, _t, _t, _t, _t, f_}, //  4
-            {f_, f_, f_, f_, f_, f_, _t, _t, _t, f_}, //  5
-            {f_, f_, f_, f_, f_, f_, f_, _t, _t, f_}, //  6
-            {f_, f_, f_, f_, f_, f_, f_, f_, _t, f_}, //  7
-            {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  8
-            {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  9
+        std::vector<std::vector<bool>> expected_lt = {
+            {f_, _t, _t, _t, _t, _t, _t, _t, f_},
+            {f_, f_, _t, _t, _t, _t, _t, _t, f_},
+            {f_, f_, f_, f_, _t, _t, _t, _t, f_},
+            {f_, f_, f_, f_, _t, _t, _t, _t, f_},
+            {f_, f_, f_, f_, f_, _t, _t, _t, f_},
+            {f_, f_, f_, f_, f_, f_, _t, _t, f_},
+            {f_, f_, f_, f_, f_, f_, f_, _t, f_},
+            {f_, f_, f_, f_, f_, f_, f_, f_, f_},
+            {f_, f_, f_, f_, f_, f_, f_, f_, f_},
         };
 
         SECTION("comparison: less")
@@ -127,33 +115,25 @@ TEST_CASE("lexicographical comparison operators")
                     CAPTURE(i)
                     CAPTURE(j)
                     // check precomputed values
-#if JSON_HAS_THREE_WAY_COMPARISON
                     // JSON_HAS_CPP_20 (do not remove; see note at top of file)
                     CHECK((j_types[i] < j_types[j]) == expected_lt[i][j]);
-#else
-                    CHECK(operator<(j_types[i], j_types[j]) == expected_lt[i][j]);
-#endif
                     CHECK(f(j_types[i], j_types[j]) == expected_lt[i][j]);
                 }
             }
         }
-#if JSON_HAS_THREE_WAY_COMPARISON
         // JSON_HAS_CPP_20 (do not remove; see note at top of file)
         SECTION("comparison: 3-way")
         {
-            std::vector<std::vector<std::partial_ordering>> expected =
-            {
-                //0   1   2   3   4   5   6   7   8   9
-                {eq, lt, lt, lt, lt, lt, lt, lt, lt, un}, //  0
-                {gt, eq, lt, lt, lt, lt, lt, lt, lt, un}, //  1
-                {gt, gt, eq, eq, eq, lt, lt, lt, lt, un}, //  2
-                {gt, gt, eq, eq, eq, lt, lt, lt, lt, un}, //  3
-                {gt, gt, eq, eq, eq, lt, lt, lt, lt, un}, //  4
-                {gt, gt, gt, gt, gt, eq, lt, lt, lt, un}, //  5
-                {gt, gt, gt, gt, gt, gt, eq, lt, lt, un}, //  6
-                {gt, gt, gt, gt, gt, gt, gt, eq, lt, un}, //  7
-                {gt, gt, gt, gt, gt, gt, gt, gt, eq, un}, //  8
-                {un, un, un, un, un, un, un, un, un, un}, //  9
+            std::vector<std::vector<std::partial_ordering>> expected = {
+                {eq, lt, lt, lt, lt, lt, lt, lt, un},
+                {gt, eq, lt, lt, lt, lt, lt, lt, un},
+                {gt, gt, eq, eq, lt, lt, lt, lt, un},
+                {gt, gt, eq, eq, lt, lt, lt, lt, un},
+                {gt, gt, gt, gt, eq, lt, lt, lt, un},
+                {gt, gt, gt, gt, gt, eq, lt, lt, un},
+                {gt, gt, gt, gt, gt, gt, eq, lt, un},
+                {gt, gt, gt, gt, gt, gt, gt, eq, un},
+                {un, un, un, un, un, un, un, un, un},
             };
 
             // check expected partial_ordering against expected boolean
@@ -182,7 +162,6 @@ TEST_CASE("lexicographical comparison operators")
                 }
             }
         }
-#endif
     }
 
     SECTION("values")
@@ -299,52 +278,6 @@ TEST_CASE("lexicographical comparison operators")
             }
         }
 
-#if JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON
-        SECTION("compares unordered (inverse)")
-        {
-            std::vector<std::vector<bool>> expected =
-            {
-                //0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  0
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  1
-                {f_, f_, f_, f_, f_, f_, f_, f_, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  2
-                {f_, f_, f_, f_, f_, f_, f_, f_, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  3
-                {f_, f_, f_, f_, f_, f_, f_, f_, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  4
-                {f_, f_, f_, f_, f_, f_, f_, f_, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  5
-                {f_, f_, f_, f_, f_, f_, f_, f_, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  6
-                {f_, f_, f_, f_, f_, f_, f_, f_, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  7
-                {f_, f_, _t, _t, _t, _t, _t, _t, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  8
-                {f_, f_, _t, _t, _t, _t, _t, _t, _t, _t, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, //  9
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 10
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 11
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 12
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 13
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 14
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 15
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 16
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 17
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 18
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 19
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 20
-                {f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_, f_}, // 21
-            };
-
-            // check that two values compare unordered as expected (with legacy-mode enabled)
-            REQUIRE(expected.size() == j_values.size());
-            for (size_t i = 0; i < j_values.size(); ++i)
-            {
-                REQUIRE(expected[i].size() == j_values.size());
-                for (size_t j = 0; j < j_values.size(); ++j)
-                {
-                    CAPTURE(i)
-                    CAPTURE(j)
-                    CAPTURE(j_values[i])
-                    CAPTURE(j_values[j])
-                    CHECK(json::compares_unordered(j_values[i], j_values[j], true) == expected[i][j]);
-                }
-            }
-        }
-#endif
 
         SECTION("comparison: equal")
         {
@@ -493,7 +426,6 @@ TEST_CASE("lexicographical comparison operators")
             }
         }
 
-#if JSON_HAS_THREE_WAY_COMPARISON
         // JSON_HAS_CPP_20 (do not remove; see note at top of file)
         SECTION("comparison: 3-way")
         {
@@ -557,41 +489,6 @@ TEST_CASE("lexicographical comparison operators")
                 }
             }
         }
-#endif
     }
 
-#if JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON
-    SECTION("parser callback regression")
-    {
-        SECTION("filter specific element")
-        {
-            const auto* s_object = R"(
-                {
-                    "foo": 2,
-                    "bar": {
-                        "baz": 1
-                    }
-                }
-            )";
-            const auto* s_array = R"(
-                [1,2,[3,4,5],4,5]
-            )";
-
-            json j_object = json::parse(s_object, [](int /*unused*/, json::parse_event_t /*unused*/, const json & j) noexcept
-            {
-                // filter all number(2) elements
-                return j != json(2);
-            });
-
-            CHECK (j_object == json({{"bar", {{"baz", 1}}}}));
-
-            json j_array = json::parse(s_array, [](int /*unused*/, json::parse_event_t /*unused*/, const json & j) noexcept
-            {
-                return j != json(2);
-            });
-
-            CHECK (j_array == json({1, {3, 4, 5}, 4, 5}));
-        }
-    }
-#endif
 }

@@ -4,9 +4,9 @@
 
 std::partial_ordering nlohmann::detail::operator<=>(const value_t lhs, const value_t rhs) noexcept
 {
-    static constexpr std::array<uint8_t, 9> order = {{
+    static constexpr std::array<uint8_t, 8> order = {{
         0 /* null */, 3 /* object */, 4 /* array */, 5 /* string */, 1 /* boolean */,
-        2 /* integer */, 2 /* unsigned */, 2 /* float */, 6 /* binary */
+        2 /* integer */, 2 /* float */, 6 /* binary */
     }};
 
     const auto l_index = static_cast<size_t>(lhs);
