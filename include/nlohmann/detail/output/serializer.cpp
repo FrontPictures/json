@@ -116,7 +116,7 @@ void nlohmann::detail::serializer::dump(const ordered_json &val, const bool pret
 
             const auto new_indent = current_indent + indent_step;
             if (indent_string.size() < new_indent) {
-                indent_string.resize(indent_string.size() * 2, ' ');
+                indent_string.resize(std::max(indent_string.size() * 2, size_t(new_indent)), indent_char);
             }
 
             o->write_characters(indent_string.c_str(), new_indent);
@@ -213,7 +213,7 @@ int nlohmann::detail::serializer::dumpObjectBegin(const bool pretty_print,
     }
     const auto new_indent = current_indent + indent_step;
     if (indent_string.size() < new_indent) {
-        indent_string.resize(indent_string.size() * 2, ' ');
+        indent_string.resize(std::max(indent_string.size() * 2, size_t(new_indent)), indent_char);
     }
     return new_indent;
 }
@@ -277,7 +277,7 @@ int nlohmann::detail::serializer::dumpArrayBegin(const bool pretty_print,
     }
     const auto new_indent = current_indent + indent_step;
     if (indent_string.size() < new_indent) {
-        indent_string.resize(indent_string.size() * 2, ' ');
+        indent_string.resize(std::max(indent_string.size() * 2, size_t(new_indent)), indent_char);
     }
     return new_indent;
 }

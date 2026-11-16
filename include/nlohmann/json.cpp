@@ -394,7 +394,7 @@ std::string nlohmann::ordered_json::dump(const int indent, const char indent_cha
     serializer s(detail::output_adapter(result), indent_char, error_handler);
 
     if (indent >= 0) {
-        s.dump(*this, true, ensure_ascii, static_cast<unsigned int>(indent));
+        s.dump(*this, true, ensure_ascii, static_cast<unsigned int>(std::min(indent, 32)));
     } else {
         s.dump(*this, false, ensure_ascii, 0);
     }
