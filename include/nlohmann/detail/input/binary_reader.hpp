@@ -106,6 +106,7 @@ public:
     std::unique_ptr<iterator_input_adapter> ia;
     uint64_t current = uint64_t(EOF);
     size_t chars_read = 0;
+    size_t valueless_elements = 0;
     const bool is_little_endian = little_endianness();
     const input_format_t input_format = input_format_t::json;
     json_sax *sax = nullptr;

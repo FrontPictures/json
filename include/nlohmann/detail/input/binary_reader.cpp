@@ -1,4 +1,5 @@
 #include "binary_reader.hpp"
+#include "nlohmann/detail/ubjson_limits.hpp"
 #include <cmath>
 #include <iterator>
 #include "nlohmann/byte_container_with_subtype.hpp"
@@ -19,6 +20,7 @@ bool nlohmann::detail::binary_reader::sax_parse(const input_format_t format, jso
                                                 const cbor_tag_handler_t tag_handler)
 {
     sax = sax_;
+    valueless_elements = 0;
     bool result = false;
 
     switch (format) {
@@ -2046,6 +2048,18 @@ bool nlohmann::detail::binary_reader::get_ubjson_array()
     }
 
     if (size_and_type.first != npos) {
+        const auto type = size_and_type.second;
+        if (input_format == input_format_t::ubjson && (type == 'Z' || type == 'T' || type == 'F')) {
+            const auto maximum = (std::numeric_limits<size_t>::max)();
+            const auto budget = chars_read > (maximum - ubjson_valueless_limit) / 4
+                                    ? maximum : ubjson_valueless_limit + 4 * chars_read;
+            if (size_and_type.first > ubjson_valueless_limit
+                || size_and_type.first > budget - valueless_elements) {
+                return sax->parse_error(chars_read, get_token_string(),
+                                       out_of_range::create(408, "excessive valueless UBJSON array size"));
+            }
+            valueless_elements += size_and_type.first;
+        }
         if (!sax->start_array(size_and_type.first)) {
             return false;
         }

@@ -102,6 +102,7 @@ private:
     const bool is_little_endian = little_endianness();
 
     std::shared_ptr<output_adapter_protocol> oa;
+    size_t valueless_elements = 0;
 };
 
 } // namespace detail

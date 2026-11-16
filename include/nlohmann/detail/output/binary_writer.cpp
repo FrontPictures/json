@@ -1,4 +1,5 @@
 #include "binary_writer.hpp"
+#include "nlohmann/detail/ubjson_limits.hpp"
 #include <map>
 #include <numeric>
 #include <cmath>
@@ -464,9 +465,16 @@ void nlohmann::detail::binary_writer::write_ubjson(const ordered_json &j, const 
 
             std::vector<char> bjdx = {'[', '{', 'S', 'H', 'T', 'F', 'N', 'Z'};
 
-            if (same_prefix
+            const bool valueless = !use_bjdata
+                                   && (first_prefix == 'Z' || first_prefix == 'T' || first_prefix == 'F');
+            const bool within_budget = !valueless
+                                       || j.size() <= ubjson_valueless_limit - valueless_elements;
+            if (same_prefix && within_budget
                 && !(use_bjdata
                      && std::find(bjdx.begin(), bjdx.end(), first_prefix) != bjdx.end())) {
+                if (valueless) {
+                    valueless_elements += j.size();
+                }
                 prefix_required = false;
                 oa->write_character(to_char_type('$'));
                 oa->write_character(first_prefix);

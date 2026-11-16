@@ -125,3 +125,47 @@ TEST_CASE("lexer bounds diagnostic token text")
     CHECK(token.back() == 'x');
     CHECK(token.find("...") != std::string::npos);
 }
+
+TEST_CASE("UBJSON bounds arrays with no element payload")
+{
+    struct observer : nlohmann::detail::json_sax_acceptor {
+        int starts = 0;
+        int error_id = 0;
+        bool start_array(size_t) override { ++starts; return false; }
+        bool parse_error(size_t, const std::string &, const nlohmann::detail::exception &error) override
+        {
+            error_id = error.id;
+            return false;
+        }
+    } sax;
+    // Nine bytes announce over two million values without any payload.
+    const std::vector<uint8_t> input = {'[', '$', 'Z', '#', 'l', 0, 0x20, 0, 0};
+    CHECK_FALSE(json::sax_parse(input, &sax, json::input_format_t::ubjson));
+    CHECK(sax.starts == 0);
+    CHECK(sax.error_id == 408);
+}
+
+TEST_CASE("UBJSON bounds aggregate expansion and preserves writer roundtrips")
+{
+    struct observer : nlohmann::detail::json_sax_acceptor {
+        int error_id = 0;
+        bool parse_error(size_t, const std::string &, const nlohmann::detail::exception &error) override
+        {
+            error_id = error.id;
+            return false;
+        }
+    } sax;
+    const std::vector<uint8_t> input = {
+        '[', '[', '$', 'Z', '#', 'l', 0, 8, 0, 128,
+             '[', '$', 'Z', '#', 'l', 0, 8, 0, 128, ']'};
+    CHECK_FALSE(json::sax_parse(input, &sax, json::input_format_t::ubjson));
+    CHECK(sax.error_id == 408);
+    CHECK(json::from_ubjson(input, true, false).is_discarded());
+    const auto row = json(std::vector<json>((size_t(1) << 19) + 128, nullptr));
+    const auto value = json::array({row, row});
+    const auto encoded = json::to_ubjson(value, true, true);
+    CHECK(json::from_ubjson(encoded) == value);
+    const auto small = json::array({true, true, true});
+    CHECK(json::to_ubjson(small, true, true)
+          == std::vector<uint8_t>({'[', '$', 'T', '#', 'i', 3}));
+}
