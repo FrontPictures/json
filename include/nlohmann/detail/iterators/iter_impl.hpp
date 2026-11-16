@@ -294,6 +294,10 @@ public:
                 invalid_iterator::create(212, "cannot compare iterators of different containers"));
         }
 
+        if (m_object == nullptr) {
+            return true;
+        }
+
         switch (m_object->m_data.m_type) {
         case value_t::object: return (m_it.object_iterator == other.m_it.object_iterator);
 
@@ -319,6 +323,10 @@ public:
     {
         if (m_object != other.m_object) {
             throw(invalid_iterator::create(212, "cannot compare iterators of different containers"));
+        }
+
+        if (m_object == nullptr) {
+            return false;
         }
 
         switch (m_object->m_data.m_type) {

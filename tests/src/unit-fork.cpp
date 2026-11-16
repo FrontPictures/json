@@ -35,3 +35,19 @@ TEST_CASE("pretty output clamps indentation width")
     CHECK(output.find("\n" + std::string(672, '\t') + "\"x\"") != std::string::npos);
     CHECK(json::parse(output) == nested);
 }
+
+TEST_CASE("value-initialized iterators compare equal")
+{
+    json::iterator a{}, b{};
+    json::const_iterator c{};
+    CHECK(a == b);
+    CHECK(a == c);
+    CHECK_FALSE(a != b);
+    CHECK_FALSE(a < b);
+    CHECK(a <= b);
+    CHECK_FALSE(a > b);
+    CHECK(a >= b);
+    json value = {1, 2};
+    CHECK_THROWS_AS(a == value.begin(), json::invalid_iterator);
+    CHECK_THROWS_AS(a < value.begin(), json::invalid_iterator);
+}
