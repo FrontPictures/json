@@ -47,7 +47,7 @@ set(NLOHMANN_JSON_CMAKE_VERSION_CONFIG_FILE "${NLOHMANN_JSON_CMAKE_CONFIG_DIR}/$
 set(NLOHMANN_JSON_CMAKE_PROJECT_CONFIG_FILE "${NLOHMANN_JSON_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Config.cmake")
 set(NLOHMANN_JSON_CMAKE_PROJECT_TARGETS_FILE "${NLOHMANN_JSON_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Targets.cmake")
 
-set(NLOHMANN_JSON_INCLUDE_BUILD_DIR "${PROJECT_SOURCE_DIR}/include/")
+set(NLOHMANN_JSON_INCLUDE_BUILD_DIR "${PROJECT_SOURCE_DIR}/src/")
 
 if (JSON_SystemInclude)
     set(NLOHMANN_JSON_SYSTEM_INCLUDE "SYSTEM")
@@ -58,36 +58,36 @@ endif()
 ## create target and add include path
 ##
 add_library(${NLOHMANN_JSON_TARGET_NAME} STATIC
-    include/nlohmann/detail/conversions/diyfp.h include/nlohmann/detail/conversions/diyfp.cpp
-    include/nlohmann/detail/conversions/grisu2.h include/nlohmann/detail/conversions/grisu2.cpp
-    include/nlohmann/detail/conversions/to_chars.hpp include/nlohmann/detail/conversions/to_chars.cpp
-    include/nlohmann/detail/input/binary_reader.hpp include/nlohmann/detail/input/binary_reader.cpp
-    include/nlohmann/detail/input/input_adapters.hpp include/nlohmann/detail/input/input_adapters.cpp
-    include/nlohmann/detail/input/input_format_t.h include/nlohmann/detail/input/input_format_t.cpp
-    include/nlohmann/detail/input/json_sax.hpp include/nlohmann/detail/input/json_sax.cpp
-    include/nlohmann/detail/input/lexer.hpp include/nlohmann/detail/input/lexer.cpp
-    include/nlohmann/detail/input/parser.hpp include/nlohmann/detail/input/parser.cpp
-    include/nlohmann/detail/input/parser_types.h
-    include/nlohmann/detail/input/position_t.hpp
-    include/nlohmann/detail/iterators/internal_iterator.hpp
-    include/nlohmann/detail/iterators/iteration_proxy.hpp
-    include/nlohmann/detail/iterators/json_reverse_iterator.hpp
-    include/nlohmann/detail/iterators/iter_impl.hpp
-    include/nlohmann/detail/iterators/primitive_iterator.hpp
-    include/nlohmann/detail/output/binary_writer.hpp include/nlohmann/detail/output/binary_writer.cpp
-    include/nlohmann/detail/output/error_handler_t.h
-    include/nlohmann/detail/output/output_adapters.hpp
-    include/nlohmann/detail/output/serializer.hpp include/nlohmann/detail/output/serializer.cpp
-    include/nlohmann/detail/json_ref.hpp
-    include/nlohmann/detail/exceptions.hpp include/nlohmann/detail/exceptions.cpp
-    include/nlohmann/detail/json_pointer.hpp include/nlohmann/detail/json_pointer.cpp
-    include/nlohmann/detail/string_escape.hpp
-    include/nlohmann/detail/string_concat.hpp
-    include/nlohmann/detail/value_t.hpp include/nlohmann/detail/value_t.cpp
-    include/nlohmann/detail/hash.hpp include/nlohmann/detail/hash.cpp
-    include/nlohmann/ordered_map.hpp
-    include/nlohmann/json.hpp include/nlohmann/json.cpp
-    include/nlohmann/byte_container_with_subtype.hpp include/nlohmann/byte_container_with_subtype.cpp
+    src/nlohmann/detail/conversions/diyfp.h src/nlohmann/detail/conversions/diyfp.cpp
+    src/nlohmann/detail/conversions/grisu2.h src/nlohmann/detail/conversions/grisu2.cpp
+    src/nlohmann/detail/conversions/to_chars.hpp src/nlohmann/detail/conversions/to_chars.cpp
+    src/nlohmann/detail/input/binary_reader.hpp src/nlohmann/detail/input/binary_reader.cpp
+    src/nlohmann/detail/input/input_adapters.hpp src/nlohmann/detail/input/input_adapters.cpp
+    src/nlohmann/detail/input/input_format_t.h src/nlohmann/detail/input/input_format_t.cpp
+    src/nlohmann/detail/input/json_sax.hpp src/nlohmann/detail/input/json_sax.cpp
+    src/nlohmann/detail/input/lexer.hpp src/nlohmann/detail/input/lexer.cpp
+    src/nlohmann/detail/input/parser.hpp src/nlohmann/detail/input/parser.cpp
+    src/nlohmann/detail/input/parser_types.h
+    src/nlohmann/detail/input/position_t.hpp
+    src/nlohmann/detail/iterators/internal_iterator.hpp
+    src/nlohmann/detail/iterators/iteration_proxy.hpp
+    src/nlohmann/detail/iterators/json_reverse_iterator.hpp
+    src/nlohmann/detail/iterators/iter_impl.hpp
+    src/nlohmann/detail/iterators/primitive_iterator.hpp
+    src/nlohmann/detail/output/binary_writer.hpp src/nlohmann/detail/output/binary_writer.cpp
+    src/nlohmann/detail/output/error_handler_t.h
+    src/nlohmann/detail/output/output_adapters.hpp
+    src/nlohmann/detail/output/serializer.hpp src/nlohmann/detail/output/serializer.cpp
+    src/nlohmann/detail/json_ref.hpp
+    src/nlohmann/detail/exceptions.hpp src/nlohmann/detail/exceptions.cpp
+    src/nlohmann/detail/json_pointer.hpp src/nlohmann/detail/json_pointer.cpp
+    src/nlohmann/detail/string_escape.hpp
+    src/nlohmann/detail/string_concat.hpp
+    src/nlohmann/detail/value_t.hpp src/nlohmann/detail/value_t.cpp
+    src/nlohmann/detail/hash.hpp src/nlohmann/detail/hash.cpp
+    src/nlohmann/ordered_map.hpp
+    src/nlohmann/json.hpp src/nlohmann/json.cpp
+    src/nlohmann/byte_container_with_subtype.hpp src/nlohmann/byte_container_with_subtype.cpp
     )
 add_library(${PROJECT_NAME}::${NLOHMANN_JSON_TARGET_NAME} ALIAS ${NLOHMANN_JSON_TARGET_NAME})
 target_compile_features(${NLOHMANN_JSON_TARGET_NAME} PUBLIC cxx_std_20)
