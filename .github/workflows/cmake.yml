@@ -3,11 +3,39 @@ on: [push, pull_request]
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - run: cmake -S . -B build -DJSON_BuildTests=ON
-      - run: cmake --build build --config Debug --parallel 2
-      - run: ctest --test-dir build -C Debug --output-on-failure
+      - uses: actions/checkout@v7
+      - name: Configure
+        run: cmake -S . -B build -DJSON_BuildTests=ON -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        shell: bash
+        run: |
+          if cmake --build build --config Release --parallel 2 2>&1 | tee build.log; then
+            exit 0
+          else
+            tail -n 200 build.log >> "$GITHUB_STEP_SUMMARY"
+            grep -i -m 10 -E 'error C[0-9]+|error LNK[0-9]+|fatal error|error:' build.log | while IFS= read -r line; do
+              line="${line//%/%25}"
+              line="${line//$'\r'/%0D}"
+              printf '::error::%s\n' "$line"
+            done
+            exit 1
+          fi
+      - name: Test
+        shell: bash
+        run: |
+          if ctest --test-dir build -C Release --parallel 2 --output-on-failure 2>&1 | tee test.log; then
+            exit 0
+          else
+            tail -n 200 test.log >> "$GITHUB_STEP_SUMMARY"
+            grep -i -m 10 -E 'error:|\*\*\*Failed|\*\*\*Timeout' test.log | while IFS= read -r line; do
+              line="${line//%/%25}"
+              line="${line//$'\r'/%0D}"
+              printf '::error::%s\n' "$line"
+            done
+            exit 1
+          fi

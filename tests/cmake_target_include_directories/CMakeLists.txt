@@ -6,7 +6,7 @@ add_test(NAME cmake_target_include_directories_configure
     ${CMAKE_CURRENT_SOURCE_DIR}/project
 )
 add_test(NAME cmake_target_include_directories_build
-    COMMAND ${CMAKE_COMMAND} --build .
+    COMMAND ${CMAKE_COMMAND} --build . --config $<CONFIG>
 )
 set_tests_properties(cmake_target_include_directories_configure PROPERTIES
     FIXTURES_SETUP cmake_target_include_directories

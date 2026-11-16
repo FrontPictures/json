@@ -1,5 +1,6 @@
 #include "binary_reader.hpp"
 #include "nlohmann/detail/ubjson_limits.hpp"
+#include <algorithm>
 #include <cmath>
 #include <iterator>
 #include "nlohmann/byte_container_with_subtype.hpp"

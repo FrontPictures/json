@@ -7,7 +7,7 @@ add_test(NAME cmake_import_minver_configure
     ${CMAKE_CURRENT_SOURCE_DIR}/project
 )
 add_test(NAME cmake_import_minver_build
-  COMMAND ${CMAKE_COMMAND} --build .
+  COMMAND ${CMAKE_COMMAND} --build . --config $<CONFIG>
 )
 set_tests_properties(cmake_import_minver_configure PROPERTIES
   FIXTURES_SETUP cmake_import_minver

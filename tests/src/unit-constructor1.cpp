@@ -326,7 +326,7 @@ TEST_CASE("constructors")
         SECTION("from std::vector<bool>::const_reference")
         {
             const std::vector<bool> v{true};
-            json const j(v[0]);
+            json const j(static_cast<bool>(v[0]));
             CHECK(std::is_same<decltype(v[0]), std::vector<bool>::const_reference>::value);
             CHECK(j.type() == json::value_t::boolean);
         }

@@ -28,12 +28,10 @@ enum class value_t : uint8_t {
 
 std::partial_ordering operator<=>(const value_t lhs, const value_t rhs) noexcept;
 
-#if defined(__GNUC__)
 inline bool operator<(const value_t lhs, const value_t rhs) noexcept
 {
     return std::is_lt(lhs <=> rhs);
 }
-#endif
 
 } // namespace detail
 } // namespace nlohmann

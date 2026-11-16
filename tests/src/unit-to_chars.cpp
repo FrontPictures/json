@@ -11,6 +11,7 @@
 // double-precision numbers, resp.
 
 #include "doctest_compatibility.h"
+#include <array>
 #include <cassert>
 
 #include "nlohmann/detail/conversions/to_chars.hpp"

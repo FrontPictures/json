@@ -7,7 +7,7 @@ if (${CMAKE_VERSION} VERSION_GREATER "3.14.0")
     ${CMAKE_CURRENT_SOURCE_DIR}/project
   )
   add_test(NAME cmake_fetch_content2_build
-    COMMAND ${CMAKE_COMMAND} --build .
+    COMMAND ${CMAKE_COMMAND} --build . --config $<CONFIG>
   )
   set_tests_properties(cmake_fetch_content2_configure PROPERTIES
     FIXTURES_SETUP cmake_fetch_content2

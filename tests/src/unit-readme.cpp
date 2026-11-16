@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: MIT
 
 #include "doctest_compatibility.h"
+#include <array>
 
 #include "nlohmann/json.hpp"
 using nlohmann::json;
