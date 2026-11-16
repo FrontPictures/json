@@ -6,7 +6,8 @@ cmake_minimum_required(VERSION 3.21)
 ##
 project(nlohmann_json VERSION 3.11.3 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20 REQUIRED)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ##
 ## MAIN_PROJECT CHECK
@@ -135,11 +136,7 @@ add_library(${NLOHMANN_JSON_TARGET_NAME} STATIC
     include/nlohmann/byte_container_with_subtype.hpp include/nlohmann/byte_container_with_subtype.cpp
     )
 add_library(${PROJECT_NAME}::${NLOHMANN_JSON_TARGET_NAME} ALIAS ${NLOHMANN_JSON_TARGET_NAME})
-if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
-    target_compile_features(${NLOHMANN_JSON_TARGET_NAME} PUBLIC cxx_range_for)
-else()
-    target_compile_features(${NLOHMANN_JSON_TARGET_NAME} PUBLIC cxx_std_11)
-endif()
+target_compile_features(${NLOHMANN_JSON_TARGET_NAME} PUBLIC cxx_std_20)
 
 target_compile_definitions(
     ${NLOHMANN_JSON_TARGET_NAME}
@@ -191,13 +188,10 @@ endif()
 ## install header files, generate and install cmake config files for find_package()
 ##
 include(CMakePackageConfigHelpers)
-# use a custom package version config file instead of
-# write_basic_package_version_file to ensure that it's architecture-independent
-# https://github.com/nlohmann/json/issues/1697
-configure_file(
-    "cmake/nlohmann_jsonConfigVersion.cmake.in"
+write_basic_package_version_file(
     ${NLOHMANN_JSON_CMAKE_VERSION_CONFIG_FILE}
-    @ONLY
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
 )
 configure_file(
     ${NLOHMANN_JSON_CMAKE_CONFIG_TEMPLATE}
