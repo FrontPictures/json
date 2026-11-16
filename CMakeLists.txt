@@ -99,18 +99,6 @@ target_include_directories(
     $<INSTALL_INTERFACE:${NLOHMANN_JSON_INCLUDE_INSTALL_DIR}>
 )
 
-## add debug view definition file for msvc (natvis)
-if (MSVC)
-    set(NLOHMANN_ADD_NATVIS TRUE)
-    set(NLOHMANN_NATVIS_FILE "nlohmann_json.natvis")
-    target_sources(
-        ${NLOHMANN_JSON_TARGET_NAME}
-        PUBLIC
-            $<INSTALL_INTERFACE:${NLOHMANN_NATVIS_FILE}>
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${NLOHMANN_NATVIS_FILE}>
-    )
-endif()
-
 ##
 ## TESTS
 ## create and configure the unit test target
@@ -147,12 +135,6 @@ if(JSON_Install)
         FILES ${NLOHMANN_JSON_CMAKE_PROJECT_CONFIG_FILE} ${NLOHMANN_JSON_CMAKE_VERSION_CONFIG_FILE}
         DESTINATION ${NLOHMANN_JSON_CONFIG_INSTALL_DIR}
     )
-    if (NLOHMANN_ADD_NATVIS)
-        install(
-            FILES ${NLOHMANN_NATVIS_FILE}
-            DESTINATION .
-    )
-    endif()
     export(
         TARGETS ${NLOHMANN_JSON_TARGET_NAME}
         NAMESPACE ${PROJECT_NAME}::
