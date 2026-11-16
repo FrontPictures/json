@@ -11,8 +11,6 @@
 
 #include "nlohmann/json.hpp"
 
-// build test with C++14
-// JSON_HAS_CPP_14
 
 TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_json)
 {
@@ -99,18 +97,7 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
 
                 }
 
-//                 SECTION("number (unsigned)")
-//                 {
-//                     Json j_nonobject(Json::value_t::number_unsigned);
-//                     const Json j_nonobject_const(j_nonobject);
-//                     CHECK_THROWS_WITH_AS(j_nonobject.at("foo"), "[json.exception.type_error.304] cannot use at() with number", typename Json::type_error&);
-//                     CHECK_THROWS_WITH_AS(j_nonobject_const.at("foo"), "[json.exception.type_error.304] cannot use at() with number", typename Json::type_error&);
 
-// #ifdef JSON_HAS_CPP_17
-//                     CHECK_THROWS_WITH_AS(j_nonobject.at(std::string_view("foo")), "[json.exception.type_error.304] cannot use at() with number", typename Json::type_error&);
-//                     CHECK_THROWS_WITH_AS(j_nonobject_const.at(std::string_view("foo")), "[json.exception.type_error.304] cannot use at() with number", typename Json::type_error&);
-// #endif
-//                 }
 
                 SECTION("number (floating-point)")
                 {
@@ -223,18 +210,7 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
 
                     }
 
-//                     SECTION("number (unsigned)")
-//                     {
-//                         Json j_nonobject(Json::value_t::number_unsigned);
-//                         const Json j_nonobject_const(Json::value_t::number_unsigned);
-//                         CHECK_THROWS_WITH_AS(j_nonobject.value("foo", 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
-//                         CHECK_THROWS_WITH_AS(j_nonobject_const.value("foo", 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
 
-// #ifdef JSON_HAS_CPP_17
-//                         CHECK_THROWS_WITH_AS(j_nonobject.value(std::string_view("foo"), 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
-//                         CHECK_THROWS_WITH_AS(j_nonobject_const.value(std::string_view("foo"), 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
-// #endif
-//                     }
 
                     SECTION("number (floating-point)")
                     {
@@ -319,13 +295,6 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
                         CHECK_THROWS_WITH_AS(j_nonobject_const.value("/foo"_json_pointer, 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
                     }
 
-                    // SECTION("number (unsigned)")
-                    // {
-                    //     Json j_nonobject(Json::value_t::number_unsigned);
-                    //     const Json j_nonobject_const(Json::value_t::number_unsigned);
-                    //     CHECK_THROWS_WITH_AS(j_nonobject.value("/foo"_json_pointer, 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
-                    //     CHECK_THROWS_WITH_AS(j_nonobject_const.value("/foo"_json_pointer, 1), "[json.exception.type_error.306] cannot use value() with number", typename Json::type_error&);
-                    // }
 
                     SECTION("number (floating-point)")
                     {
@@ -498,24 +467,7 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
 
                 }
 
-//                 SECTION("number (unsigned)")
-//                 {
-//                     Json j_nonobject(Json::value_t::number_unsigned);
-//                     const Json j_const_nonobject(j_nonobject);
-//                     CHECK_THROWS_WITH_AS(j_nonobject["foo"],
-//                                          "[json.exception.type_error.305] cannot use operator[] with a string argument with number", typename Json::type_error&);
-//                     CHECK_THROWS_WITH_AS(j_nonobject[typename Json::object_t::key_type("foo")],
-//                                          "[json.exception.type_error.305] cannot use operator[] with a string argument with number", typename Json::type_error&);
-//                     CHECK_THROWS_WITH_AS(j_const_nonobject["foo"],
-//                                          "[json.exception.type_error.305] cannot use operator[] with a string argument with number", typename Json::type_error&);
-//                     CHECK_THROWS_WITH_AS(j_const_nonobject[typename Json::object_t::key_type("foo")],
-//                                          "[json.exception.type_error.305] cannot use operator[] with a string argument with number", typename Json::type_error&);
 
-// #ifdef JSON_HAS_CPP_17
-//                     CHECK_THROWS_WITH_AS(j_nonobject[std::string_view("foo")], "[json.exception.type_error.305] cannot use operator[] with a string argument with number", typename Json::type_error&);
-//                     CHECK_THROWS_WITH_AS(j_const_nonobject[std::string_view("foo")], "[json.exception.type_error.305] cannot use operator[] with a string argument with number", typename Json::type_error&);
-// #endif
-//                 }
 
                 SECTION("number (floating-point)")
                 {
@@ -823,19 +775,8 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
 
                 }
 
-//                 SECTION("number (unsigned)")
-//                 {
-//                     Json j_nonarray(Json::value_t::number_unsigned);
-//                     const Json j_nonarray_const(j_nonarray);
 
-//                     CHECK(j_nonarray.find("foo") == j_nonarray.end());
-//                     CHECK(j_nonarray_const.find("foo") == j_nonarray_const.end());
 
-// #ifdef JSON_HAS_CPP_17
-//                     CHECK(j_nonarray.find(std::string_view("foo")) == j_nonarray.end());
-//                     CHECK(j_nonarray_const.find(std::string_view("foo")) == j_nonarray_const.end());
-// #endif
-//                 }
 
                 SECTION("number (floating-point)")
                 {
@@ -931,19 +872,8 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
 
                 }
 
-//                 SECTION("number (unsigned)")
-//                 {
-//                     Json j_nonobject(Json::value_t::number_unsigned);
-//                     const Json j_nonobject_const(Json::value_t::number_unsigned);
 
-//                     CHECK(j_nonobject.count("foo") == 0);
-//                     CHECK(j_nonobject_const.count("foo") == 0);
 
-// #ifdef JSON_HAS_CPP_17
-//                     CHECK(j.count(std::string_view("foo")) == 0);
-//                     CHECK(j_const.count(std::string_view("foo")) == 0);
-// #endif
-//                 }
 
                 SECTION("number (floating-point)")
                 {
@@ -1040,19 +970,8 @@ TEST_CASE_TEMPLATE("element access 2", Json, nlohmann::json, nlohmann::ordered_j
 
                 }
 
-//                 SECTION("number (unsigned)")
-//                 {
-//                     Json j_nonobject(Json::value_t::number_unsigned);
-//                     const Json j_nonobject_const(Json::value_t::number_unsigned);
 
-//                     CHECK(j_nonobject.contains("foo") == false);
-//                     CHECK(j_nonobject_const.contains("foo") == false);
 
-// #ifdef JSON_HAS_CPP_17
-//                     CHECK(j_nonobject.contains(std::string_view("foo")) == false);
-//                     CHECK(j_nonobject_const.contains(std::string_view("foo")) == false);
-// #endif
-//                 }
 
                 SECTION("number (floating-point)")
                 {

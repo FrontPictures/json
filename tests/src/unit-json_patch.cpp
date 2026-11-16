@@ -378,7 +378,7 @@ TEST_CASE("JSON patch")
                     {
                         "foo": "bar",
                         "baz": "qux"
-                    } 
+                    }
                 )"_json;
 
             // check if patched value is as expected
@@ -435,7 +435,7 @@ TEST_CASE("JSON patch")
                     {
                         "/": 9,
                         "~1": 10
-                    } 
+                    }
                 )"_json;
 
             // check if patched value is as expected
@@ -452,7 +452,7 @@ TEST_CASE("JSON patch")
                     {
                         "/": 9,
                         "~1": 10
-                    } 
+                    }
                 )"_json;
 
             // A JSON Patch document that will result in an error condition:

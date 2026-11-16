@@ -1054,7 +1054,6 @@ TEST_CASE("MessagePack")
                 expected[3] = 0x00; // size (0x00100000), byte 2
                 expected[4] = 0x00; // size (0x00100000), byte 3
                 const auto result = json::to_msgpack(j);
-                //CHECK(result == expected);
 
                 CHECK(result.size() == expected.size());
                 for (size_t i = 0; i < expected.size(); ++i)
@@ -1601,13 +1600,6 @@ TEST_CASE("single MessagePack roundtrip")
 
         SECTION("roundtrips")
         {
-            // SECTION("std::ostringstream")
-            // {
-            //     std::basic_ostringstream<std::uint8_t> ss;
-            //     json::to_msgpack(j1, ss);
-            //     json j3 = json::from_msgpack(ss.str());
-            //     CHECK(j1 == j3);
-            // }
 
             SECTION("std::string")
             {
@@ -1824,14 +1816,7 @@ TEST_CASE("MessagePack roundtrips" * doctest::skip())
             //     std::ifstream f_json(filename);
             //     json j1 = json::parse(f_json);
 
-            //     // parse MessagePack file
-            //     std::ifstream f_msgpack(filename + ".msgpack", std::ios::binary);
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_msgpack(f_msgpack));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             // {
             //     INFO_WITH_TEMP(filename + ": uint8_t* and size");
@@ -1839,14 +1824,7 @@ TEST_CASE("MessagePack roundtrips" * doctest::skip())
             //     std::ifstream f_json(filename);
             //     json j1 = json::parse(f_json);
 
-            //     // parse MessagePack file
-            //     auto packed = utils::read_binary_file(filename + ".msgpack");
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_msgpack({packed.data(), packed.size()}));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             {
                 INFO_WITH_TEMP(filename + ": output to output adapters");

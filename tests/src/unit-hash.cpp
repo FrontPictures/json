@@ -62,4 +62,3 @@ TEST_CASE("hash<nlohmann::json>")
 
     CHECK(hashes.size() == 20);
 }
-

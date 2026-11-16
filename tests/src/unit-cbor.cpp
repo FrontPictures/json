@@ -1882,13 +1882,6 @@ TEST_CASE("single CBOR roundtrip")
 
         SECTION("roundtrips")
         {
-            // SECTION("std::ostringstream")
-            // {
-            //     std::basic_ostringstream<std::uint8_t> ss;
-            //     json::to_cbor(j1, ss);
-            //     json j3 = json::from_cbor(ss.str());
-            //     CHECK(j1 == j3);
-            // }
 
             SECTION("std::string")
             {
@@ -2169,14 +2162,7 @@ TEST_CASE("CBOR roundtrips" * doctest::skip())
             //     std::ifstream f_json(filename);
             //     json j1 = json::parse(f_json);
 
-            //     // parse CBOR file
-            //     std::ifstream f_cbor(filename + ".cbor", std::ios::binary);
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_cbor(f_cbor));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             // {
             //     INFO_WITH_TEMP(filename + ": uint8_t* and size");
@@ -2184,14 +2170,7 @@ TEST_CASE("CBOR roundtrips" * doctest::skip())
             //     std::ifstream f_json(filename);
             //     json j1 = json::parse(f_json);
 
-            //     // parse CBOR file
-            //     const auto packed = utils::read_binary_file(filename + ".cbor");
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_cbor({packed.data(), packed.size()}));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             {
                 INFO_WITH_TEMP(filename + ": output to output adapters");
@@ -2321,16 +2300,8 @@ TEST_CASE("examples from RFC 7049 Appendix A")
         CHECK(json::parse("1000000000000") == json::from_cbor(std::vector<uint8_t>({0x1b, 0x00, 0x00, 0x00, 0xe8, 0xd4, 0xa5, 0x10, 0x00})));
 
 
-        // positive bignum is not supported
-        //CHECK(json::to_cbor(json::parse("18446744073709551616")) == std::vector<uint8_t>({0xc2, 0x49, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}));
-        //CHECK(json::parse("18446744073709551616") == json::from_cbor(std::vector<uint8_t>({0xc2, 0x49, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00})));
 
-        //CHECK(json::to_cbor(json::parse("-18446744073709551616")) == std::vector<uint8_t>({0x3b, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff}));
-        //CHECK(json::parse("-18446744073709551616") == json::from_cbor(std::vector<uint8_t>({0x3b, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff})));
 
-        // negative bignum is not supported
-        //CHECK(json::to_cbor(json::parse("-18446744073709551617")) == std::vector<uint8_t>({0xc3, 0x49, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}));
-        //CHECK(json::parse("-18446744073709551617") == json::from_cbor(std::vector<uint8_t>({0xc3, 0x49, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00})));
 
         CHECK(json::to_cbor(json::parse("-1")) == std::vector<uint8_t>({0x20}));
         CHECK(json::parse("-1") == json::from_cbor(std::vector<uint8_t>({0x20})));
@@ -2344,48 +2315,30 @@ TEST_CASE("examples from RFC 7049 Appendix A")
         CHECK(json::to_cbor(json::parse("-1000")) == std::vector<uint8_t>({0x39, 0x03, 0xe7}));
         CHECK(json::parse("-1000") == json::from_cbor(std::vector<uint8_t>({0x39, 0x03, 0xe7})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("0.0")) == std::vector<uint8_t>({0xf9, 0x00, 0x00}));
         CHECK(json::parse("0.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0x00, 0x00})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("-0.0")) == std::vector<uint8_t>({0xf9, 0x80, 0x00}));
         CHECK(json::parse("-0.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0x80, 0x00})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("1.0")) == std::vector<uint8_t>({0xf9, 0x3c, 0x00}));
         CHECK(json::parse("1.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0x3c, 0x00})));
 
         CHECK(json::to_cbor(json::parse("1.1")) == std::vector<uint8_t>({0xfb, 0x3f, 0xf1, 0x99, 0x99, 0x99, 0x99, 0x99, 0x9a}));
         CHECK(json::parse("1.1") == json::from_cbor(std::vector<uint8_t>({0xfb, 0x3f, 0xf1, 0x99, 0x99, 0x99, 0x99, 0x99, 0x9a})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("1.5")) == std::vector<uint8_t>({0xf9, 0x3e, 0x00}));
         CHECK(json::parse("1.5") == json::from_cbor(std::vector<uint8_t>({0xf9, 0x3e, 0x00})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("65504.0")) == std::vector<uint8_t>({0xf9, 0x7b, 0xff}));
         CHECK(json::parse("65504.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0x7b, 0xff})));
 
-        //CHECK(json::to_cbor(json::parse("100000.0")) == std::vector<uint8_t>({0xfa, 0x47, 0xc3, 0x50, 0x00}));
         CHECK(json::parse("100000.0") == json::from_cbor(std::vector<uint8_t>({0xfa, 0x47, 0xc3, 0x50, 0x00})));
 
-        //CHECK(json::to_cbor(json::parse("3.4028234663852886e+38")) == std::vector<uint8_t>({0xfa, 0x7f, 0x7f, 0xff, 0xff}));
         CHECK(json::parse("3.4028234663852886e+38") == json::from_cbor(std::vector<uint8_t>({0xfa, 0x7f, 0x7f, 0xff, 0xff})));
 
         CHECK(json::to_cbor(json::parse("1.0e+300")) == std::vector<uint8_t>({0xfb, 0x7e, 0x37, 0xe4, 0x3c, 0x88, 0x00, 0x75, 0x9c}));
         CHECK(json::parse("1.0e+300") == json::from_cbor(std::vector<uint8_t>({0xfb, 0x7e, 0x37, 0xe4, 0x3c, 0x88, 0x00, 0x75, 0x9c})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("5.960464477539063e-8")) == std::vector<uint8_t>({0xf9, 0x00, 0x01}));
         CHECK(json::parse("-4.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0xc4, 0x00})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("0.00006103515625")) == std::vector<uint8_t>({0xf9, 0x04, 0x00}));
         CHECK(json::parse("-4.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0xc4, 0x00})));
 
-        // half-precision float
-        //CHECK(json::to_cbor(json::parse("-4.0")) == std::vector<uint8_t>({0xf9, 0xc4, 0x00}));
         CHECK(json::parse("-4.0") == json::from_cbor(std::vector<uint8_t>({0xf9, 0xc4, 0x00})));
 
         CHECK(json::to_cbor(json::parse("-4.1")) == std::vector<uint8_t>({0xfb, 0xc0, 0x10, 0x66, 0x66, 0x66, 0x66, 0x66, 0x66}));

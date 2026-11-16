@@ -111,9 +111,6 @@ struct trait_test_arg
     static constexpr bool max_in_range = MaxInRange;
 };
 
-// TEST_CASE_TEMPLATE_DEFINE("value_in_range_of trait", T, value_in_range_of_test)
-// {
-//     using nlohmann::detail::value_in_range_of;
 
 //     using of_type = typename T::of_type;
 //     using type = typename T::type;
@@ -152,64 +149,13 @@ struct trait_test_arg
 //     CAPTURE(val_max);
 //     CAPTURE(max_in_range);
 
-//     if (min_in_range)
-//     {
-//         CHECK(value_in_range_of<of_type>(val_min));
-//         CHECK(value_in_range_of<of_type>(val_min2));
-//     }
-//     else
-//     {
-//         CHECK_FALSE(value_in_range_of<of_type>(val_min));
-//         CHECK_FALSE(value_in_range_of<of_type>(val_min2));
-//     }
 
-//     if (max_in_range)
-//     {
-//         CHECK(value_in_range_of<of_type>(val_max));
-//         CHECK(value_in_range_of<of_type>(val_max2));
-//     }
-//     else
-//     {
-//         CHECK_FALSE(value_in_range_of<of_type>(val_max));
-//         CHECK_FALSE(value_in_range_of<of_type>(val_max2));
-//     }
-// }
 
-// TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
-//                           trait_test_arg<std::int32_t, std::int32_t, true, true>, \
-//                           trait_test_arg<std::int32_t, std::uint32_t, true, false>, \
-//                           trait_test_arg<std::uint32_t, std::int32_t, false, true>, \
-//                           trait_test_arg<std::uint32_t, std::uint32_t, true, true>, \
-//                           trait_test_arg<std::int32_t, std::int64_t, false, false>, \
-//                           trait_test_arg<std::int32_t, std::uint64_t, true, false>, \
-//                           trait_test_arg<std::uint32_t, std::int64_t, false, false>, \
-//                           trait_test_arg<std::uint32_t, std::uint64_t, true, false>, \
-//                           trait_test_arg<std::int64_t, std::int32_t, true, true>, \
-//                           trait_test_arg<std::int64_t, std::uint32_t, true, true>, \
-//                           trait_test_arg<std::uint64_t, std::int32_t, false, true>, \
-//                           trait_test_arg<std::uint64_t, std::uint32_t, true, true>, \
-//                           trait_test_arg<std::int64_t, std::int64_t, true, true>, \
-//                           trait_test_arg<std::int64_t, std::uint64_t, true, false>, \
-//                           trait_test_arg<std::uint64_t, std::int64_t, false, true>, \
-//                           trait_test_arg<std::uint64_t, std::uint64_t, true, true>);
 
-// #if SIZE_MAX == 0xffffffff
-// TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
-//                           trait_test_arg<std::size_t, std::int32_t, false, true>, \
-//                           trait_test_arg<std::size_t, std::uint32_t, true, true>, \
-//                           trait_test_arg<std::size_t, std::int64_t, false, false>, \
-//                           trait_test_arg<std::size_t, std::uint64_t, true, false>);
-// #else
-// TEST_CASE_TEMPLATE_INVOKE(value_in_range_of_test, \
-//                           trait_test_arg<std::size_t, std::int32_t, false, true>, \
-//                           trait_test_arg<std::size_t, std::uint32_t, true, true>, \
-//                           trait_test_arg<std::size_t, std::int64_t, false, true>, \
-//                           trait_test_arg<std::size_t, std::uint64_t, true, true>);
-// #endif
 
 TEST_CASE("BJData")
 {
-    
+
 
     SECTION("individual values")
     {
@@ -756,7 +702,7 @@ TEST_CASE("BJData")
                     }
                 }
 
-                // 
+                //
 
                 SECTION("128..255 (uint8)")
                 {
@@ -1001,7 +947,7 @@ TEST_CASE("BJData")
                     }
                 }
 
-                
+
             }
             SECTION("float64")
             {
@@ -2210,7 +2156,6 @@ TEST_CASE("BJData")
                 CHECK(utils::same_json_values(json::from_bjdata(v_l), json({2147483647, 2147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_m), json({3147483647, 3147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_L), json({9223372036854775807, 9223372036854775807})));
-                // CHECK(json::from_bjdata(v_M) == json({10223372036854775807ull, 10223372036854775807ull}));
                 CHECK(utils::same_json_values(json::from_bjdata(v_D), json({3.1415926, 3.1415926})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_S), json({"a", "a"})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_C), json({"a", "a"})));
@@ -2255,7 +2200,6 @@ TEST_CASE("BJData")
                 CHECK(utils::same_json_values(json::from_bjdata(v_l), json({2147483647, 2147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_m), json({3147483647, 3147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_L), json({9223372036854775807, 9223372036854775807})));
-                // CHECK(json::from_bjdata(v_M) == json({10223372036854775807ull, 10223372036854775807ull}));
                 CHECK(utils::same_json_values(json::from_bjdata(v_D), json({3.1415926, 3.1415926})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_S), json({"a", "a"})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_C), json({"a", "a"})));
@@ -2302,7 +2246,6 @@ TEST_CASE("BJData")
                 CHECK(utils::same_json_values(json::from_bjdata(v_l), json({2147483647, 2147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_m), json({3147483647, 3147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_L), json({9223372036854775807, 9223372036854775807})));
-                // CHECK(json::from_bjdata(v_M) == json({10223372036854775807ull, 10223372036854775807ull}));
                 CHECK(utils::same_json_values(json::from_bjdata(v_D), json({3.1415926, 3.1415926})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_S), json({"a", "a"})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_C), json({"a", "a"})));
@@ -2382,7 +2325,6 @@ TEST_CASE("BJData")
                 CHECK(utils::same_json_values(json::from_bjdata(v_l), json({2147483647, 2147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_m), json({3147483647, 3147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_L), json({9223372036854775807, 9223372036854775807})));
-                // CHECK(json::from_bjdata(v_M) == json({10223372036854775807ull, 10223372036854775807ull}));
                 CHECK(utils::same_json_values(json::from_bjdata(v_D), json({3.1415926, 3.1415926})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_S), json({"a", "a"})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_C), json({"a", "a"})));
@@ -2412,7 +2354,6 @@ TEST_CASE("BJData")
                 CHECK(utils::same_json_values(json::from_bjdata(v_l), json({2147483647, 2147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_m), json({3147483647, 3147483647})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_L), json({9223372036854775807, 9223372036854775807})));
-                // CHECK(json::from_bjdata(v_M) == json({10223372036854775807ull, 10223372036854775807ull}));
                 CHECK(utils::same_json_values(json::from_bjdata(v_D), json({3.1415926, 3.1415926})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_S), json({"a", "a"})));
                 CHECK(utils::same_json_values(json::from_bjdata(v_C), json({"a", "a"})));
@@ -2974,14 +2915,6 @@ TEST_CASE("BJData")
                 CHECK(json::to_bjdata(j, true) == expected_size);
             }
 
-            // SECTION("array of M")
-            // {
-            //     json const j = {10223372036854775807ull, 10223372036854775808ull};
-            //     std::vector<uint8_t> const expected = {'[', '$', 'M', '#', 'i', 2, 0xFF, 0xFF, 0x63, 0xA7, 0xB3, 0xB6, 0xE0, 0x8D, 0x00, 0x00, 0x64, 0xA7, 0xB3, 0xB6, 0xE0, 0x8D};
-            //     std::vector<uint8_t> const expected_size = {'[', '#', 'i', 2, 'M', 0xFF, 0xFF, 0x63, 0xA7, 0xB3, 0xB6, 0xE0, 0x8D, 'M', 0x00, 0x00, 0x64, 0xA7, 0xB3, 0xB6, 0xE0, 0x8D};
-            //     CHECK(json::to_bjdata(j, true, true) == expected);
-            //     CHECK(json::to_bjdata(j, true) == expected_size);
-            // }
         }
     }
 }
@@ -3056,7 +2989,6 @@ TEST_CASE("Universal Binary JSON Specification Examples 1")
     {
         json const j = {{"rolecode", "a"}, {"delim", ";"}};
         std::vector<uint8_t> const v = {'{', 'i', 5, 'd', 'e', 'l', 'i', 'm', 'C', ';', 'i', 8, 'r', 'o', 'l', 'e', 'c', 'o', 'd', 'e', 'C', 'a', '}'};
-        //CHECK(json::to_bjdata(utils::sort_objects(j)) == v);
         CHECK(utils::same_json_values(json::from_bjdata(v), j));
     }
 
@@ -3410,14 +3342,7 @@ TEST_CASE("BJData roundtrips" * doctest::skip())
             //     // parse JSON file
             //     json j1 = json::parse(utils::read_binary_file(filename));
 
-            //     // parse BJData file
-            //     std::ifstream f_bjdata(filename + ".bjdata", std::ios::binary);
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_bjdata(f_bjdata));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             {
                 INFO_WITH_TEMP(filename + ": output to output adapters");

@@ -17,84 +17,6 @@ using nlohmann::json;
 
 namespace
 {
-struct alt_string_iter
-{
-    alt_string_iter() = default;
-    alt_string_iter(const char* cstr)
-        : impl(cstr)
-    {}
-
-    void reserve(std::size_t s)
-    {
-        impl.reserve(s);
-    }
-
-    template<typename Iter>
-    void append(Iter first, Iter last)
-    {
-        impl.append(first, last);
-    }
-
-    std::string::const_iterator begin() const noexcept
-    {
-        return impl.begin();
-    }
-
-    std::string::const_iterator end() const noexcept
-    {
-        return impl.end();
-    }
-
-    std::size_t size() const noexcept
-    {
-        return impl.size();
-    }
-
-    alt_string_iter& operator+=(const char c)
-    {
-        impl += c;
-        return *this;
-    }
-
-    std::string impl{};
-};
-
-struct alt_string_data
-{
-    alt_string_data() = default;
-    alt_string_data(const char* cstr)
-        : impl(cstr)
-    {}
-
-    void reserve(std::size_t s)
-    {
-        impl.reserve(s);
-    }
-
-    void append(const char* p, std::size_t s)
-    {
-        impl.append(p, s);
-    }
-
-    const char* data() const
-    {
-        return impl.data();
-    }
-
-    std::size_t size() const
-    {
-        return impl.size();
-    }
-
-    alt_string_data& operator+=(const char c)
-    {
-        impl += c;
-        return *this;
-    }
-
-    std::string impl{};
-};
-
 void check_escaped(const char* original, const char* escaped = "", bool ensure_ascii = false);
 void check_escaped(const char* original, const char* escaped, const bool ensure_ascii)
 {
@@ -112,7 +34,6 @@ TEST_CASE("convenience functions")
         CHECK(std::string(json(json::value_t::object).type_name()) == "object");
         CHECK(std::string(json(json::value_t::array).type_name()) == "array");
         CHECK(std::string(json(json::value_t::number_integer).type_name()) == "number");
-        // CHECK(std::string(json(json::value_t::number_unsigned).type_name()) == "number");
         CHECK(std::string(json(json::value_t::number_float).type_name()) == "number");
         CHECK(std::string(json(json::value_t::binary).type_name()) == "binary");
         CHECK(std::string(json(json::value_t::boolean).type_name()) == "boolean");
@@ -173,33 +94,17 @@ TEST_CASE("convenience functions")
         using nlohmann::detail::concat;
 
         const char* expected = "Hello, world!";
-        alt_string_iter const hello_iter{"Hello, "};
-        alt_string_data const hello_data{"Hello, "};
         std::string const world = "world";
 
         SECTION("std::string")
         {
-            // std::string str1 = concat(hello_iter, world, '!');
-            // std::string str2 = concat(hello_data, world, '!');
             std::string str3 = concat("Hello, ", world, '!');
 
-            // CHECK(str1 == expected);
-            // CHECK(str2 == expected);
             CHECK(str3 == expected);
         }
 
-        // SECTION("alt_string_iter")
-        // {
-        //     alt_string_iter str = concat<alt_string_iter>(hello_iter, world, '!');
 
-        //     CHECK(str.impl == expected);
-        // }
 
-        // SECTION("alt_string_data")
-        // {
-        //     alt_string_data str = concat<alt_string_data>(hello_data, world, '!');
 
-        //     CHECK(str.impl == expected);
-        // }
     }
 }

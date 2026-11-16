@@ -201,13 +201,6 @@ TEST_CASE("Unicode (1/5)" * doctest::skip())
 
     SECTION("ignore byte-order-mark")
     {
-        // SECTION("in a stream")
-        // {
-        //     // read a file with a UTF-8 BOM
-        //     std::ifstream f(TEST_DATA_DIRECTORY "/json_nlohmann_tests/bom.json");
-        //     json j;
-        //     CHECK_NOTHROW(f >> j);
-        // }
 
         SECTION("with an iterator")
         {

@@ -27,7 +27,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(j.is_object());
@@ -45,7 +44,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -63,7 +61,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -81,7 +78,6 @@ TEST_CASE("object inspection")
             CHECK(j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -99,7 +95,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -117,7 +112,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(j.is_number());
             CHECK(j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -135,7 +129,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(j.is_number());
             CHECK(j.is_number_integer());
-            // CHECK(j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -153,7 +146,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -171,7 +163,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(j.is_binary());
             CHECK(!j.is_object());
@@ -189,7 +180,6 @@ TEST_CASE("object inspection")
             CHECK(!j.is_boolean());
             CHECK(!j.is_number());
             CHECK(!j.is_number_integer());
-            // CHECK(!j.is_number_unsigned());
             CHECK(!j.is_number_float());
             CHECK(!j.is_binary());
             CHECK(!j.is_object());
@@ -348,11 +338,6 @@ TEST_CASE("object inspection")
             CHECK(j.type() == json::value_t::number_integer);
         }
 
-        // SECTION("number (unsigned)")
-        // {
-        //     json const j = 23u;
-        //     CHECK(j.type() == json::value_t::number_unsigned);
-        // }
 
         SECTION("number (floating-point)")
         {

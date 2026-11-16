@@ -97,14 +97,7 @@ TEST_CASE("element access 1")
                     CHECK_THROWS_WITH_AS(j_nonarray_const.at(0), "[json.exception.type_error.304] cannot use at() with number", json::type_error&);
                 }
 
-                // SECTION("number (unsigned)")
-                // {
-                //     json j_nonarray(json::value_t::number_unsigned);
-                //     const json j_nonarray_const(j_nonarray);
 
-                //     CHECK_THROWS_WITH_AS(j_nonarray.at(0), "[json.exception.type_error.304] cannot use at() with number", json::type_error&);
-                //     CHECK_THROWS_WITH_AS(j_nonarray_const.at(0), "[json.exception.type_error.304] cannot use at() with number", json::type_error&);
-                // }
 
                 SECTION("number (floating-point)")
                 {
@@ -200,13 +193,6 @@ TEST_CASE("element access 1")
                     CHECK_THROWS_WITH_AS(j_nonarray_const[0], "[json.exception.type_error.305] cannot use operator[] with a numeric argument with number", json::type_error&);
                 }
 
-                // SECTION("number (unsigned)")
-                // {
-                //     json j_nonarray(json::value_t::number_unsigned);
-                //     const json j_nonarray_const(j_nonarray);
-                //     CHECK_THROWS_WITH_AS(j_nonarray[0], "[json.exception.type_error.305] cannot use operator[] with a numeric argument with number", json::type_error&);
-                //     CHECK_THROWS_WITH_AS(j_nonarray_const[0], "[json.exception.type_error.305] cannot use operator[] with a numeric argument with number", json::type_error&);
-                // }
 
                 SECTION("number (floating-point)")
                 {
@@ -415,11 +401,6 @@ TEST_CASE("element access 1")
                     CHECK_THROWS_WITH_AS(j_nonobject.erase(0), "[json.exception.type_error.307] cannot use erase() with number", json::type_error&);
                 }
 
-                // SECTION("number (unsigned)")
-                // {
-                //     json j_nonobject(json::value_t::number_unsigned);
-                //     CHECK_THROWS_WITH_AS(j_nonobject.erase(0), "[json.exception.type_error.307] cannot use erase() with number", json::type_error&);
-                // }
 
                 SECTION("number (floating-point)")
                 {

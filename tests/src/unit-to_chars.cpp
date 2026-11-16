@@ -20,58 +20,6 @@ using grisu2::reinterpret_bits;
 
 namespace
 {
-float make_float(uint32_t sign_bit, uint32_t biased_exponent, uint32_t significand)
-{
-    assert(sign_bit == 0 || sign_bit == 1);
-    assert(biased_exponent <= 0xFF);
-    assert(significand <= 0x007FFFFF);
-
-    uint32_t bits = 0;
-
-    bits |= sign_bit << 31;
-    bits |= biased_exponent << 23;
-    bits |= significand;
-
-    return reinterpret_bits<float>(bits);
-}
-
-// ldexp -- convert f * 2^e to IEEE single precision
-float make_float(uint64_t f, int e)
-{
-    constexpr uint64_t kHiddenBit               = 0x00800000;
-    constexpr uint64_t kSignificandMask         = 0x007FFFFF;
-    constexpr int      kPhysicalSignificandSize = 23;  // Excludes the hidden bit.
-    constexpr int      kExponentBias            = 0x7F + kPhysicalSignificandSize;
-    constexpr int      kDenormalExponent        = 1 -    kExponentBias;
-    constexpr int      kMaxExponent             = 0xFF - kExponentBias;
-
-    while (f > kHiddenBit + kSignificandMask)
-    {
-        f >>= 1;
-        e++;
-    }
-    if (e >= kMaxExponent)
-    {
-        return std::numeric_limits<float>::infinity();
-    }
-    if (e < kDenormalExponent)
-    {
-        return 0.0;
-    }
-    while (e > kDenormalExponent && (f & kHiddenBit) == 0)
-    {
-        f <<= 1;
-        e--;
-    }
-
-    const uint64_t biased_exponent = (e == kDenormalExponent && (f & kHiddenBit) == 0)
-                                     ? 0
-                                     : static_cast<uint64_t>(e + kExponentBias);
-
-    const uint64_t bits = (f & kSignificandMask) | (biased_exponent << kPhysicalSignificandSize);
-    return reinterpret_bits<float>(static_cast<uint32_t>(bits));
-}
-
 double make_double(uint64_t sign_bit, uint64_t biased_exponent, uint64_t significand)
 {
     assert(sign_bit == 0 || sign_bit == 1);
@@ -273,7 +221,7 @@ TEST_CASE("digit gen")
 
 TEST_CASE("formatting")
 {
-    
+
 
     SECTION("double precision")
     {

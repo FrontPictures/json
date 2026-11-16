@@ -64,40 +64,7 @@ TEST_CASE("compliance tests from json.org")
         }
     }
 
-    // SECTION("no failures with trailing literals (relaxed)")
-    // {
-    //     // these tests fail above, because the parser does not end on EOF;
-    //     // they succeed when the operator>> is used, because it does not
-    //     // have this constraint
-    //     for (const auto* filename :
-    //             {
-    //                 TEST_DATA_DIRECTORY "/json_tests/fail7.json",
-    //                 TEST_DATA_DIRECTORY "/json_tests/fail8.json",
-    //                 TEST_DATA_DIRECTORY "/json_tests/fail10.json",
-    //             })
-    //     {
-    //         CAPTURE(filename)
-    //         std::ifstream f(filename);
-    //         json j;
-    //         CHECK_NOTHROW(f >> j);
-    //     }
-    // }
 
-    // SECTION("expected passes")
-    // {
-    //     for (const auto* filename :
-    //             {
-    //                 TEST_DATA_DIRECTORY "/json_tests/pass1.json",
-    //                 TEST_DATA_DIRECTORY "/json_tests/pass2.json",
-    //                 TEST_DATA_DIRECTORY "/json_tests/pass3.json"
-    //             })
-    //     {
-    //         CAPTURE(filename)
-    //         std::ifstream f(filename);
-    //         json j;
-    //         CHECK_NOTHROW(f >> j);
-    //     }
-    // }
 }
 
 TEST_CASE("compliance tests from nativejson-benchmark")
@@ -361,40 +328,10 @@ TEST_CASE("json.org examples")
         CHECK_NOTHROW(j = json::parse(utils::read_binary_file(TEST_DATA_DIRECTORY
                                                               "/json.org/5.json")));
     }
-    // SECTION("FILE 1.json")
-    // {
-    //     const std::unique_ptr<std::FILE, decltype(&std::fclose)> f(std::fopen(TEST_DATA_DIRECTORY "/json.org/1.json", "r"), &std::fclose);
-    //     json _;
-    //     CHECK_NOTHROW(_ = json::parse(f.get()));
-    // }
 
-    // SECTION("FILE 2.json")
-    // {
-    //     const std::unique_ptr<std::FILE, decltype(&std::fclose)> f(std::fopen(TEST_DATA_DIRECTORY "/json.org/2.json", "r"), &std::fclose);
-    //     json _;
-    //     CHECK_NOTHROW(_ = json::parse(f.get()));
-    // }
 
-    // SECTION("FILE 3.json")
-    // {
-    //     const std::unique_ptr<std::FILE, decltype(&std::fclose)> f(std::fopen(TEST_DATA_DIRECTORY "/json.org/3.json", "r"), &std::fclose);
-    //     json _;
-    //     CHECK_NOTHROW(_ = json::parse(f.get()));
-    // }
 
-    // SECTION("FILE 4.json")
-    // {
-    //     const std::unique_ptr<std::FILE, decltype(&std::fclose)> f(std::fopen(TEST_DATA_DIRECTORY "/json.org/4.json", "r"), &std::fclose);
-    //     json _;
-    //     CHECK_NOTHROW(_ = json::parse(f.get()));
-    // }
 
-    // SECTION("FILE 5.json")
-    // {
-    //     const std::unique_ptr<std::FILE, decltype(&std::fclose)> f(std::fopen(TEST_DATA_DIRECTORY "/json.org/5.json", "r"), &std::fclose);
-    //     json _;
-    //     CHECK_NOTHROW(_ = json::parse(f.get()));
-    // }
 }
 
 TEST_CASE("RFC 8259 examples")

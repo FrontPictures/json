@@ -1531,61 +1531,12 @@ TEST_CASE("parser class")
         }
     }
 
-    // SECTION("constructing from contiguous containers")
-    // {
-    //     SECTION("from std::vector")
-    //     {
-    //         std::vector<uint8_t> v = {'t', 'r', 'u', 'e'};
-    //         json j;
-    //         nlohmann::detail::parser(nlohmann::detail::input_adapter(std::begin(v), std::end(v))).parse(true, j);
-    //         CHECK(j == json(true));
-    //     }
 
-    //     SECTION("from std::array")
-    //     {
-    //         std::array<uint8_t, 5> v { {'t', 'r', 'u', 'e'} };
-    //         json j;
-    //         nlohmann::detail::parser(nlohmann::detail::input_adapter(std::begin(v), std::end(v))).parse(true, j);
-    //         CHECK(j == json(true));
-    //     }
 
-    //     SECTION("from array")
-    //     {
-    //         uint8_t v[] = {'t', 'r', 'u', 'e'}; // NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)
-    //         json j;
-    //         nlohmann::detail::parser(nlohmann::detail::input_adapter(std::begin(v), std::end(v))).parse(true, j);
-    //         CHECK(j == json(true));
-    //     }
 
-    //     SECTION("from char literal")
-    //     {
-    //         CHECK(parser_helper("true") == json(true));
-    //     }
 
-    //     SECTION("from std::string")
-    //     {
-    //         std::string v = {'t', 'r', 'u', 'e'};
-    //         json j;
-    //         nlohmann::detail::parser(nlohmann::detail::input_adapter(std::begin(v), std::end(v))).parse(true, j);
-    //         CHECK(j == json(true));
-    //     }
 
-    //     SECTION("from std::initializer_list")
-    //     {
-    //         std::initializer_list<uint8_t> const v = {'t', 'r', 'u', 'e'};
-    //         json j;
-    //         nlohmann::detail::parser(nlohmann::detail::input_adapter(std::begin(v), std::end(v))).parse(true, j);
-    //         CHECK(j == json(true));
-    //     }
 
-    //     SECTION("from std::valarray")
-    //     {
-    //         std::valarray<uint8_t> v = {'t', 'r', 'u', 'e'};
-    //         json j;
-    //         nlohmann::detail::parser(nlohmann::detail::input_adapter(std::begin(v), std::end(v))).parse(true, j);
-    //         CHECK(j == json(true));
-    //     }
-    // }
 
     SECTION("improve test coverage")
     {

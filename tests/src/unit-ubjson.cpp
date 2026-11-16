@@ -2141,7 +2141,6 @@ TEST_CASE("Universal Binary JSON Specification Examples 1")
     {
         json const j = {{"rolecode", "a"}, {"delim", ";"}};
         std::vector<uint8_t> const v = {'{', 'i', 5, 'd', 'e', 'l', 'i', 'm', 'C', ';', 'i', 8, 'r', 'o', 'l', 'e', 'c', 'o', 'd', 'e', 'C', 'a', '}'};
-        //CHECK(json::to_ubjson(utils::sort_objects(j)) == v);
         CHECK(utils::same_json_values(json::from_ubjson(v), j));
     }
 
@@ -2492,14 +2491,7 @@ TEST_CASE("UBJSON roundtrips" * doctest::skip())
             //     std::ifstream f_json(filename);
             //     json const j1 = json::parse(f_json);
 
-            //     // parse UBJSON file
-            //     std::ifstream f_ubjson(filename + ".ubjson", std::ios::binary);
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_ubjson(f_ubjson));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             // {
             //     INFO_WITH_TEMP(filename + ": uint8_t* and size");
@@ -2507,14 +2499,7 @@ TEST_CASE("UBJSON roundtrips" * doctest::skip())
             //     std::ifstream f_json(filename);
             //     json j1 = json::parse(f_json);
 
-            //     // parse UBJSON file
-            //     auto const packed = utils::read_binary_file(filename + ".ubjson");
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_ubjson({packed.data(), packed.size()}));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             {
                 INFO_WITH_TEMP(filename + ": output to output adapters");

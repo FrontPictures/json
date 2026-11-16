@@ -480,7 +480,6 @@ TEST_CASE("JSON pointers")
             // ss << ptr;
             CHECK(ptr.to_string() == ptr_str);
             CHECK(std::string(ptr) == ptr_str);
-            // CHECK(ss.str() == ptr_str);
         }
     }
 
@@ -648,8 +647,6 @@ TEST_CASE("JSON pointers")
         auto ptr1 = json::json_pointer(ptr_string);
         auto ptr2 = json::json_pointer(ptr_string);
 
-        // build with C++20 to test rewritten candidates
-        // JSON_HAS_CPP_20
 
         CHECK(ptr1 == ptr2);
 
@@ -696,8 +693,6 @@ TEST_CASE("JSON pointers")
         CHECK(ptr1 < ptr2);
         CHECK_FALSE(ptr2 < ptr1);
 
-        // build with C++20
-        // JSON_HAS_CPP_20
         CHECK((ptr1 <=> ptr2) == std::strong_ordering::less); // *NOPAD*
         CHECK(ptr2 > ptr1);
     }
@@ -750,8 +745,6 @@ TEST_CASE("JSON pointers")
 
         SECTION("equality comparison")
         {
-            // build with C++20 to test rewritten candidates
-            // JSON_HAS_CPP_20
 
             CHECK(ptr == ptr_j);
             CHECK(ptr == ptr_oj);

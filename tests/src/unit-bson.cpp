@@ -616,13 +616,6 @@ TEST_CASE("BSON input/output_adapters")
 
     SECTION("roundtrips")
     {
-        // SECTION("std::ostringstream")
-        // {
-        //     std::basic_ostringstream<std::uint8_t> ss;
-        //     json::to_bson(json_representation, ss);
-        //     json j3 = json::from_bson(ss.str());
-        //     CHECK(json_representation == j3);
-        // }
 
         SECTION("std::string")
         {
@@ -1149,14 +1142,13 @@ TEST_CASE("BSON numerical data")
 
                     auto j_roundtrip = json::from_bson(bson);
 
-                    // CHECK(j.at("entry").is_number_unsigned());
                     CHECK(j_roundtrip.at("entry").is_number_integer());
                     CHECK(j_roundtrip == j);
                     CHECK(json::from_bson(bson, true, false) == j);
                 }
             }
 
-            
+
 
         }
     }
@@ -1196,14 +1188,7 @@ TEST_CASE("BSON roundtrips" * doctest::skip())
             //     // parse JSON file
             //     json j1 = json::parse(utils::read_binary_file(filename));
 
-            //     // parse BSON file
-            //     std::ifstream f_bson(filename + ".bson", std::ios::binary);
-            //     json j2;
-            //     CHECK_NOTHROW(j2 = json::from_bson(f_bson));
 
-            //     // compare parsed JSON values
-            //     CHECK(j1 == j2);
-            // }
 
             {
                 INFO_WITH_TEMP(filename + ": uint8_t* and size");
