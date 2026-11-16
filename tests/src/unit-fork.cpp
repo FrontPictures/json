@@ -78,3 +78,21 @@ TEST_CASE("pretty arrays group primitive values on one line")
         CHECK(json::parse(value.dump()) == value);
     }
 }
+
+TEST_CASE("fixed signed integer storage and object reservation")
+{
+    CHECK(json((std::numeric_limits<uint64_t>::max)()).get<int64_t>() == -1);
+    CHECK(json(-1).get<uint64_t>() == (std::numeric_limits<uint64_t>::max)());
+    CHECK(json(short(42)).get<short>() == 42);
+    CHECK(json(42L).get<long>() == 42);
+    CHECK(json(42LL).get<long long>() == 42);
+    CHECK(json(42U).get<uint32_t>() == 42);
+    CHECK(json(42).get<int32_t>() == 42);
+    json object = {{"first", 1}, {"second", 2}};
+    const auto before = object.dump();
+    object.reserve_object_items(size_t(100));
+    CHECK(object.dump() == before);
+    object["third"] = 3;
+    CHECK(object.dump() == "{\"first\":1,\"second\":2,\"third\":3}");
+    CHECK_THROWS_AS(json::array().reserve_object_items(10), json::type_error);
+}

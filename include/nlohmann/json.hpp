@@ -192,9 +192,6 @@ public:
     ordered_json(const byte_container_with_subtype &bin);
     ordered_json(byte_container_with_subtype &&bin);
     ordered_json(double val) noexcept;
-#ifdef __APPLE__
-    ordered_json(long val) noexcept : ordered_json(int64_t(val)) {}
-#endif
     ordered_json(uint64_t val) noexcept;
     ordered_json(uint32_t val) noexcept;
     ordered_json(int64_t val) noexcept;
@@ -456,7 +453,7 @@ public:
     const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(cend()); }
     const_reverse_iterator crend() const noexcept { return const_reverse_iterator(cbegin()); }
 
-    void reserve_object_items(int size);
+    void reserve_object_items(size_t size);
 
     iteration_proxy<iterator> items() noexcept { return iteration_proxy<iterator>(*this); }
     iteration_proxy<const_iterator> items() const noexcept
@@ -659,9 +656,6 @@ public:
 };
 
 template<> int64_t ordered_json::get<int64_t>() const;
-template<> int32_t ordered_json::get<int32_t>() const;
-template<> uint32_t ordered_json::get<uint32_t>() const;
-template<> uint64_t ordered_json::get<uint64_t>() const;
 template<> double ordered_json::get<double>() const;
 template<> float ordered_json::get<float>() const;
 template<> std::vector<int> ordered_json::get<std::vector<int>>() const;

@@ -746,7 +746,7 @@ bool nlohmann::ordered_json::contains(const std::string &key) const
     return is_object() && m_data.m_value.object->find(key) != m_data.m_value.object->end();
 }
 
-void nlohmann::ordered_json::reserve_object_items(int size)
+void nlohmann::ordered_json::reserve_object_items(size_t size)
 {
     if (!is_object()) {
         throw(type_error::create(1, "not an object"));
@@ -1939,9 +1939,6 @@ template<> int64_t nlohmann::ordered_json::get<int64_t>() const
     }
     throw type_error::create(302, "invalid type");
 }
-template<> int32_t nlohmann::ordered_json::get<int32_t>() const { return get<int64_t>(); }
-template<> uint32_t nlohmann::ordered_json::get<uint32_t>() const { return get<int64_t>(); }
-template<> uint64_t nlohmann::ordered_json::get<uint64_t>() const { return get<int64_t>(); }
 template<> double nlohmann::ordered_json::get<double>() const
 {
     if (is_number_integer()) {
