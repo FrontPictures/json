@@ -2,6 +2,32 @@
 #include "nlohmann/json.hpp"
 #include "nlohmann/detail/string_concat.hpp"
 
+namespace {
+using namespace nlohmann::detail;
+
+[[noreturn]] void throw_sax_error(const exception &ex)
+{
+    // The SAX interface passes errors through the common base class.
+    // Throw a copy of the concrete error rather than slicing it.
+    if (const auto *error = dynamic_cast<const parse_error *>(&ex)) {
+        throw *error;
+    }
+    if (const auto *error = dynamic_cast<const out_of_range *>(&ex)) {
+        throw *error;
+    }
+    if (const auto *error = dynamic_cast<const type_error *>(&ex)) {
+        throw *error;
+    }
+    if (const auto *error = dynamic_cast<const invalid_iterator *>(&ex)) {
+        throw *error;
+    }
+    if (const auto *error = dynamic_cast<const other_error *>(&ex)) {
+        throw *error;
+    }
+    throw ex;
+}
+} // namespace
+
 nlohmann::detail::json_sax_dom_callback_parser::json_sax_dom_callback_parser(
     ordered_json &r, const parser_callback_t cb, const bool allow_exceptions_)
     : root(r), callback(cb), allow_exceptions(allow_exceptions_),
@@ -146,7 +172,7 @@ bool nlohmann::detail::json_sax_dom_callback_parser::parse_error(size_t, const s
     errored = true;
     static_cast<void>(ex);
     if (allow_exceptions) {
-        throw(ex);
+        throw_sax_error(ex);
     }
     return false;
 }
@@ -280,7 +306,7 @@ bool nlohmann::detail::json_sax_dom_parser::parse_error(size_t, const std::strin
     errored = true;
     static_cast<void>(ex);
     if (allow_exceptions) {
-        throw(ex);
+        throw_sax_error(ex);
     }
     return false;
 }
