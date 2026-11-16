@@ -66,6 +66,7 @@ private:
     bool next_unget = false;
     position_t position{};
     std::vector<char> token_string{};
+    bool token_string_truncated = false;
     std::string token_buffer{};
     const char *error_message = "";
     int64_t value_integer = 0;

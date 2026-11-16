@@ -1,6 +1,7 @@
 #include "doctest_compatibility.h"
 #include <nlohmann/json.hpp>
 #include <nlohmann/detail/input/json_sax.hpp>
+#include <nlohmann/detail/input/lexer.hpp>
 #include <limits>
 
 using nlohmann::json;
@@ -110,4 +111,17 @@ TEST_CASE("items iterators support forward traversal")
     CHECK(copy.key() == "a");
     CHECK(first.key() == "b");
     CHECK(std::distance(items.begin(), items.end()) == 2);
+}
+
+TEST_CASE("lexer bounds diagnostic token text")
+{
+    const std::string input = "1" + std::string(100000, ' ') + "x";
+    nlohmann::detail::lexer lexer(nlohmann::detail::input_adapter(input));
+    CHECK(lexer.scan() == nlohmann::detail::lexer_token_type::value_integer);
+    CHECK(lexer.scan() == nlohmann::detail::lexer_token_type::parse_error);
+    const auto token = lexer.get_token_string();
+    CHECK(token.size() <= 8195);
+    CHECK(token.front() == '1');
+    CHECK(token.back() == 'x');
+    CHECK(token.find("...") != std::string::npos);
 }

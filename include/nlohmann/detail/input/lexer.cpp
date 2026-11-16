@@ -892,6 +892,7 @@ void nlohmann::detail::lexer::reset() noexcept
 {
     token_buffer.clear();
     token_string.clear();
+    token_string_truncated = false;
     token_string.push_back(char(current));
 }
 
@@ -907,6 +908,12 @@ uint64_t nlohmann::detail::lexer::get()
     }
 
     if (current != uint64_t(EOF)) {
+        // Keep the diagnostic prefix and a rolling suffix. Compact in chunks
+        // so scanning remains linear even for very long trailing whitespace.
+        if (token_string.size() >= 12288) {
+            token_string.erase(token_string.begin() + 4096, token_string.begin() + 8192);
+            token_string_truncated = true;
+        }
         token_string.push_back(char(current));
     }
 
@@ -945,7 +952,13 @@ void nlohmann::detail::lexer::add(uint64_t c)
 std::string nlohmann::detail::lexer::get_token_string() const
 {
     std::string result;
-    for (const auto c : token_string) {
+    const bool truncate = token_string_truncated || token_string.size() > 8192;
+    for (size_t index = 0; index < token_string.size(); ++index) {
+        if (truncate && index == 4096) {
+            result += "...";
+            index = token_string.size() - 4096;
+        }
+        const auto c = token_string[index];
         if (static_cast<unsigned char>(c) <= '\x1F') {
             std::array<char, 9> cs{{}};
             static_cast<void>(
