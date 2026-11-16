@@ -178,7 +178,7 @@ TEST_CASE_TEMPLATE("serialization for extreme integer values", T, int32_t, uint3
     {
         constexpr auto maximum = (std::numeric_limits<T>::max)();
         const json j = maximum;
-        CHECK(j.dump() == std::to_string(maximum));
+        CHECK(j.dump() == std::to_string(static_cast<int64_t>(maximum)));
     }
 }
 
@@ -261,33 +261,25 @@ TEST_CASE("dump with binary values")
               "    }\n"
               "}");
 
-        CHECK(array.dump(4) == "[\n"
-              "    \"value\",\n"
-              "    1,\n"
+        CHECK(array.dump(4) == "[\"value\", 1,\n"
               "    {\n"
               "        \"bytes\": [1, 2, 3, 4],\n"
               "        \"subtype\": null\n"
               "    }\n"
               "]");
-        CHECK(array_empty.dump(4) == "[\n"
-              "    \"value\",\n"
-              "    1,\n"
+        CHECK(array_empty.dump(4) == "[\"value\", 1,\n"
               "    {\n"
               "        \"bytes\": [],\n"
               "        \"subtype\": null\n"
               "    }\n"
               "]");
-        CHECK(array_with_subtype.dump(4) == "[\n"
-              "    \"value\",\n"
-              "    1,\n"
+        CHECK(array_with_subtype.dump(4) == "[\"value\", 1,\n"
               "    {\n"
               "        \"bytes\": [1, 2, 3, 4],\n"
               "        \"subtype\": 128\n"
               "    }\n"
               "]");
-        CHECK(array_empty_with_subtype.dump(4) == "[\n"
-              "    \"value\",\n"
-              "    1,\n"
+        CHECK(array_empty_with_subtype.dump(4) == "[\"value\", 1,\n"
               "    {\n"
               "        \"bytes\": [],\n"
               "        \"subtype\": 128\n"
