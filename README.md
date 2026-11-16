@@ -11,6 +11,7 @@ add_subdirectory(path/to/json)
 target_link_libraries(my_app PRIVATE nlohmann_json::nlohmann_json)
 ```
 
+Library headers and implementation files live in `src/nlohmann/`.
 The target propagates its include path, C++20 requirement, and static library.
 Installed packages can be used with `find_package(nlohmann_json CONFIG REQUIRED)`.
 Include `<nlohmann/json.hpp>`, or `<nlohmann/json_fwd.hpp>` for declarations only.
@@ -54,8 +55,13 @@ Tests download the upstream test data on their first run. Use
   The writer falls back to an untyped array when necessary to keep its output
   readable within these limits.
 
-The upstream `docs/` tree and changelog describe the original library and may
-include APIs unavailable in this fork. See the headers and tests for the fork's
-supported API. Original project: https://github.com/nlohmann/json.
+## Documentation
+
+The [documentation](docs/README.md) describes this fork's API, CMake integration,
+conversions, formatting, binary formats, and migration from upstream. Its examples
+compile and link against the library through CMake.
+
+The root `ChangeLog.md` retains the upstream release history. The original
+project is [nlohmann/json](https://github.com/nlohmann/json).
 
 Licensed under MIT; see [LICENSE.MIT](LICENSE.MIT).

@@ -1,16 +1,22 @@
-#include <iostream>
 #include <nlohmann/json.hpp>
-
-using json = nlohmann::json;
+#include <cstdint>
+#include <vector>
 
 int main()
 {
-    // create a binary vector
-    std::vector<std::uint8_t> vec = {0xCA, 0xFE, 0xBA, 0xBE};
+    using nlohmann::json;
+    const auto value = json::object({{"z", 1}, {"a", json::array({2, 3})}});
+    if (json::from_cbor(json::to_cbor(value)) != value
+        || json::from_msgpack(json::to_msgpack(value)) != value
+        || json::from_ubjson(json::to_ubjson(value, true, true)) != value
+        || json::from_bjdata(json::to_bjdata(value, true, true)) != value
+        || json::from_bson(json::to_bson(value)) != value) {
+        return 1;
+    }
 
-    // create a binary JSON value with subtype 42
-    json j = json::binary(vec, 42);
-
-    // output type and subtype
-    std::cout << "type: " << j.type_name() << ", subtype: " << j.get_binary().subtype() << std::endl;
+    const auto binary = json::binary({1, 2, 3}, 42);
+    std::vector<uint8_t> bytes;
+    json::to_cbor(binary, bytes);
+    const auto decoded = json::from_cbor(bytes, true, true, json::cbor_tag_handler_t::store);
+    return decoded == binary && decoded.get_binary().subtype() == 42 ? 0 : 1;
 }
