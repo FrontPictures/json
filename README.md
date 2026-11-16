@@ -22,6 +22,9 @@ cmake --build build -j
 ctest --test-dir build --output-on-failure
 ```
 
+The full suite includes expensive exhaustive Unicode tests. Set
+`JSON_FastTests=ON` to skip those marked as expensive.
+
 Tests download the upstream test data on their first run. Use
 `JSON_TestDataDirectory` to point to an existing copy.
 
@@ -43,6 +46,13 @@ Tests download the upstream test data on their first run. Use
   objects also stay inline; longer strings and nonempty containers start an
   indented line. The string threshold is measured before JSON escaping.
 - Discarded values serialize as `null`.
+- Diagnostic token text keeps the first and last 4096 bytes of long tokens,
+  separated by `...`, instead of retaining an unbounded copy of the input.
+- Optimized UBJSON arrays of nulls or booleans are limited to 1,048,576
+  elements each. Their combined count is limited to 1,048,576 plus four times
+  the number of input bytes read. Exceeding either limit reports error 408.
+  The writer falls back to an untyped array when necessary to keep its output
+  readable within these limits.
 
 The upstream `docs/` tree and changelog describe the original library and may
 include APIs unavailable in this fork. See the headers and tests for the fork's
