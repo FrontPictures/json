@@ -8,7 +8,6 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
@@ -872,7 +871,7 @@ TEST_CASE("constructors")
             float const n = 42.23f;
             json const j(n);
             CHECK(j.type() == json::value_t::number_float);
-            CHECK(j.m_data.m_value.number_float == Approx(j_reference.m_data.m_value.number_float));
+            CHECK(j.get<double>() == Approx(j_reference.get<double>()));
         }
 
         SECTION("double")
@@ -880,7 +879,7 @@ TEST_CASE("constructors")
             double const n = 42.23;
             json const j(n);
             CHECK(j.type() == json::value_t::number_float);
-            CHECK(j.m_data.m_value.number_float == Approx(j_reference.m_data.m_value.number_float));
+            CHECK(j.get<double>() == Approx(j_reference.get<double>()));
         }
 
         // SECTION("long double")
@@ -888,28 +887,28 @@ TEST_CASE("constructors")
         //     long double const n = 42.23L;
         //     json const j(n);
         //     CHECK(j.type() == json::value_t::number_float);
-        //     CHECK(j.m_data.m_value.number_float == Approx(j_reference.m_data.m_value.number_float));
+        //     CHECK(j.get<double>() == Approx(j_reference.get<double>()));
         // }
 
         SECTION("floating-point literal without suffix")
         {
             json const j(42.23);
             CHECK(j.type() == json::value_t::number_float);
-            CHECK(j.m_data.m_value.number_float == Approx(j_reference.m_data.m_value.number_float));
+            CHECK(j.get<double>() == Approx(j_reference.get<double>()));
         }
 
         SECTION("integer literal with f suffix")
         {
             json const j(42.23f);
             CHECK(j.type() == json::value_t::number_float);
-            CHECK(j.m_data.m_value.number_float == Approx(j_reference.m_data.m_value.number_float));
+            CHECK(j.get<double>() == Approx(j_reference.get<double>()));
         }
 
         // SECTION("integer literal with l suffix")
         // {
         //     json const j(42.23L);
         //     CHECK(j.type() == json::value_t::number_float);
-        //     CHECK(j.m_data.m_value.number_float == Approx(j_reference.m_data.m_value.number_float));
+        //     CHECK(j.get<double>() == Approx(j_reference.get<double>()));
         // }
     }
 

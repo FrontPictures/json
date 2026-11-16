@@ -93,9 +93,7 @@ public:
         return *this;
     }
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     difference_type m_it = (std::numeric_limits<std::ptrdiff_t>::min)();
 
 };

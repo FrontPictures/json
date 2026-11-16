@@ -8,7 +8,6 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
@@ -19,10 +18,10 @@ TEST_CASE("iterators 1")
         SECTION("uninitialized")
         {
             json::iterator it;
-            CHECK(it.m_object == nullptr);
+            CHECK(it == json::iterator{});
 
             json::const_iterator cit;
-            CHECK(cit.m_object == nullptr);
+            CHECK(cit == json::const_iterator{});
         }
 
         SECTION("boolean")

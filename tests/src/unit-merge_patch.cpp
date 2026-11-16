@@ -10,9 +10,6 @@
 
 #include "nlohmann/json.hpp"
 using nlohmann::json;
-#ifdef JSON_TEST_NO_GLOBAL_UDLS
-    using namespace nlohmann::literals; // NOLINT(google-build-using-namespace)
-#endif
 
 TEST_CASE("JSON Merge Patch")
 {

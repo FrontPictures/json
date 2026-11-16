@@ -67,9 +67,7 @@ public:
     void dump_float(double x);
     void dumpNull();
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     void dump_escaped(std::string_view s, const bool ensure_ascii);
 
 private:

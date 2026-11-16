@@ -8,7 +8,6 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 #include "nlohmann/detail/input/lexer.hpp"
 using nlohmann::json;

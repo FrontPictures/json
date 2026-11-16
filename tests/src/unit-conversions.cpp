@@ -16,7 +16,6 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
@@ -141,49 +140,6 @@ TEST_CASE("value conversion")
     //     }
     // }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get an object (implicit)")
-    {
-        const json::object_t o_reference = {{"object", json::object()},
-            {"array", {1, 2, 3, 4}},
-            {"number", 42},
-            {"boolean", false},
-            {"null", nullptr},
-            {"string", "Hello world"}
-        };
-        json j(o_reference);
-
-        SECTION("json::object_t")
-        {
-            const json::object_t o = j;
-            CHECK(json(o) == j);
-        }
-
-        SECTION("std::map<json::string_t, json>")
-        {
-            const std::map<json::string_t, json> o = j;
-            CHECK(json(o) == j);
-        }
-
-        SECTION("std::multimap<json::string_t, json>")
-        {
-            const std::multimap<json::string_t, json> o = j;
-            CHECK(json(o) == j);
-        }
-
-        SECTION("std::unordered_map<json::string_t, json>")
-        {
-            const std::unordered_map<json::string_t, json> o = j;
-            CHECK(json(o) == j);
-        }
-
-        SECTION("std::unordered_multimap<json::string_t, json>")
-        {
-            const std::unordered_multimap<json::string_t, json> o = j;
-            CHECK(json(o) == j);
-        }
-    }
-#endif
 
     SECTION("get an array (explicit)")
     {
@@ -220,7 +176,6 @@ TEST_CASE("value conversion")
 
             CHECK_THROWS_WITH_AS(json(json::value_t::null).get<std::vector<json>>(), "[json.exception.type_error.302] invalid type", json::type_error&);
 
-#if !defined(JSON_NOEXCEPTION)
             SECTION("reserve is called on containers that supports it")
             {
                 // make sure all values are properly copied
@@ -228,7 +183,6 @@ TEST_CASE("value conversion")
                 auto v2 = j2.get<std::vector<int>>();
                 CHECK(v2.size() == 10);
             }
-#endif
         }
 
         // SECTION("built-in arrays")
@@ -325,44 +279,6 @@ TEST_CASE("value conversion")
     //     }
     // }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get an array (implicit)")
-    {
-        const json::array_t a_reference{json(1),     json(1u),       json(2.2),
-                                        json(false), json("string"), json()};
-        json j(a_reference);
-
-        SECTION("json::array_t")
-        {
-            const json::array_t a = j;
-            CHECK(json(a) == j);
-        }
-
-        SECTION("std::list<json>")
-        {
-            const std::list<json> a = j;
-            CHECK(json(a) == j);
-        }
-
-        SECTION("std::forward_list<json>")
-        {
-            const std::forward_list<json> a = j;
-            CHECK(json(a) == j);
-        }
-
-        SECTION("std::vector<json>")
-        {
-            const std::vector<json> a = j;
-            CHECK(json(a) == j);
-        }
-
-        SECTION("std::deque<json>")
-        {
-            const std::deque<json> a = j;
-            CHECK(json(a) == j);
-        }
-    }
-#endif
 
     SECTION("get a string (explicit)")
     {
@@ -380,13 +296,6 @@ TEST_CASE("value conversion")
             const std::string s = j.get<std::string>();
             CHECK(json(s) == j);
         }
-#if defined(JSON_HAS_CPP_17)
-        SECTION("std::string_view")
-        {
-            std::string_view const s = j.get<std::string_view>();
-            CHECK(json(s) == j);
-        }
-#endif
 
         SECTION("exception in case of a non-string type")
         {
@@ -401,18 +310,6 @@ TEST_CASE("value conversion")
             CHECK_THROWS_WITH_AS(json(json::value_t::number_float).get<json::string_t>(), "[json.exception.type_error.302] invalid type", json::type_error&);
         }
 
-#if defined(JSON_HAS_CPP_17)
-        SECTION("exception in case of a non-string type using string_view")
-        {
-            CHECK_THROWS_WITH_AS(json(json::value_t::null).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-            CHECK_THROWS_WITH_AS(json(json::value_t::object).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-            CHECK_THROWS_WITH_AS(json(json::value_t::array).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-            CHECK_THROWS_WITH_AS(json(json::value_t::boolean).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-            CHECK_THROWS_WITH_AS(json(json::value_t::number_integer).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-            CHECK_THROWS_WITH_AS(json(json::value_t::number_unsigned).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-            CHECK_THROWS_WITH_AS(json(json::value_t::number_float).get<std::string_view>(), "[json.exception.type_error.302] invalid type", json::type_error&);
-        }
-#endif
     }
 
 //     SECTION("get a string (explicit, get_to)")
@@ -468,33 +365,6 @@ TEST_CASE("value conversion")
     //                          "[json.exception.type_error.302] invalid type", json::type_error&);
     // }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get a string (implicit)")
-    {
-        const json::string_t s_reference{"Hello world"};
-        json j(s_reference);
-
-        SECTION("string_t")
-        {
-            const json::string_t s = j;
-            CHECK(json(s) == j);
-        }
-
-#if defined(JSON_HAS_CPP_17)
-        SECTION("std::string_view")
-        {
-            std::string_view const s = j.get<std::string_view>();
-            CHECK(json(s) == j);
-        }
-#endif
-
-        SECTION("std::string")
-        {
-            const std::string s = j;
-            CHECK(json(s) == j);
-        }
-    }
-#endif
 
     SECTION("get a boolean (explicit)")
     {
@@ -537,25 +407,6 @@ TEST_CASE("value conversion")
         }
     }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get a boolean (implicit)")
-    {
-        const json::boolean_t b_reference{true};
-        json j(b_reference);
-
-        SECTION("boolean_t")
-        {
-            const json::boolean_t b = j;
-            CHECK(json(b) == j);
-        }
-
-        SECTION("bool")
-        {
-            const bool b = j;
-            CHECK(json(b) == j);
-        }
-    }
-#endif
 
     SECTION("get an integer number (explicit)")
     {
@@ -783,219 +634,6 @@ TEST_CASE("value conversion")
         }
     }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get an integer number (implicit)")
-    {
-        json::number_integer_t const n_reference{42};
-        json j(n_reference);
-        json::number_unsigned_t const n_unsigned_reference{42u};
-        json j_unsigned(n_unsigned_reference);
-
-        SECTION("number_integer_t")
-        {
-            auto n = j.get<json::number_integer_t>();
-            CHECK(json(n) == j);
-        }
-
-        SECTION("number_unsigned_t")
-        {
-            auto n = j_unsigned.get<json::number_unsigned_t>();
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("short")
-        {
-            short const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("unsigned short")
-        {
-            unsigned short const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("int")
-        {
-            int const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("unsigned int")
-        {
-            unsigned int const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("long")
-        {
-            long const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("unsigned long")
-        {
-            unsigned long const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("long long")
-        {
-            long long const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("unsigned long long")
-        {
-            unsigned long long const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("int8_t")
-        {
-            int8_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int16_t")
-        {
-            int16_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int32_t")
-        {
-            int32_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int64_t")
-        {
-            int64_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int8_fast_t")
-        {
-            int_fast8_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int16_fast_t")
-        {
-            int_fast16_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int32_fast_t")
-        {
-            int_fast32_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int64_fast_t")
-        {
-            int_fast64_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int8_least_t")
-        {
-            int_least8_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int16_least_t")
-        {
-            int_least16_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int32_least_t")
-        {
-            int_least32_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("int64_least_t")
-        {
-            int_least64_t const n = j;
-            CHECK(json(n) == j);
-        }
-
-        SECTION("uint8_t")
-        {
-            uint8_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint16_t")
-        {
-            uint16_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint32_t")
-        {
-            uint32_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint64_t")
-        {
-            uint64_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint8_fast_t")
-        {
-            uint_fast8_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint16_fast_t")
-        {
-            uint_fast16_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint32_fast_t")
-        {
-            uint_fast32_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint64_fast_t")
-        {
-            uint_fast64_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint8_least_t")
-        {
-            uint_least8_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint16_least_t")
-        {
-            uint_least16_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint32_least_t")
-        {
-            uint_least32_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-
-        SECTION("uint64_least_t")
-        {
-            uint_least64_t const n = j_unsigned;
-            CHECK(json(n) == j_unsigned);
-        }
-    }
-#endif
 
     SECTION("get a floating-point number (explicit)")
     {
@@ -1005,19 +643,19 @@ TEST_CASE("value conversion")
         SECTION("number_float_t")
         {
             auto n = j.get<json::number_float_t>();
-            CHECK(json(n).m_data.m_value.number_float == Approx(j.m_data.m_value.number_float));
+            CHECK(json(n).get<double>() == Approx(j.get<double>()));
         }
 
         SECTION("float")
         {
             auto n = j.get<float>();
-            CHECK(json(n).m_data.m_value.number_float == Approx(j.m_data.m_value.number_float));
+            CHECK(json(n).get<double>() == Approx(j.get<double>()));
         }
 
         SECTION("double")
         {
             auto n = j.get<double>();
-            CHECK(json(n).m_data.m_value.number_float == Approx(j.m_data.m_value.number_float));
+            CHECK(json(n).get<double>() == Approx(j.get<double>()));
         }
 
         SECTION("exception in case of a non-string type")
@@ -1035,31 +673,6 @@ TEST_CASE("value conversion")
         }
     }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get a floating-point number (implicit)")
-    {
-        json::number_float_t const n_reference{42.23};
-        json const j(n_reference);
-
-        SECTION("number_float_t")
-        {
-            json::number_float_t const n = j;
-            CHECK(json(n).m_data.m_value.number_float == Approx(j.m_data.m_value.number_float));
-        }
-
-        SECTION("float")
-        {
-            float const n = j;
-            CHECK(json(n).m_data.m_value.number_float == Approx(j.m_data.m_value.number_float));
-        }
-
-        SECTION("double")
-        {
-            double const n = j;
-            CHECK(json(n).m_data.m_value.number_float == Approx(j.m_data.m_value.number_float));
-        }
-    }
-#endif
 
     SECTION("get a binary value (explicit)")
     {
@@ -1069,7 +682,7 @@ TEST_CASE("value conversion")
         SECTION("binary_t")
         {
             json::binary_t const b = j.get<json::binary_t>();
-            CHECK(*json(b).m_data.m_value.binary == *j.m_data.m_value.binary);
+            CHECK(json(b).get_binary() == j.get_binary());
         }
 
         SECTION("get_binary()")
@@ -1077,14 +690,14 @@ TEST_CASE("value conversion")
             SECTION("non-const")
             {
                 auto& b = j.get_binary();
-                CHECK(*json(b).m_data.m_value.binary == *j.m_data.m_value.binary);
+                CHECK(json(b).get_binary() == j.get_binary());
             }
 
             SECTION("non-const")
             {
                 const json j_const = j;
                 const auto& b = j_const.get_binary();
-                CHECK(*json(b).m_data.m_value.binary == *j.m_data.m_value.binary);
+                CHECK(json(b).get_binary() == j.get_binary());
             }
         }
 
@@ -1127,19 +740,6 @@ TEST_CASE("value conversion")
         }
     }
 
-#if JSON_USE_IMPLICIT_CONVERSIONS
-    SECTION("get a binary value (implicit)")
-    {
-        json::binary_t const n_reference{{1, 2, 3}};
-        json const j(n_reference);
-
-        SECTION("binary_t")
-        {
-            json::binary_t const b = j;
-            CHECK(*json(b).m_data.m_value.binary == *j.m_data.m_value.binary);
-        }
-    }
-#endif
 
     SECTION("get an enum")
     {

@@ -8,7 +8,6 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 #include "nlohmann/detail/output/serializer.hpp"
 #include "nlohmann/detail/string_concat.hpp"
@@ -99,9 +98,8 @@ struct alt_string_data
 void check_escaped(const char* original, const char* escaped = "", bool ensure_ascii = false);
 void check_escaped(const char* original, const char* escaped, const bool ensure_ascii)
 {
-    std::string str;
-    json::serializer s(nlohmann::detail::output_adapter(str), ' ');
-    s.dump_escaped(original, ensure_ascii);
+    const auto quoted = json(original).dump(-1, ' ', ensure_ascii);
+    const auto str = quoted.substr(1, quoted.size() - 2);
     CHECK(str == escaped);
 }
 } // namespace

@@ -2386,7 +2386,6 @@ TEST_CASE("Universal Binary JSON Specification Examples 1")
     }
 }
 
-#if !defined(JSON_NOEXCEPTION)
 TEST_CASE("all UBJSON first bytes")
 {
     // these bytes will fail immediately with exception parse_error.112
@@ -2420,7 +2419,6 @@ TEST_CASE("all UBJSON first bytes")
         }
     }
 }
-#endif
 
 TEST_CASE("UBJSON roundtrips" * doctest::skip())
 {

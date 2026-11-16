@@ -74,11 +74,7 @@ TEST_CASE("BSON")
         {
             { std::string("en\0try", 6), true }
         };
-#if JSON_DIAGNOSTICS
-        CHECK_THROWS_WITH_AS(json::to_bson(j), "[json.exception.out_of_range.409] (/en) BSON key cannot contain code point U+0000 (at byte 2)", json::out_of_range&);
-#else
         CHECK_THROWS_WITH_AS(json::to_bson(j), "[json.exception.out_of_range.409] BSON key cannot contain code point U+0000 (at byte 2)", json::out_of_range&);
-#endif
     }
 
     SECTION("string length must be at least 1")

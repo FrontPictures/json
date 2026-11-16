@@ -16,7 +16,6 @@
 #include "doctest_compatibility.h"
 #include <cmath>
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
@@ -51,6 +50,12 @@ template<> struct StringMaker<std::partial_ordering>
 
 namespace
 {
+// Exercise unordered comparison through the public relational operators.
+bool unordered(const json &a, const json &b, bool = false)
+{
+    return !(a <= b) && !(a >= b);
+}
+
 // helper function to check std::less<json::value_t>
 // see https://en.cppreference.com/w/cpp/utility/functional/less
 template <typename A, typename B, typename U = std::less<json::value_t>>
@@ -273,7 +278,7 @@ TEST_CASE("lexicographical comparison operators")
                 {
                     CAPTURE(i)
                     CAPTURE(j)
-                    CHECK(json::compares_unordered(j_values[i], j_values[j]) == expected[i][j]);
+                    CHECK(unordered(j_values[i], j_values[j]) == expected[i][j]);
                 }
             }
         }
@@ -310,7 +315,7 @@ TEST_CASE("lexicographical comparison operators")
                     CAPTURE(i)
                     CAPTURE(j)
 
-                    if (json::compares_unordered(j_values[i], j_values[j], true))
+                    if (unordered(j_values[i], j_values[j], true))
                     {
                         // if two values compare unordered,
                         // check that the boolean comparison result is always false
@@ -358,7 +363,7 @@ TEST_CASE("lexicographical comparison operators")
                 {
                     CAPTURE(i)
                     CAPTURE(j)
-                    if (json::compares_unordered(j_values[i], j_values[j], true))
+                    if (unordered(j_values[i], j_values[j], true))
                     {
                         // if two values compare unordered,
                         // check that the boolean comparison result is always false
@@ -383,7 +388,7 @@ TEST_CASE("lexicographical comparison operators")
                 {
                     CAPTURE(i)
                     CAPTURE(j)
-                    if (json::compares_unordered(j_values[i], j_values[j]))
+                    if (unordered(j_values[i], j_values[j]))
                     {
                         // if two values compare unordered,
                         // check that the boolean comparison result is always false
@@ -410,7 +415,7 @@ TEST_CASE("lexicographical comparison operators")
                 {
                     CAPTURE(i)
                     CAPTURE(j)
-                    if (json::compares_unordered(j_values[i], j_values[j], true))
+                    if (unordered(j_values[i], j_values[j], true))
                     {
                         // if two values compare unordered,
                         // check that the boolean result is always false

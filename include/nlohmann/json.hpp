@@ -85,11 +85,7 @@ private:
     using binary_reader = ::nlohmann::detail::binary_reader;
     using binary_writer = ::nlohmann::detail::binary_writer;
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#else
-public:
-#endif
     using serializer = ::nlohmann::detail::serializer;
 
     static ::nlohmann::detail::parser parser(const detail::iterator_input_adapter &adapter,
@@ -537,9 +533,7 @@ public:
     void swap(byte_container_with_subtype &other);
     void swap(std::vector<uint8_t> &other);
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     static bool compares_unordered(const_reference lhs, const_reference rhs,
                                    bool inverse = false) noexcept;
 
@@ -589,9 +583,7 @@ public:
 
     const char *type_name() const noexcept;
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     class data
     {
     public:

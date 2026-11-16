@@ -96,9 +96,7 @@ public:
         m_it = other.m_it;
         return *this;
     }
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     void set_begin() noexcept
     {
         switch (m_object->m_data.m_type) {
@@ -463,9 +461,7 @@ public:
         swap(lvl.m_it, rvl.m_it);
     }
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     pointer m_object = nullptr;
     internal_iterator<typename std::remove_const<T>::type> m_it{};
 };

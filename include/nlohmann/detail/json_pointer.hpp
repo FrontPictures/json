@@ -53,9 +53,7 @@ public:
     void push_back(std::string &&token) { reference_tokens.push_back(std::move(token)); }
     bool empty() const noexcept { return reference_tokens.empty(); }
 
-#ifndef JSON_TESTS_PRIVATE
 private:
-#endif
     json_pointer top() const;
 
 private:

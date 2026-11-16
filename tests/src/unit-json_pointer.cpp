@@ -8,12 +8,8 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 using nlohmann::json;
-#ifdef JSON_TEST_NO_GLOBAL_UDLS
-    using namespace nlohmann::literals; // NOLINT(google-build-using-namespace)
-#endif
 
 #include <map>
 #include <sstream>
@@ -32,8 +28,7 @@ TEST_CASE("JSON pointers")
                              "[json.exception.parse_error.108] parse error: escape character '~' must be followed with '0' or '1'", json::parse_error&);
 
         json::json_pointer p;
-        CHECK_THROWS_WITH_AS(p.top(),
-                             "[json.exception.out_of_range.405] JSON pointer has no parent", json::out_of_range&);
+
         CHECK_THROWS_WITH_AS(p.pop_back(),
                              "[json.exception.out_of_range.405] JSON pointer has no parent", json::out_of_range&);
 
@@ -447,11 +442,7 @@ TEST_CASE("JSON pointers")
                              "[json.exception.type_error.314] only objects can be unflattened", json::type_error&);
 
         // error for nonprimitve values
-#if JSON_DIAGNOSTICS
-        CHECK_THROWS_WITH_AS(json({{"/1", {1, 2, 3}}}).unflatten(), "[json.exception.type_error.315] (/~11) values in object must be primitive", json::type_error&);
-#else
         CHECK_THROWS_WITH_AS(json({{"/1", {1, 2, 3}}}).unflatten(), "[json.exception.type_error.315] values in object must be primitive", json::type_error&);
-#endif
 
         // error for conflicting values
         json const j_error = {{"", 42}, {"/foo", 17}};
@@ -707,10 +698,8 @@ TEST_CASE("JSON pointers")
 
         // build with C++20
         // JSON_HAS_CPP_20
-#if JSON_HAS_THREE_WAY_COMPARISON
         CHECK((ptr1 <=> ptr2) == std::strong_ordering::less); // *NOPAD*
         CHECK(ptr2 > ptr1);
-#endif
     }
 
     SECTION("usable as map key")

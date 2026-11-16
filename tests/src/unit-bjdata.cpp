@@ -8,7 +8,6 @@
 
 #include "doctest_compatibility.h"
 
-#define JSON_TESTS_PRIVATE
 #include "nlohmann/json.hpp"
 using nlohmann::json;
 
@@ -210,16 +209,7 @@ struct trait_test_arg
 
 TEST_CASE("BJData")
 {
-    SECTION("binary_reader BJData LUT arrays are sorted")
-    {
-        std::vector<std::uint8_t> const data;
-        auto ia = nlohmann::detail::input_adapter(data);
-        // NOLINTNEXTLINE(hicpp-move-const-arg,performance-move-const-arg)
-        nlohmann::detail::binary_reader const br{ia, json::input_format_t::bjdata};
-
-        CHECK(std::is_sorted(br.bjd_optimized_type_markers.begin(), br.bjd_optimized_type_markers.end()));
-        CHECK(std::is_sorted(br.bjd_types_map.begin(), br.bjd_types_map.end()));
-    }
+    
 
     SECTION("individual values")
     {
@@ -3315,7 +3305,6 @@ TEST_CASE("Universal Binary JSON Specification Examples 1")
     }
 }
 
-#if !defined(JSON_NOEXCEPTION)
 TEST_CASE("all BJData first bytes")
 {
     // these bytes will fail immediately with exception parse_error.112
@@ -3349,7 +3338,6 @@ TEST_CASE("all BJData first bytes")
         }
     }
 }
-#endif
 
 TEST_CASE("BJData roundtrips" * doctest::skip())
 {

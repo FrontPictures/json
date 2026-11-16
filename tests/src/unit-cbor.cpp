@@ -1906,7 +1906,6 @@ TEST_CASE("single CBOR roundtrip")
     }
 }
 
-#if !defined(JSON_NOEXCEPTION)
 TEST_CASE("CBOR regressions")
 {
     SECTION("fuzz test results")
@@ -1973,7 +1972,6 @@ TEST_CASE("CBOR regressions")
         }
     }
 }
-#endif
 
 TEST_CASE("CBOR roundtrips" * doctest::skip())
 {
@@ -2210,7 +2208,6 @@ TEST_CASE("CBOR roundtrips" * doctest::skip())
     }
 }
 
-#if !defined(JSON_NOEXCEPTION)
 TEST_CASE("all CBOR first bytes")
 {
     // these bytes will fail immediately with exception parse_error.112
@@ -2281,7 +2278,6 @@ TEST_CASE("all CBOR first bytes")
         }
     }
 }
-#endif
 
 TEST_CASE("examples from RFC 7049 Appendix A")
 {
