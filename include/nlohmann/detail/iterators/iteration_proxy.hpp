@@ -31,7 +31,7 @@ public:
     using value_type = iteration_proxy_value;
     using pointer = value_type *;
     using reference = value_type &;
-    using iterator_category = std::input_iterator_tag;
+    using iterator_category = std::forward_iterator_tag;
     using string_type = typename std::remove_cv<
         typename std::remove_reference<decltype(std::declval<IteratorType>().key())>::type>::type;
 

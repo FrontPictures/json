@@ -96,3 +96,18 @@ TEST_CASE("fixed signed integer storage and object reservation")
     CHECK(object.dump() == "{\"first\":1,\"second\":2,\"third\":3}");
     CHECK_THROWS_AS(json::array().reserve_object_items(10), json::type_error);
 }
+
+TEST_CASE("items iterators support forward traversal")
+{
+    json object = {{"a", 1}, {"b", 2}};
+    auto items = object.items();
+    using iterator = decltype(items.begin());
+    static_assert(std::is_same<typename std::iterator_traits<iterator>::iterator_category,
+                              std::forward_iterator_tag>::value, "items is a forward range");
+    auto first = items.begin();
+    const auto copy = first;
+    ++first;
+    CHECK(copy.key() == "a");
+    CHECK(first.key() == "b");
+    CHECK(std::distance(items.begin(), items.end()) == 2);
+}
