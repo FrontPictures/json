@@ -696,9 +696,7 @@ template<> struct less<::nlohmann::detail::value_t>
 };
 } // namespace std
 
-#ifndef JSON_TEST_NO_GLOBAL_UDLS
 using nlohmann::literals::json_literals::operator ""_json;
 using nlohmann::literals::json_literals::operator ""_json_pointer;
-#endif
 
 #endif
