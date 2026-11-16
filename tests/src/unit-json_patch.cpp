@@ -30,8 +30,8 @@ TEST_CASE("JSON patch")
             json op3 = R"({ "value": "foo", "path": "/a/b/c", "op": "add" })"_json;
 
             // check if the operation objects are equivalent
-            CHECK(op1 == op2);
-            CHECK(op1 == op3);
+            CHECK(utils::same_json_values(op1, op2));
+            CHECK(utils::same_json_values(op1, op3));
         }
 
         SECTION("4.1 add")
@@ -106,10 +106,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.2. Adding an Array Element")
@@ -132,10 +132,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.3. Removing an Object Member")
@@ -161,10 +161,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.4. Removing an Array Element")
@@ -187,10 +187,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.5. Replacing a Value")
@@ -218,10 +218,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.6. Moving a Value")
@@ -260,10 +260,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.7. Moving a Value")
@@ -286,10 +286,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.8. Testing a Value: Success")
@@ -365,10 +365,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.11. Ignoring Unrecognized Elements")
@@ -393,10 +393,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.12. Adding to a Nonexistent Target")
@@ -450,10 +450,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("A.15. Comparing Strings and Numbers")
@@ -502,10 +502,10 @@ TEST_CASE("JSON patch")
                 )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
     }
 
@@ -533,10 +533,10 @@ TEST_CASE("JSON patch")
                 json expected = {1, 2, 3};
 
                 // check if patched value is as expected
-                CHECK(doc.patch(patch) == expected);
+                CHECK(utils::same_json_values(doc.patch(patch), expected));
 
                 // check roundtrip
-                CHECK(doc.patch(json::diff(doc, expected)) == expected);
+                CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
             }
 
             SECTION("add to end of the array")
@@ -559,10 +559,10 @@ TEST_CASE("JSON patch")
                 json expected = {0, 1, 2, 3};
 
                 // check if patched value is as expected
-                CHECK(doc.patch(patch) == expected);
+                CHECK(utils::same_json_values(doc.patch(patch), expected));
 
                 // check roundtrip
-                CHECK(doc.patch(json::diff(doc, expected)) == expected);
+                CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
             }
         }
 
@@ -603,10 +603,10 @@ TEST_CASE("JSON patch")
             )"_json;
 
             // check if patched value is as expected
-            CHECK(doc.patch(patch) == expected);
+            CHECK(utils::same_json_values(doc.patch(patch), expected));
 
             // check roundtrip
-            CHECK(doc.patch(json::diff(doc, expected)) == expected);
+            CHECK(utils::same_json_values(doc.patch(json::diff(doc, expected)), expected));
         }
 
         SECTION("replace")
@@ -648,14 +648,14 @@ TEST_CASE("JSON patch")
 
                 // use to access elements
                 j[ptr] = {{"it", "cattivo"}};
-                CHECK(j == R"(["good","bad",{"it":"cattivo"}])"_json);
+                CHECK(utils::same_json_values(j, R"(["good","bad",{"it":"cattivo"}])"_json));
 
                 // use user-defined string literal
                 j["/2/en"_json_pointer] = "ugly";
-                CHECK(j == R"(["good","bad",{"en":"ugly","it":"cattivo"}])"_json);
+                CHECK(utils::same_json_values(j, R"(["good","bad",{"en":"ugly","it":"cattivo"}])"_json));
 
                 json flat = j.flatten();
-                CHECK(flat == R"({"/0":"good","/1":"bad","/2/en":"ugly","/2/it":"cattivo"})"_json);
+                CHECK(utils::same_json_values(flat, R"({"/0":"good","/1":"bad","/2/en":"ugly","/2/it":"cattivo"})"_json));
             }
         }
     }
@@ -1302,14 +1302,14 @@ TEST_CASE("JSON patch")
                     continue;
                 }
 
-                const auto& doc = test["doc"];
-                const auto& patch = test["patch"];
+                const auto doc = utils::sort_objects(test["doc"]);
+                const auto patch = utils::sort_objects(test["patch"]);
 
                 if (test.count("error") == 0)
                 {
                     // if an expected value is given, use it; use doc otherwise
                     const auto& expected = test.value("expected", doc);
-                    CHECK(doc.patch(patch) == expected);
+                    CHECK(utils::same_json_values(doc.patch(patch), expected));
                 }
                 else
                 {

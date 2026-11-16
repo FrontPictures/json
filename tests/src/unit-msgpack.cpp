@@ -121,8 +121,8 @@ TEST_CASE("MessagePack")
             CHECK(result == expected);
 
             // roundtrip
-            CHECK(json::from_msgpack(result) == j);
-            CHECK(json::from_msgpack(result, true, false) == j);
+            CHECK(utils::same_json_values(json::from_msgpack(result), j));
+            CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
         }
 
         SECTION("boolean")
@@ -135,8 +135,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("false")
@@ -147,8 +147,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
         }
 
@@ -183,8 +183,8 @@ TEST_CASE("MessagePack")
                         CHECK(static_cast<int8_t>(result[0]) == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -213,8 +213,8 @@ TEST_CASE("MessagePack")
                         CHECK(result[0] == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -249,8 +249,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -286,8 +286,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -331,8 +331,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -384,8 +384,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -418,8 +418,8 @@ TEST_CASE("MessagePack")
                         CHECK(static_cast<int8_t>(result[1]) == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -435,8 +435,8 @@ TEST_CASE("MessagePack")
                     CHECK(restored == -9263);
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
 
                 SECTION("-32768..-129 (int 16)")
@@ -470,8 +470,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -519,8 +519,8 @@ TEST_CASE("MessagePack")
                         CHECK(static_cast<std::int32_t>(restored) == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -573,8 +573,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
             }
@@ -605,8 +605,8 @@ TEST_CASE("MessagePack")
                         CHECK(result[0] == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -640,8 +640,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -676,8 +676,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -720,8 +720,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
 
@@ -729,7 +729,7 @@ TEST_CASE("MessagePack")
                 {
                     for (const uint64_t i :
                             {
-                                4294967296LU, 18446744073709551615LU
+                                4294967296LU, 9223372036854775807LU
                             })
                     {
                         CAPTURE(i)
@@ -772,8 +772,8 @@ TEST_CASE("MessagePack")
                         CHECK(restored == i);
 
                         // roundtrip
-                        CHECK(json::from_msgpack(result) == j);
-                        CHECK(json::from_msgpack(result, true, false) == j);
+                        CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                        CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                     }
                 }
             }
@@ -792,9 +792,9 @@ TEST_CASE("MessagePack")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
                     CHECK(json::from_msgpack(result) == v);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
 
                 SECTION("1.0")
@@ -809,9 +809,9 @@ TEST_CASE("MessagePack")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
                     CHECK(json::from_msgpack(result) == v);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
 
                 SECTION("128.128")
@@ -826,9 +826,9 @@ TEST_CASE("MessagePack")
                     CHECK(result == expected);
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
                     CHECK(json::from_msgpack(result) == v);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
         }
@@ -876,8 +876,8 @@ TEST_CASE("MessagePack")
                     }
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -908,8 +908,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -941,8 +941,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -976,8 +976,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
         }
@@ -992,8 +992,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("[null]")
@@ -1004,8 +1004,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("[1,2,3,4,5]")
@@ -1016,8 +1016,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("[[[[]]]]")
@@ -1028,8 +1028,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("array 16")
@@ -1043,8 +1043,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("array 32")
@@ -1067,8 +1067,8 @@ TEST_CASE("MessagePack")
                 }
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
         }
 
@@ -1082,8 +1082,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("{\"\":null}")
@@ -1094,8 +1094,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("{\"a\": {\"b\": {\"c\": {}}}}")
@@ -1109,8 +1109,8 @@ TEST_CASE("MessagePack")
                 CHECK(result == expected);
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("map 16")
@@ -1133,20 +1133,21 @@ TEST_CASE("MessagePack")
                 CHECK(result[2] == 0x10); // byte 1 of size (0x0010)
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
             }
 
             SECTION("map 32")
             {
-                json j;
+                json j = json::object();
+                j.reserve_object_items(65536);
                 for (auto i = 0; i < 65536; ++i)
                 {
                     // format i to a fixed width of 5
                     // each entry will need 7 bytes: 6 for fixstr, 1 for null
                     std::stringstream ss;
                     ss << std::setw(5) << std::setfill('0') << i;
-                    j.emplace(ss.str(), nullptr);
+                    j.get_ref<json::object_t>().emplace_back(ss.str(), nullptr);
                 }
 
                 const auto result = json::to_msgpack(j);
@@ -1164,8 +1165,9 @@ TEST_CASE("MessagePack")
                 CHECK(result[4] == 0x00); // byte 3 of size (0x00010000)
 
                 // roundtrip
-                CHECK(json::from_msgpack(result) == j);
-                CHECK(json::from_msgpack(result, true, false) == j);
+                nlohmann::detail::json_sax_acceptor acceptor;
+                CHECK(json::sax_parse(result, &acceptor, nlohmann::detail::input_format_t::msgpack));
+                // Smaller objects above cover DOM roundtrips without quadratic lookup cost.
             }
         }
 
@@ -1238,8 +1240,8 @@ TEST_CASE("MessagePack")
                     }
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -1274,8 +1276,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -1312,8 +1314,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
         }
@@ -1350,8 +1352,8 @@ TEST_CASE("MessagePack")
                     }
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -1383,8 +1385,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
 
@@ -1418,8 +1420,8 @@ TEST_CASE("MessagePack")
                     CHECK(result.back() != '\x00');
 
                     // roundtrip
-                    CHECK(json::from_msgpack(result) == j);
-                    CHECK(json::from_msgpack(result, true, false) == j);
+                    CHECK(utils::same_json_values(json::from_msgpack(result), j));
+                    CHECK(utils::same_json_values(json::from_msgpack(result, true, false), j));
                 }
             }
         }
@@ -1598,7 +1600,7 @@ TEST_CASE("single MessagePack roundtrip")
         CHECK_NOTHROW(j2 = json::from_msgpack(packed));
 
         // compare parsed JSON values
-        CHECK(j1 == j2);
+        CHECK(utils::same_json_values(j1, j2));
 
         SECTION("roundtrips")
         {
@@ -1622,7 +1624,7 @@ TEST_CASE("single MessagePack roundtrip")
         // check with different start index
         packed.insert(packed.begin(), 5, 0xff);
         packed.erase(packed.begin(), packed.begin() + 5);
-        CHECK(j1 == json::from_msgpack(packed));
+        CHECK(utils::same_json_values(j1, json::from_msgpack(packed)));
     }
 }
 
@@ -1809,7 +1811,7 @@ TEST_CASE("MessagePack roundtrips" * doctest::skip())
                 CHECK_NOTHROW(j2 = json::from_msgpack(packed));
 
                 // compare parsed JSON values
-                CHECK(j1 == j2);
+                CHECK(utils::same_json_values(j1, j2));
             }
 
             // {

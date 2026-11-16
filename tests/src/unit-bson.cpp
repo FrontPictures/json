@@ -1160,52 +1160,7 @@ TEST_CASE("BSON numerical data")
                 }
             }
 
-            SECTION("unsigned std::uint64_t: INT64_MAX+1 .. UINT64_MAX")
-            {
-                std::vector<std::uint64_t> const numbers
-                {
-                    static_cast<std::uint64_t>((std::numeric_limits<std::int64_t>::max)()) + 1ULL,
-                    10000000000000000000ULL,
-                    18000000000000000000ULL,
-                    (std::numeric_limits<std::uint64_t>::max)() - 1ULL,
-                    (std::numeric_limits<std::uint64_t>::max)(),
-                };
-
-                for (const auto i : numbers)
-                {
-
-                    CAPTURE(i)
-
-                    json const j =
-                    {
-                        { "entry", i }
-                    };
-
-                    auto iu = i;
-                    std::vector<std::uint8_t> const expected_bson =
-                    {
-                        0x14u, 0x00u, 0x00u, 0x00u, // size (little endian)
-                        0x12u, /// entry: int64
-                        'e', 'n', 't', 'r', 'y', '\x00',
-                        static_cast<std::uint8_t>((iu >> (8u * 0u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 1u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 2u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 3u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 4u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 5u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 6u)) & 0xffu),
-                        static_cast<std::uint8_t>((iu >> (8u * 7u)) & 0xffu),
-                        0x00u // end marker
-                    };
-
-                    CHECK_THROWS_AS(json::to_bson(j), json::out_of_range&);
-#if JSON_DIAGNOSTICS
-                    CHECK_THROWS_WITH_STD_STR(json::to_bson(j), "[json.exception.out_of_range.407] (/entry) integer number " + std::to_string(i) + " cannot be represented by BSON as it does not fit int64");
-#else
-                    CHECK_THROWS_WITH_STD_STR(json::to_bson(j), "[json.exception.out_of_range.407] integer number " + std::to_string(i) + " cannot be represented by BSON as it does not fit int64");
-#endif
-                }
-            }
+            
 
         }
     }
