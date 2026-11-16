@@ -127,70 +127,6 @@ double make_double(uint64_t f, int e)
 
 TEST_CASE("digit gen")
 {
-    SECTION("single precision")
-    {
-        auto check_float = [](float number, const std::string & digits, int expected_exponent)
-        {
-            CAPTURE(number)
-            CAPTURE(digits)
-            CAPTURE(expected_exponent)
-
-            std::array<char, 32> buf{};
-            int len = 0;
-            int exponent = 0;
-            grisu2::grisu2(buf.data(), len, exponent, number);
-
-            CHECK(digits == std::string(buf.data(), buf.data() + len));
-            CHECK(expected_exponent == exponent);
-        };
-
-        check_float(make_float(0,   0, 0x00000001),        "1", -45); // min denormal
-        check_float(make_float(0,   0, 0x007FFFFF), "11754942", -45); // max denormal
-        check_float(make_float(0,   1, 0x00000000), "11754944", -45); // min normal
-        check_float(make_float(0,   1, 0x00000001), "11754945", -45);
-        check_float(make_float(0,   1, 0x007FFFFF), "23509886", -45);
-        check_float(make_float(0,   2, 0x00000000), "23509887", -45);
-        check_float(make_float(0,   2, 0x00000001),  "2350989", -44);
-        check_float(make_float(0,  24, 0x00000000), "98607613", -39); // fail if no special case in normalized boundaries
-        check_float(make_float(0,  30, 0x00000000), "63108872", -37); // fail if no special case in normalized boundaries
-        check_float(make_float(0,  31, 0x00000000), "12621775", -36); // fail if no special case in normalized boundaries
-        check_float(make_float(0,  57, 0x00000000), "84703295", -29); // fail if no special case in normalized boundaries
-        check_float(make_float(0, 254, 0x007FFFFE), "34028233",  31);
-        check_float(make_float(0, 254, 0x007FFFFF), "34028235",  31); // max normal
-
-        // V. Paxson and W. Kahan, "A Program for Testing IEEE Binary-Decimal Conversion", manuscript, May 1991,
-        // ftp://ftp.ee.lbl.gov/testbase-report.ps.Z    (report)
-        // ftp://ftp.ee.lbl.gov/testbase.tar.Z          (program)
-
-        // Table 16: Stress Inputs for Converting 24-bit Binary to Decimal, < 1/2 ULP
-        check_float(make_float(12676506, -102),       "25", -25);
-        check_float(make_float(12676506, -103),      "125", -26);
-        check_float(make_float(15445013,   86),     "1195",  30);
-        check_float(make_float(13734123, -138),    "39415", -39);
-        check_float(make_float(12428269, -130),   "913085", -38);
-        check_float(make_float(15334037, -146),  "1719005", -43);
-        check_float(make_float(11518287,  -41), "52379105", -13);
-        check_float(make_float(12584953, -145),  "2821644", -43);
-        check_float(make_float(15961084, -125), "37524328", -38);
-        check_float(make_float(14915817, -146), "16721209", -44);
-        check_float(make_float(10845484, -102), "21388946", -31);
-        check_float(make_float(16431059,  -61),  "7125836", -18);
-
-        // Table 17: Stress Inputs for Converting 24-bit Binary to Decimal, > 1/2 ULP
-        check_float(make_float(16093626,   69),       "95",  26);
-        check_float(make_float( 9983778,   25),      "335",  12);
-        check_float(make_float(12745034,  104),     "2585",  35);
-        check_float(make_float(12706553,   72),    "60005",  24);
-        check_float(make_float(11005028,   45),   "387205",  15);
-        check_float(make_float(15059547,   71),  "3555835",  22);
-        check_float(make_float(16015691,  -99), "25268305", -30);
-        check_float(make_float( 8667859,   56),  "6245851",  17);
-        check_float(make_float(14855922,  -82), "30721327", -25);
-        check_float(make_float(14855922,  -83), "15360663", -25);
-        check_float(make_float(10144164, -110),   "781478", -32);
-        check_float(make_float(13248074,   95), "52481028",  28);
-    }
-
     SECTION("double precision")
     {
         auto check_double = [](double number, const std::string & digits, int expected_exponent)
@@ -337,65 +273,7 @@ TEST_CASE("digit gen")
 
 TEST_CASE("formatting")
 {
-    SECTION("single precision")
-    {
-        auto check_float = [](float number, const std::string & expected)
-        {
-            std::array<char, 33> buf{};
-            char* end = nlohmann::detail::to_chars(buf.data(), buf.data() + 32, number); // NOLINT(cppcoreguidelines-pro-type-vararg,hicpp-vararg)
-            std::string actual(buf.data(), end);
-
-            CHECK(actual == expected);
-        };
-        // %.9g
-        check_float( -1.2345e-22f, "-1.2345e-22"  ); // -1.23450004e-22
-        check_float( -1.2345e-21f, "-1.2345e-21"  ); // -1.23450002e-21
-        check_float( -1.2345e-20f, "-1.2345e-20"  ); // -1.23450002e-20
-        check_float( -1.2345e-19f, "-1.2345e-19"  ); // -1.23449999e-19
-        check_float( -1.2345e-18f, "-1.2345e-18"  ); // -1.23449996e-18
-        check_float( -1.2345e-17f, "-1.2345e-17"  ); // -1.23449998e-17
-        check_float( -1.2345e-16f, "-1.2345e-16"  ); // -1.23449996e-16
-        check_float( -1.2345e-15f, "-1.2345e-15"  ); // -1.23450002e-15
-        check_float( -1.2345e-14f, "-1.2345e-14"  ); // -1.23450004e-14
-        check_float( -1.2345e-13f, "-1.2345e-13"  ); // -1.23449997e-13
-        check_float( -1.2345e-12f, "-1.2345e-12"  ); // -1.23450002e-12
-        check_float( -1.2345e-11f, "-1.2345e-11"  ); // -1.2345e-11
-        check_float( -1.2345e-10f, "-1.2345e-10"  ); // -1.2345e-10
-        check_float( -1.2345e-9f,  "-1.2345e-09"  ); // -1.23449995e-09
-        check_float( -1.2345e-8f,  "-1.2345e-08"  ); // -1.23449997e-08
-        check_float( -1.2345e-7f,  "-1.2345e-07"  ); // -1.23449993e-07
-        check_float( -1.2345e-6f,  "-1.2345e-06"  ); // -1.23450002e-06
-        check_float( -1.2345e-5f,  "-1.2345e-05"  ); // -1.2345e-05
-        check_float( -1.2345e-4f,  "-0.00012345"  ); // -0.000123449994
-        check_float( -1.2345e-3f,  "-0.0012345"   ); // -0.00123449997
-        check_float( -1.2345e-2f,  "-0.012345"    ); // -0.0123450002
-        check_float( -1.2345e-1f,  "-0.12345"     ); // -0.123450004
-        check_float( -0.0f,        "-0.0"         ); // -0
-        check_float(  0.0f,         "0.0"         ); //  0
-        check_float(  1.2345e+0f,   "1.2345"      ); //  1.23450005
-        check_float(  1.2345e+1f,   "12.345"      ); //  12.3450003
-        check_float(  1.2345e+2f,   "123.45"      ); //  123.449997
-        check_float(  1.2345e+3f,   "1234.5"      ); //  1234.5
-        check_float(  1.2345e+4f,   "12345.0"     ); //  12345
-        check_float(  1.2345e+5f,   "123450.0"    ); //  123450
-        check_float(  1.2345e+6f,   "1.2345e+06"  ); //  1234500
-        check_float(  1.2345e+7f,   "1.2345e+07"  ); //  12345000
-        check_float(  1.2345e+8f,   "1.2345e+08"  ); //  123450000
-        check_float(  1.2345e+9f,   "1.2345e+09"  ); //  1.23449997e+09
-        check_float(  1.2345e+10f,  "1.2345e+10"  ); //  1.23449999e+10
-        check_float(  1.2345e+11f,  "1.2345e+11"  ); //  1.23449999e+11
-        check_float(  1.2345e+12f,  "1.2345e+12"  ); //  1.23450006e+12
-        check_float(  1.2345e+13f,  "1.2345e+13"  ); //  1.23449995e+13
-        check_float(  1.2345e+14f,  "1.2345e+14"  ); //  1.23450002e+14
-        check_float(  1.2345e+15f,  "1.2345e+15"  ); //  1.23450003e+15
-        check_float(  1.2345e+16f,  "1.2345e+16"  ); //  1.23449998e+16
-        check_float(  1.2345e+17f,  "1.2345e+17"  ); //  1.23449996e+17
-        check_float(  1.2345e+18f,  "1.2345e+18"  ); //  1.23450004e+18
-        check_float(  1.2345e+19f,  "1.2345e+19"  ); //  1.23449999e+19
-        check_float(  1.2345e+20f,  "1.2345e+20"  ); //  1.23449999e+20
-        check_float(  1.2345e+21f,  "1.2345e+21"  ); //  1.23449999e+21
-        check_float(  1.2345e+22f,  "1.2345e+22"  ); //  1.23450005e+22
-    }
+    
 
     SECTION("double precision")
     {

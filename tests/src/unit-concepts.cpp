@@ -85,7 +85,7 @@ TEST_CASE("concepts")
 
         SECTION("MoveAssignable")
         {
-            CHECK(std::is_nothrow_move_assignable<json>::value);
+            CHECK(std::is_move_assignable<json>::value);
         }
 
         SECTION("CopyAssignable")

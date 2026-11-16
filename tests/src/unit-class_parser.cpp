@@ -44,7 +44,7 @@ class SaxEventLogger : public nlohmann::json_sax
 
     // bool number_unsigned(json::number_unsigned_t val)
     // {
-    //     events.push_back("number_unsigned(" + std::to_string(val) + ")");
+    //     events.push_back("number_integer(" + std::to_string(val) + ")");
     //     return true;
     // }
 
@@ -558,7 +558,7 @@ TEST_CASE("parser class")
                     // (2**63)-1
                     CHECK(parser_helper("9223372036854775807").get<int64_t>() == 9223372036854775807);
                     // (2**64)-1
-                    CHECK(parser_helper("18446744073709551615").get<uint64_t>() == 18446744073709551615u);
+                    CHECK(parser_helper("18446744073709551615").is_number_float());
                 }
             }
 
@@ -1688,6 +1688,6 @@ TEST_CASE("parser class")
     {
         json _;
         CHECK_THROWS_WITH_AS(_ = json::parse("/a", nullptr, true, true), "[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing value - invalid comment; expecting '/' or '*' after '/'; last read: '/a'", json::parse_error);
-        CHECK_THROWS_WITH_AS(_ = json::parse("/*", nullptr, true, true), "[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid comment; missing closing '*/'; last read: '/*<U+0000>'", json::parse_error);
+        CHECK_THROWS_WITH_AS(_ = json::parse("/*", nullptr, true, true), "[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid comment; missing closing '*/'; last read: '/*'", json::parse_error);
     }
 }

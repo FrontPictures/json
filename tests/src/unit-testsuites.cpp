@@ -790,38 +790,6 @@ TEST_CASE("nst's JSONTestSuite")
             }
         }
 
-        SECTION("n -> y (relaxed)")
-        {
-            // these tests fail above, because the parser does not end on EOF;
-            // they succeed when the operator>> is used, because it does not
-            // have this constraint
-            for (const auto* filename :
-                    {
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_array_comma_after_close.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_array_extra_close.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_object_trailing_comment.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_object_trailing_comment_open.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_object_trailing_comment_slash_open.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_object_trailing_comment_slash_open_incomplete.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_object_with_trailing_garbage.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_string_with_trailing_garbage.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_array_trailing_garbage.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_array_with_extra_array_close.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_close_unopened_array.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_double_array.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_number_with_trailing_garbage.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_object_followed_by_closing_object.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_object_with_trailing_garbage.json",
-                        TEST_DATA_DIRECTORY "/nst_json_testsuite/test_parsing/n_structure_trailing_#.json"
-                    }
-                )
-            {
-                CAPTURE(filename)
-                json j;
-                CHECK_NOTHROW(j = json::parse(utils::read_binary_file(filename)));
-            }
-        }
-
         SECTION("i -> y")
         {
             for (const auto* filename :

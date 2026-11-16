@@ -21,7 +21,8 @@ namespace
 lexer_token_type scan_string(const char* s, bool ignore_comments = false);
 lexer_token_type scan_string(const char* s, const bool ignore_comments)
 {
-    auto ia = nlohmann::detail::input_adapter(s);
+    const std::string input(s);
+    auto ia = nlohmann::detail::input_adapter(input);
     return nlohmann::detail::lexer(ia, ignore_comments).scan(); // NOLINT(hicpp-move-const-arg,performance-move-const-arg)
 }
 } // namespace
@@ -29,7 +30,8 @@ lexer_token_type scan_string(const char* s, const bool ignore_comments)
 std::string get_error_message(const char* s, bool ignore_comments = false);
 std::string get_error_message(const char* s, const bool ignore_comments)
 {
-    auto ia = nlohmann::detail::input_adapter(s);
+    const std::string input(s);
+    auto ia = nlohmann::detail::input_adapter(input);
     auto lexer = nlohmann::detail::lexer(ia, ignore_comments); // NOLINT(hicpp-move-const-arg,performance-move-const-arg)
     lexer.scan();
     return lexer.get_error_message();

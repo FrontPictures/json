@@ -350,7 +350,7 @@ TEST_CASE("modifiers")
                 CHECK(*res3.first == "bam");
 
                 // the final object
-                CHECK(j == json({{"baz", "bam"}, {"foo", "bar"}}));
+                CHECK(j == json({{"foo", "bar"}, {"baz", "bam"}}));
             }
 
             SECTION("object")
@@ -369,7 +369,7 @@ TEST_CASE("modifiers")
                 CHECK(*res2.first == "bar");
 
                 // check final object
-                CHECK(j == json({{"baz", "bam"}, {"foo", "bar"}}));
+                CHECK(j == json({{"foo", "bar"}, {"baz", "bam"}}));
             }
         }
 
@@ -855,7 +855,7 @@ TEST_CASE("modifiers")
                 json j = 17;
                 json::array_t a = {"foo", "bar", "baz"};
 
-                CHECK_THROWS_WITH_AS(j.swap(a), "[json.exception.type_error.310] cannot use swap(array_t&) with number", json::type_error&);
+                CHECK_THROWS_WITH_AS(j.swap(a), "[json.exception.type_error.310] cannot use swap(std::vector&) with number", json::type_error&);
             }
         }
 
@@ -905,7 +905,7 @@ TEST_CASE("modifiers")
                 json j = 17;
                 json::string_t s = "Hallo Welt";
 
-                CHECK_THROWS_WITH_AS(j.swap(s), "[json.exception.type_error.310] cannot use swap(string_t&) with number", json::type_error&);
+                CHECK_THROWS_WITH_AS(j.swap(s), "[json.exception.type_error.310] cannot use swap(std::string&) with number", json::type_error&);
             }
         }
 

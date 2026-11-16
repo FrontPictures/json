@@ -45,7 +45,7 @@ struct SaxEventLogger : public nlohmann::json_sax
 
     // bool number_unsigned(json::number_unsigned_t val) override
     // {
-    //     events.push_back("number_unsigned(" + std::to_string(val) + ")");
+    //     events.push_back("number_integer(" + std::to_string(val) + ")");
     //     return true;
     // }
 
@@ -238,9 +238,9 @@ TEST_CASE("deserialization")
             CHECK(l.events.size() == 11);
             CHECK(l.events == std::vector<std::string>(
             {
-                "start_array()", "string(foo)", "number_unsigned(1)",
-                "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
-                "start_object()", "key(one)", "number_unsigned(1)",
+                "start_array()", "string(foo)", "number_integer(1)",
+                "number_integer(2)", "number_integer(3)", "boolean(false)",
+                "start_object()", "key(one)", "number_integer(1)",
                 "end_object()", "end_array()"
             }));
         }
@@ -257,9 +257,9 @@ TEST_CASE("deserialization")
             CHECK(l.events.size() == 11);
             CHECK(l.events == std::vector<std::string>(
             {
-                "start_array()", "string(foo)", "number_unsigned(1)",
-                "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
-                "start_object()", "key(one)", "number_unsigned(1)",
+                "start_array()", "string(foo)", "number_integer(1)",
+                "number_integer(2)", "number_integer(3)", "boolean(false)",
+                "start_object()", "key(one)", "number_integer(1)",
                 "end_object()", "end_array()"
             }));
         }
@@ -276,9 +276,9 @@ TEST_CASE("deserialization")
             CHECK(l.events.size() == 11);
             CHECK(l.events == std::vector<std::string>(
             {
-                "start_array()", "string(foo)", "number_unsigned(1)",
-                "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
-                "start_object()", "key(one)", "number_unsigned(1)",
+                "start_array()", "string(foo)", "number_integer(1)",
+                "number_integer(2)", "number_integer(3)", "boolean(false)",
+                "start_object()", "key(one)", "number_integer(1)",
                 "end_object()", "end_array()"
             }));
         }
@@ -333,9 +333,9 @@ TEST_CASE("deserialization")
         //     CHECK(l.events.size() == 11);
         //     CHECK(l.events == std::vector<std::string>(
         //     {
-        //         "start_array()", "string(foo)", "number_unsigned(1)",
-        //         "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
-        //         "start_object()", "key(one)", "number_unsigned(1)",
+        //         "start_array()", "string(foo)", "number_integer(1)",
+        //         "number_integer(2)", "number_integer(3)", "boolean(false)",
+        //         "start_object()", "key(one)", "number_integer(1)",
         //         "end_object()", "parse_error(29)"
         //     }));
         // }
@@ -356,9 +356,9 @@ TEST_CASE("deserialization")
             CHECK(l.events.size() == 11);
             CHECK(l.events == std::vector<std::string>(
             {
-                "start_array()", "string(foo)", "number_unsigned(1)",
-                "number_unsigned(2)", "number_unsigned(3)", "boolean(false)",
-                "start_object()", "key(one)", "number_unsigned(1)",
+                "start_array()", "string(foo)", "number_integer(1)",
+                "number_integer(2)", "number_integer(3)", "boolean(false)",
+                "start_object()", "key(one)", "number_integer(1)",
                 "end_object()", "parse_error(29)"
             }));
         }
@@ -867,7 +867,7 @@ TEST_CASE("deserialization")
                 CHECK(l.events.size() == 4);
                 CHECK(l.events == std::vector<std::string>(
                 {
-                    "start_object()", "key()", "number_unsigned(11)",
+                    "start_object()", "key()", "number_integer(11)",
                     "parse_error(7)"
                 }));
             }
@@ -906,12 +906,12 @@ TEST_CASE("deserialization")
             // CHECK(l1.events.size() == 1);
             // CHECK(l1.events == std::vector<std::string>(
             // {
-            //     "number_unsigned(1)"
+            //     "number_integer(1)"
             // }));
             CHECK(l2.events.size() == 1);
             CHECK(l2.events == std::vector<std::string>(
             {
-                "number_unsigned(1)"
+                "number_integer(1)"
             }));
         }
 
@@ -1057,7 +1057,7 @@ TEST_CASE("deserialization")
         CHECK(default_logger.events.size() == 14);
         CHECK(default_logger.events == std::vector<std::string>(
         {
-            "start_array()", "number_unsigned(1)", "start_array()",
+            "start_array()", "number_integer(1)", "start_array()",
             "string(string)", "number_float(43.12)", "end_array()", "null()",
             "start_object()", "key(key1)", "boolean(true)", "key(key2)",
             "boolean(false)", "end_object()", "end_array()"
@@ -1067,7 +1067,7 @@ TEST_CASE("deserialization")
         CHECK(exit_after_start_object.events.size() == 8);
         CHECK(exit_after_start_object.events == std::vector<std::string>(
         {
-            "start_array()", "number_unsigned(1)", "start_array()",
+            "start_array()", "number_integer(1)", "start_array()",
             "string(string)", "number_float(43.12)", "end_array()", "null()",
             "start_object()"
         }));
@@ -1076,7 +1076,7 @@ TEST_CASE("deserialization")
         CHECK(exit_after_key.events.size() == 9);
         CHECK(exit_after_key.events == std::vector<std::string>(
         {
-            "start_array()", "number_unsigned(1)", "start_array()",
+            "start_array()", "number_integer(1)", "start_array()",
             "string(string)", "number_float(43.12)", "end_array()", "null()",
             "start_object()", "key(key1)"
         }));

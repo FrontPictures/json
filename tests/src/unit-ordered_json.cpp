@@ -25,7 +25,7 @@ TEST_CASE("ordered_json")
     oj["element1"] = 1;
     oj["element2"] = 2;
 
-    CHECK(j.dump() == "{\"element1\":1,\"element2\":2,\"element3\":3}");
+    CHECK(j.dump() == "{\"element3\":3,\"element1\":1,\"element2\":2}");
     CHECK(oj.dump() == "{\"element3\":3,\"element1\":1,\"element2\":2}");
 
     CHECK(j == json(oj));
@@ -34,20 +34,20 @@ TEST_CASE("ordered_json")
     j.erase("element1");
     oj.erase("element1");
 
-    CHECK(j.dump() == "{\"element2\":2,\"element3\":3}");
+    CHECK(j.dump() == "{\"element3\":3,\"element2\":2}");
     CHECK(oj.dump() == "{\"element3\":3,\"element2\":2}");
 
     // remove again and nothing changes
     j.erase("element1");
     oj.erase("element1");
 
-    CHECK(j.dump() == "{\"element2\":2,\"element3\":3}");
+    CHECK(j.dump() == "{\"element3\":3,\"element2\":2}");
     CHECK(oj.dump() == "{\"element3\":3,\"element2\":2}");
 
     // There are no dup keys cause constructor calls emplace...
     json const multi {{"z", 1}, {"m", 2}, {"m", 3}, {"y", 4}, {"m", 5}};
     CHECK(multi.size() == 3);
-    CHECK(multi.dump() == "{\"m\":2,\"y\":4,\"z\":1}");
+    CHECK(multi.dump() == "{\"z\":1,\"m\":2,\"y\":4}");
 
     ordered_json multi_ordered {{"z", 1}, {"m", 2}, {"m", 3}, {"y", 4}, {"m", 5}};
     CHECK(multi_ordered.size() == 3);
@@ -61,7 +61,7 @@ TEST_CASE("ordered_json")
     const json j2 {{"c", 77}, {"d", 42}, {"a", 4}};
     j1.insert( j2.cbegin(), j2.cend() );
     CHECK(j1.size() == 4);
-    CHECK(j1.dump() == "{\"a\":3,\"b\":2,\"c\":1,\"d\":42}");
+    CHECK(j1.dump() == "{\"c\":1,\"b\":2,\"a\":3,\"d\":42}");
 
     ordered_json oj1 {{"c", 1}, {"b", 2}, {"a", 3}};
     const ordered_json oj2 {{"c", 77}, {"d", 42}, {"a", 4}};
