@@ -414,6 +414,11 @@ public:
         throw(type_error::create(306, std::string("cannot use value() with ") + type_name()));
     }
 
+    std::string value(const json_pointer &ptr, const char *default_value) const
+    {
+        return value(ptr, std::string(default_value));
+    }
+
     reference front() { return *begin(); }
     const_reference front() const { return *cbegin(); }
     reference back();
