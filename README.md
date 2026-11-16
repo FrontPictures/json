@@ -1,6 +1,7 @@
 # Simplified JSON for C++
 
-This fork of nlohmann/json 3.11.3 provides a compiled library with one concrete
+Version 1.0.0 of this fork is based on nlohmann/json 3.11.3 and provides a
+compiled library with one concrete
 `nlohmann::ordered_json` class. `nlohmann::json` is an alias for that class.
 Objects retain insertion order. The public build requirement is C++20.
 
@@ -13,7 +14,7 @@ target_link_libraries(my_app PRIVATE nlohmann_json::nlohmann_json)
 
 Library headers and implementation files live in `src/nlohmann/`.
 The target propagates its include path, C++20 requirement, and static library.
-Installed packages can be used with `find_package(nlohmann_json CONFIG REQUIRED)`.
+Installed packages can be used with `find_package(nlohmann_json 1.0.0 CONFIG REQUIRED)`.
 Include `<nlohmann/json.hpp>`, or `<nlohmann/json_fwd.hpp>` for declarations only.
 There is no header-only distribution or macro-based library configuration.
 
@@ -28,6 +29,12 @@ The full suite includes expensive exhaustive Unicode tests. Set
 
 Tests download the upstream test data on their first run. Use
 `JSON_TestDataDirectory` to point to an existing copy.
+
+## Versioning
+
+This fork uses its own version numbers, beginning with `1.0.0`. Release tags use
+the `v` prefix, such as `v1.0.0`. These versions describe the fork's API and are
+independent of upstream releases. Development takes place on `main`.
 
 ## Differences from upstream
 

@@ -1,6 +1,7 @@
 # Simplified JSON for C++
 
-This manual describes the compiled FrontPictures fork of nlohmann/json 3.11.3.
+This manual describes version 1.0.0 of the compiled FrontPictures fork, based on
+nlohmann/json 3.11.3.
 Its concrete `nlohmann::ordered_json` class stores objects in insertion order.
 `nlohmann::json` names the same class. The library uses C++20 and CMake 3.21 or
 newer. Headers and implementation files live together in `src/nlohmann/`.

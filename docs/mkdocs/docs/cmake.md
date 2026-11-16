@@ -25,12 +25,12 @@ FetchContent can use the same checkout or a pinned revision of the fork.
 include(FetchContent)
 FetchContent_Declare(json
     GIT_REPOSITORY https://github.com/FrontPictures/json.git
-    GIT_TAG <commit-sha>)
+    GIT_TAG v1.0.0)
 FetchContent_MakeAvailable(json)
 target_link_libraries(my_app PRIVATE nlohmann_json::nlohmann_json)
 ```
 
-Replace `<commit-sha>` with the revision required by the application.
+Choose the release tag or commit required by the application.
 
 ## Install and import
 
@@ -47,7 +47,7 @@ package files. Source `.cpp` files are excluded from the installed headers.
 Installed consumers use the exported target.
 
 ```cmake
-find_package(nlohmann_json CONFIG REQUIRED)
+find_package(nlohmann_json 1.0.0 CONFIG REQUIRED)
 add_executable(my_app main.cpp)
 target_link_libraries(my_app PRIVATE nlohmann_json::nlohmann_json)
 ```

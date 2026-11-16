@@ -2,7 +2,7 @@ site_name: Simplified JSON for C++
 site_description: Documentation for the compiled FrontPictures JSON fork
 repo_name: FrontPictures/json
 repo_url: https://github.com/FrontPictures/json
-edit_uri: edit/fp/docs/mkdocs/docs/
+edit_uri: edit/main/docs/mkdocs/docs/
 theme:
   name: material
   palette:

@@ -6,9 +6,9 @@ authors:
     orcid: https://orcid.org/0000-0001-9037-795X
     email: mail@nlohmann.me
     website: https://nlohmann.me
-title: "JSON for Modern C++"
-version: 3.11.3
-date-released: 2023-11-28
+title: "Simplified JSON for C++"
+version: 1.0.0
+date-released: 2026-11-17
 license: MIT
-repository-code: "https://github.com/nlohmann"
-url: https://json.nlohmann.me
+repository-code: "https://github.com/FrontPictures/json"
+url: https://github.com/FrontPictures/json

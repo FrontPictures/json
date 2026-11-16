@@ -25,10 +25,10 @@ nlohmann::ordered_json nlohmann::ordered_json::meta()
     result["copyright"] = "(C) 2013-2023 Niels Lohmann";
     result["name"] = "JSON for Modern C++ (non header only)";
     result["url"] = "https://github.com/nlohmann/json";
-    result["version"]["string"] = "3.11.3";
-    result["version"]["major"] = 3;
-    result["version"]["minor"] = 11;
-    result["version"]["patch"] = 3;
+    result["version"]["string"] = "1.0.0";
+    result["version"]["major"] = 1;
+    result["version"]["minor"] = 0;
+    result["version"]["patch"] = 0;
 
 #ifdef _WIN32
     result["platform"] = "win32";
@@ -1843,7 +1843,7 @@ nlohmann::ordered_json::json_value::json_value(value_t t)
     default: {
         object = nullptr;
         if (t == value_t::null) {
-            throw(other_error::create(500, "961c151d2e87f2686a955a9be24d316f1362bf21 3.11.3"));
+            throw(other_error::create(500, "961c151d2e87f2686a955a9be24d316f1362bf21 1.0.0"));
         }
         break;
     }

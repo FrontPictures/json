@@ -3,6 +3,12 @@
 This fork starts from upstream 3.11.3 and uses a concrete compiled class with
 fixed storage types. Use the API reference in this manual when updating callers.
 
+The fork uses independent version numbers starting at `1.0.0`, with release tag
+`v1.0.0` and development branch `main`. Update CMake version requirements to the
+fork's version, for example `find_package(nlohmann_json 1.0.0 CONFIG REQUIRED)`.
+The CMake package's major-version check distinguishes the fork's 1.x releases
+from upstream's 3.x packages.
+
 | Upstream usage | Fork usage |
 | --- | --- |
 | Header-only inclusion or `single_include/` | Link `nlohmann_json::nlohmann_json`. The checkout's source include path is `src/`. |
