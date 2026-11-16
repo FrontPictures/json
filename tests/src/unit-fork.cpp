@@ -2,6 +2,7 @@
 #include <nlohmann/json.hpp>
 #include <nlohmann/detail/input/json_sax.hpp>
 #include <nlohmann/detail/input/lexer.hpp>
+#include <nlohmann/detail/output/serializer.hpp>
 #include <limits>
 
 using nlohmann::json;
@@ -168,4 +169,29 @@ TEST_CASE("UBJSON bounds aggregate expansion and preserves writer roundtrips")
     const auto small = json::array({true, true, true});
     CHECK(json::to_ubjson(small, true, true)
           == std::vector<uint8_t>({'[', '$', 'T', '#', 'i', 3}));
+}
+
+TEST_CASE("serializer helpers produce one-line objects")
+{
+    std::string output;
+    nlohmann::detail::serializer writer(nlohmann::detail::output_adapter(output), ' ');
+    const auto indent = writer.dumpObjectBegin(true, 2, 0, true);
+    writer.dumpKey("é", true, indent, true, true);
+    writer.dump_integer(1);
+    writer.dumpObjectComa(true, true);
+    writer.dumpKey("values", true, indent, false, true);
+    writer.dump(json::array({true, false}), true, false, 2);
+    writer.dumpObjectEnd(true, 0, true);
+    CHECK(output == "{\"\\u00e9\": 1, \"values\": [true, false]}");
+    CHECK(json::parse(output) == json::object({{"é", 1}, {"values", json::array({true, false})}}));
+}
+
+TEST_CASE("binary formats preserve object insertion order")
+{
+    const json value = {{"z", 1}, {"a", json::array({2, 3})}};
+    CHECK(json::from_cbor(json::to_cbor(value)) == value);
+    CHECK(json::from_msgpack(json::to_msgpack(value)) == value);
+    CHECK(json::from_ubjson(json::to_ubjson(value)) == value);
+    CHECK(json::from_bjdata(json::to_bjdata(value)) == value);
+    CHECK(json::from_bson(json::to_bson(value)) == value);
 }

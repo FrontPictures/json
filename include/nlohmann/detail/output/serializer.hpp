@@ -14,6 +14,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <type_traits>
 #include <optional>
 #include "error_handler_t.h"
